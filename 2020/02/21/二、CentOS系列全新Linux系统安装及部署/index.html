@@ -5,12 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>一、Linux版本起源及安装 - 互联网那些事儿</title>
+    <title>二、CentOS系列全新Linux系统安装及部署 - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）Linux发行版本&amp;emsp;&amp;emsp;slackware:  SUSE Linux Enterprise Server(SLES)&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;Open ,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）Linux系统主要文件夹介绍
+/usr = windows 和 program file 操作系统数据
+/home = Windows系统的/Users 文件夹用于存放用户数据
+/tmp 用于,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -57,7 +60,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">一、Linux版本起源及安装</h3>
+        <h3 class="subtitle">二、CentOS系列全新Linux系统安装及部署</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -90,16 +93,16 @@
                 <a href="/categories/Linux企业运维"><b>「
                     </b>LINUX企业运维<b> 」</b></a>
                 
-                February 20, 2020
+                February 21, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/02/20/%E4%B8%80%E3%80%81Linux%E7%89%88%E6%9C%AC%E8%B5%B7%E6%BA%90%E5%8F%8A%E5%AE%89%E8%A3%85/" title="一、Linux版本起源及安装" class="">一、Linux版本起源及安装</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/21/%E4%BA%8C%E3%80%81CentOS%E7%B3%BB%E5%88%97%E5%85%A8%E6%96%B0Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2/" title="二、CentOS系列全新Linux系统安装及部署" class="">二、CentOS系列全新Linux系统安装及部署</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.6k
+                    3.2k
                 </span>
                 
                 
@@ -118,7 +121,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" rel="tag">系统安装</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E8%BF%90%E7%BB%B4/" rel="tag">企业运维</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li></ul>
             
         </div>
     </div>
@@ -139,17 +142,18 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="（一）Linux发行版本"><a href="#（一）Linux发行版本" class="headerlink" title="（一）Linux发行版本"></a>（一）Linux发行版本</h2><p>&emsp;&emsp;slackware:  SUSE Linux Enterprise Server(SLES)<br><br>&emsp;&emsp;&emsp;&emsp;Open Suse桌面<br><br>&emsp;&emsp;&emsp;&emsp;debian：   ubuntu，mint<br><br>&emsp;&emsp;&emsp;&emsp;redhat：   RHEL：RedHat Enterprise Linux<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;每18个月发行一个新版本<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;CentOS：兼容RHEL的格式<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;中标麒麟：中标软件<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Fedora：每6个月发行一个新版本<br><br>&emsp;&emsp;&emsp;&emsp;ArchLinux：轻量简洁<br><br>&emsp;&emsp;&emsp;&emsp;Gentoo：极致性能，不提供传统意义的安装程序<br><br>&emsp;&emsp;&emsp;&emsp;LFS：Linux From scratch自制Linux<br><br>&emsp;&emsp;&emsp;&emsp;Android：kernel+busybox（工具集）+java虚拟机<br><br>&emsp;&emsp;&emsp;&emsp;Linux分支参考网站：<a href="http://futurist.se/gldt/" target="_blank" rel="noopener">http://futurist.se/gldt/</a><br></p>
-<h3 id="Linux发行版的名称和版本号是由发行版的维护者决定的"><a href="#Linux发行版的名称和版本号是由发行版的维护者决定的" class="headerlink" title="Linux发行版的名称和版本号是由发行版的维护者决定的"></a>Linux发行版的名称和版本号是由发行版的维护者决定的</h3><p>&emsp;&emsp;RedHat Enterprise Linux 7.3<br><br>&emsp;&emsp;&emsp;&emsp;由RedHat公司发布<br><br>&emsp;&emsp;SUSE Linux Enterprise Server 12 SP2<br><br>&emsp;&emsp;&emsp;&emsp;由Novell公司发布<br><br>&emsp;&emsp;Debian Linux 9<br><br>&emsp;&emsp;&emsp;&emsp;由Debian维护社区发布<br><br>&emsp;&emsp;Android8．0<br><br>&emsp;&emsp;&emsp;&emsp;由Goog|e公司发布<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://i1.fuimg.com/709978/b387ee3eb70a297a.png" alt="内核版本号"></p>
-<h3 id="Linux-内核"><a href="#Linux-内核" class="headerlink" title="Linux 内核"></a>Linux 内核</h3><p>&emsp;&emsp;Linux的内核版本由3部分组成                        </p>
-<ul>
-<li>主版本号</li>
-<li>次版本号</li>
-<li>末版本号</li>
-<li>编译版本号</li>
-<li>厂商版本<br>;<img src="https://i2.tiimg.com/709978/772103e7ff422d06.png" alt="Linux内核官网"><h3 id="（二）在Windows系统上利用VMware-workstation-安装Linux-虚拟机"><a href="#（二）在Windows系统上利用VMware-workstation-安装Linux-虚拟机" class="headerlink" title="（二）在Windows系统上利用VMware workstation 安装Linux 虚拟机"></a>（二）在Windows系统上利用VMware workstation 安装Linux 虚拟机</h3></li>
-</ul>
-<p><strong>&emsp;&emsp;第一步，打开新建虚拟机向导，在这里我们选择典型配置。</strong><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://i2.tiimg.com/709978/dc41b21266ae87c2.png" alt="第一步"><br><br><strong>&emsp;&emsp;第二步，在安装来源这里我们选择稍后安装操作系统，如果选择了安装程序光盘映像文件就会执行默认的安装，不能进行自定义设置。</strong><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://i2.tiimg.com/709978/de8ed58fdac91fdf.png" alt="第二步"><br><br><strong>&emsp;&emsp;第三步，在选择操作系统这里，我们根据我们的安装类型来选择相应的操作系统，我们这里安装的是CentOS 64位的操作系统，你也可以根据自己的实际情况来选择相应的操作系统。</strong><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://i2.tiimg.com/709978/f44d014729d39d41.png" alt="第三步"><br><br><strong>&emsp;&emsp;第四步，我们要选择虚拟机的最大磁盘大小，我们这里将默认的20GB改成200GB，这里的磁盘大小并不是电脑的磁盘大小，我们可以随意设置，但是磁盘大小不能太小，否则如果之后虚拟机上的数据太多，会很难操作。这里我们建议将虚拟磁盘大小存储为单个文件，如果分为多个文件会导致形成的磁盘文件太多不利于管理。</strong><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://i2.tiimg.com/709978/f95e0ec77f84cd93.png" alt="第四步"><br><br><strong>&emsp;&emsp;第五步，我们可以根据我们的需要来设置虚拟机的一些硬件信息。在CD/DVD（IDE）这里我们需要把地址指向我们安装镜像的位置。在网络这里可以根据自己的实际情况进行设置，如果虚拟机不需要连接除本机意外的计算机我们在网络这里就选择仅主机模式，如果虚拟机需要连接其他计算机设备我们可以设置成桥接模式，其他硬件选择均可以根据自己的实际情况来进行选择。</strong><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img src="https://i2.tiimg.com/709978/a8f70a0ce9326bcf.png" alt="第五步"><br><br><br><em>Linux所有的系统均可以在阿里巴巴官方镜像站下载：<a href="https://opsx.alibaba.com" target="_blank" rel="noopener">https://opsx.alibaba.com</a></em></p>
+            <h2 id="（一）Linux系统主要文件夹介绍"><a href="#（一）Linux系统主要文件夹介绍" class="headerlink" title="（一）Linux系统主要文件夹介绍"></a>（一）Linux系统主要文件夹介绍</h2><ol>
+<li>/usr = windows 和 program file 操作系统数据</li>
+<li>/home = Windows系统的/Users 文件夹用于存放用户数据</li>
+<li>/tmp 用于存放临时数据</li>
+<li>/var 用于存放变化数据</li>
+<li>/etc 相当于Windows注册表，用于存放Linux相关配置数据</li>
+<li>/boot 启动相关文件</li>
+<li>/dev 存放硬件设备的文件夹</li>
+<li>linux 虚拟内存技术 swap，是一个独立分区，早期大小建议为内存的1.5-2倍，现在服务器内存普遍较大，不需要配置虚拟内存。</li>
+<li>Linux硬盘 分区表示方法：从CentOS 6.X开始 /dev/sda,以sd开头，a,b,c…依次表示每一块硬盘。</li>
+<li>CentOS 4.X CentOS 5.X 下不同接口的硬盘的表示方法：1）IDE /dev/hd/； 2)SCSI /dev/sd/； 3)STAT /dev/sd/； 4)SAS /dev/sd ； 5）/dev/vda/表示虚拟机。<h2 id="（二）CentOS-操作系统的安装"><a href="#（二）CentOS-操作系统的安装" class="headerlink" title="（二）CentOS 操作系统的安装"></a>（二）CentOS 操作系统的安装</h2>&emsp;&emsp;第一步，选择安装类型，必须在60秒之内做出选择，安装菜单的选项依次是安装和升级、用基本显卡安装、救援模式、用本地磁盘启动、内存检测，在这里因为我们是第一安装所以选择第一项全新安装，按回车开始安装。<br><br><img src="https://i2.tiimg.com/709978/dfc801486bed23b6.png" alt="第一步"><br><br>&emsp;&emsp;第二步，是否进行光盘检测以保证安装包的完整性，这里我们建议大家进行安装包检测，以确保整个安装过程的顺利进行。<br><br><img src="https://i2.tiimg.com/709978/dba35538007bde51.png" alt="第二步"><br><br>&emsp;&emsp;第三步，来到安装系统的启动页面，我们直接点击next便可开始安装。<br><br><img src="https://i2.tiimg.com/709978/2a435a0e896d00db.png" alt="第三步"><br><br>&emsp;&emsp;第四步，选择操作系统的语音，这里不建议选择中文，因为作为开发人员而言最新的文档全是英文文档，选择中文不利于之后系统的维护，所以这里建议选择英文，点击next继续。<br><br><img src="https://i2.tiimg.com/709978/49cefc4597bc0ac6.png" alt="第四步"><br><br>&emsp;&emsp;第五步，选择键盘布局，我们这里选择 U.S.English 英语键盘，英语键盘和我们日常使用的键盘布局是一致的，选择其他键盘有可能会使我们的键盘输入出现错误。<br><br><img src="https://i2.tiimg.com/709978/b0e1bec9dada5b8c.png" alt="第五步"><br><br>&emsp;&emsp;第六步，安装设备类型，第一项是装在本机硬盘上也就是基本存储设备，第二项是远程存储，我们选择第一项。<br><br><img src="https://i2.tiimg.com/709978/0ce219016050c4d3.png" alt="第六步"><br><br>&emsp;&emsp;第七步，硬盘选择，安装程序需要讲硬盘进行初始化，我们建议选择一个空白的分区，如果有数据请做好数据备份，初始化意味着删除所有数据。我们这里选择第一项删除所有数据并进行硬盘的初始化。<br><br><img src="https://i2.tiimg.com/709978/1c0da6e583d68891.png" alt="第七步"><br><br>&emsp;&emsp;第八步，修改主机名，主机名由计算机名+域后缀组成，可自行进行修改。左下角的configure network，为计算机配置网络，我们这里可以不做配置，稍后在系统中也可以进行相关配置。但是在生产环境中的网络配置建议是静态IP，这样可以方便管理。<br><br><img src="https://i2.tiimg.com/709978/36b19155c1978a5c.png" alt="第八步"><br><br>&emsp;&emsp;第九步，选择我们所在区域，直接在地图上选取即可，下面的system clock uses UTC 的对勾一定要去掉，否则计算及的默认时间会根据格林尼治时间来确定。<br><br><img src="https://i2.tiimg.com/709978/e10e7565224d76c9.png" alt="第九步"><br><br>&emsp;&emsp;第十步，为root用户创建一个密码，root用户就相当于Windows系统的administrator。<br><br><img src="https://i1.fuimg.com/709978/60b5ce6c43bf4845.png" alt="第十步"><br><br>&emsp;&emsp;第十一步，分区设置，我们这里不按照安装程序的默认分区策略，这里我们选择最后一个自定义分区策略。<br><br><img src="https://i2.tiimg.com/709978/a6ab87ee3eac4d94.png" alt="第十一步"><br><br>&emsp;&emsp;第十二步，我们可以按照自己的需要对硬盘进行分区，点击create便可以对硬盘进行相应的分区。<br><br><img src="https://i2.tiimg.com/709978/6b37d734f97b3f63.png" alt="第十二步"><br><br>&emsp;&emsp;第十三步，启动菜单选择，我们选择默认即可，当然你也可以进行相关编辑，我们这里直接点解next进入下一步。<br><br><img src="https://i2.tiimg.com/709978/ff374414e631383f.png" alt="第十三步"><br><br>&emsp;&emsp;第十四步，选择你需要安装的软件，这里一般选择第三个最小化安装，如果使初学者建议安装第一个或者第二个图形界面。点击next系统便正式开始安装，我们只需要耐心等待即可。<br><br><img src="https://i2.tiimg.com/709978/ed02071c42cf9111.png" alt="第十四步"><br><br>&emsp;&emsp;对于CentOS 7的安装就比CentOS 6要简单的多，在安装类型界面，就是很直接的install centos 7，直接回车就好，其他的设置方法和6就是大同小异，按照6的安装方法即可。</li>
+</ol>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -208,7 +212,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）Linux发行版本"><span class="toc-number">1.</span> <span class="toc-text">（一）Linux发行版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux发行版的名称和版本号是由发行版的维护者决定的"><span class="toc-number">1.1.</span> <span class="toc-text">Linux发行版的名称和版本号是由发行版的维护者决定的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-内核"><span class="toc-number">1.2.</span> <span class="toc-text">Linux 内核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）在Windows系统上利用VMware-workstation-安装Linux-虚拟机"><span class="toc-number">1.3.</span> <span class="toc-text">（二）在Windows系统上利用VMware workstation 安装Linux 虚拟机</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）Linux系统主要文件夹介绍"><span class="toc-number">1.</span> <span class="toc-text">（一）Linux系统主要文件夹介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）CentOS-操作系统的安装"><span class="toc-number">2.</span> <span class="toc-text">（二）CentOS 操作系统的安装</span></a></li></ol>
                 </div>
             </div>
             
