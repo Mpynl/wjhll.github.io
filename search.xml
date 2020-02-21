@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>三、Linux系统使用和初始化配置</title>
+      <link href="/2020/02/21/%E4%B8%89%E3%80%81Linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/"/>
+      <url>/2020/02/21/%E4%B8%89%E3%80%81Linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="（一）初始化配置"><a href="#（一）初始化配置" class="headerlink" title="（一）初始化配置"></a>（一）初始化配置</h2><p>&emsp;&emsp;在第一启动系统会进行相关检测，等所有检测通过之后我们便可以启动系统，在其中的一些设置我们按照默认设置即可。<br><br>&emsp;&emsp;如果发现网卡未连接，请点击网络连接的图标，点击Edit Connections,在弹出的界面选择你使用的网卡名，把自动连接的对勾点上即Connect automatically即可。<br><br><img src="https://i2.tiimg.com/709978/e7385d975d353c5f.png" alt=""><br><br>&emsp;&emsp;得到IP地址之后我们就可以使用相关的工具对系统进行远程访问常用的Windows下常用的工具由Xhell ，SecureCRT，Putty等工具，使用方法是输入IP地址，端口号，用户名和密码就可以正常连接，SSH服务端口号一般是22，当然也可以自己设定。Mac或者Linux 可以直接使用自带的终端工具进行连接，相应的命令是：用户名@IP:端口号，默认22号端口可以不输，会车之后输入密码便可以连接到相应的服务器，例如 <br><br>&emsp;&emsp;<a href="mailto:root@192.168.1.22">root@192.168.1.22</a><br></p><h2 id="（二）Linux常用命令介绍"><a href="#（二）Linux常用命令介绍" class="headerlink" title="（二）Linux常用命令介绍"></a>（二）Linux常用命令介绍</h2><p>&emsp;&emsp;1. 查看系统内核版本命令：uname -r ,其中3.10.0 就是内核版本号。<br><br><img src="https://i1.fuimg.com/709978/bf0d6b3331739768.png" alt=""><br><br>&emsp;&emsp;2.查看网卡级网络信息命令：ifconfig，eth0就代表你现在使用的网卡信息，其中0代表是系统中的第一块网卡。<br><br><img src="https://i2.tiimg.com/709978/ad69ed2882de4804.png" alt=""><br><br>&emsp;&emsp;3.进入某一个文件夹命令：cd /文件夹/。<br><br>&emsp;&emsp;4.查看发行系统的版本命令: cat /etc/ctntos-relase。<br><br><img src="https://i2.tiimg.com/709978/b6e964ff17b8a426.png" alt=""><br><br>&emsp;&emsp;5.查看系统总内存的大小：cat /proc/meminfo。<br><br><img src="https://i1.fuimg.com/709978/68a90822eff57171.png" alt=""><br><br>&emsp;&emsp;6.查看系统分区情况：ls /dev/sda<em>、fdisk -l或者lsblk，lsblk命令只能在系统安装完成才可以使用。<br><br><img src="https://i1.fuimg.com/709978/5d97c21c4b991822.png" alt=""><br><br>&emsp;&emsp;ls /dev/sda</em>命令窗口<br><br><img src="https://i1.fuimg.com/709978/7bbcfcb41cd362ee.png" alt=""><br><br>&emsp;&emsp;fdisk -l 命令窗口<br><br><img src="https://i1.fuimg.com/709978/bda630d28f2fafae.png" alt=""><br><br>&emsp;&emsp;lsblk命令窗口<br><br>&emsp;&emsp;7.关机命令：poweroff、halt、shutdown等命令。<br><br>&emsp;&emsp;8.查看安装rpm包的情况：rpm -qa | wc -l。<br><br><img src="https://i1.fuimg.com/709978/0768bc37f0f043d6.png" alt=""><br><br>&emsp;&emsp;9.查看内存使用情况命令: free。<br><br>&emsp;&emsp;10.查看system call（系统调用）命令：strace，查看library（库调用）：ltrace。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux企业运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 企业运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二、CentOS系列全新Linux系统安装及部署</title>
       <link href="/2020/02/21/%E4%BA%8C%E3%80%81CentOS%E7%B3%BB%E5%88%97%E5%85%A8%E6%96%B0Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2/"/>
       <url>/2020/02/21/%E4%BA%8C%E3%80%81CentOS%E7%B3%BB%E5%88%97%E5%85%A8%E6%96%B0Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2/</url>
@@ -20,9 +49,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
