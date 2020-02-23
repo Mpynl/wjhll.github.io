@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>五、Linux别名管理、日期和时钟设置和简单命令</title>
+      <link href="/2020/02/23/%E4%BA%94%E3%80%81Linux%E5%88%AB%E5%90%8D%E7%AE%A1%E7%90%86%E3%80%81%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%92%9F%E8%AE%BE%E7%BD%AE%E5%92%8C%E7%AE%80%E5%8D%95%E5%91%BD%E4%BB%A4/"/>
+      <url>/2020/02/23/%E4%BA%94%E3%80%81Linux%E5%88%AB%E5%90%8D%E7%AE%A1%E7%90%86%E3%80%81%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%92%9F%E8%AE%BE%E7%BD%AE%E5%92%8C%E7%AE%80%E5%8D%95%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="（一）Linux别名管理"><a href="#（一）Linux别名管理" class="headerlink" title="（一）Linux别名管理"></a>（一）Linux别名管理</h2><h3 id="命令别名"><a href="#命令别名" class="headerlink" title="命令别名"></a>命令别名</h3><h4 id="显示当前shell进不斤有可用的命令别名"><a href="#显示当前shell进不斤有可用的命令别名" class="headerlink" title="显示当前shell进不斤有可用的命令别名"></a>显示当前shell进不斤有可用的命令别名</h4><p>&emsp;&emsp;<code>alias</code></p><h4 id="定义别名NAME，其相当于执行命令VALUE"><a href="#定义别名NAME，其相当于执行命令VALUE" class="headerlink" title="定义别名NAME，其相当于执行命令VALUE"></a>定义别名NAME，其相当于执行命令VALUE</h4><p>&emsp;&emsp;<code>alias NAME=&#39;VALUE&#39;</code></p><h4 id="在命令行中定义的别名，仅对当前shell进程有效"><a href="#在命令行中定义的别名，仅对当前shell进程有效" class="headerlink" title="在命令行中定义的别名，仅对当前shell进程有效"></a>在命令行中定义的别名，仅对当前shell进程有效</h4><p>&emsp;&emsp;如果想永久有效，要定义在配置文件中 <br><br>&emsp;&emsp;仅对当前用户：<code>～/.bashrc</code><br><br>&emsp;&emsp;对所有用户有效：<code>/etc/bashrc</code><br><br>&emsp;&emsp;编辑配置给出的新配置不会立即生效<br><br>&emsp;&emsp;bash进程重新读取配置文件&lt;br&lt;</p><p>&emsp;&emsp;<code>source /path/to/configfile</code><br><br>&emsp;&emsp;<code>·/path/to/configfile</code><br></p><h4 id="撤消别名：unalias"><a href="#撤消别名：unalias" class="headerlink" title="撤消别名：unalias"></a>撤消别名：unalias</h4><p>&emsp;&emsp;<code>unalias [-a] name[name…]</code><br><br>&emsp;&emsp;<code>-a取消所有别名</code><br></p><h4 id="如果别名同原命令同名，如果要执行原命令，可使用"><a href="#如果别名同原命令同名，如果要执行原命令，可使用" class="headerlink" title="如果别名同原命令同名，如果要执行原命令，可使用"></a>如果别名同原命令同名，如果要执行原命令，可使用</h4><p>&emsp;&emsp;<code>\ALIASNAME</code><br><br>&emsp;&emsp;<code>“A凵ASNAME”</code><br><br>&emsp;&emsp;<code>‘ALIASNAME’</code><br><br>&emsp;&emsp;<code>command ALIASNAME</code><br><br>&emsp;&emsp;<code>/path/commmand</code><br></p><h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><h4 id="COMMAND-OPTIONS…-ARGUMENTS…"><a href="#COMMAND-OPTIONS…-ARGUMENTS…" class="headerlink" title="COMMAND [OPTIONS…] [ARGUMENTS…]"></a>COMMAND [OPTIONS…] [ARGUMENTS…]</h4><p>&emsp;&emsp;选项：用于启用或关闭命令的某个或某些功能<br><br>&emsp;&emsp;&emsp;&emsp;短选项：-c 还例如：-l，-h<br><br>&emsp;&emsp;&emsp;&emsp;长选项：–word例如：–all,–human-readable<br><br>&emsp;&emsp;参数：命令的作用对象，比如文件名用户名等<br><br>&emsp;&emsp;注意：<br></p><ul><li><p>多个选项以及多参数和命令之间使用空白字符分隔</p></li><li><p>取消和结束命令执行：ctrl+c，ctrl+d</p></li><li><p>多个命令可以用; 符号分开</p></li><li><p>一个命令可以用\分成多行</p><h2 id="二-日期和时间"><a href="#二-日期和时间" class="headerlink" title="(二)日期和时间"></a>(二)日期和时间</h2><h3 id="Linux的两种时钟"><a href="#Linux的两种时钟" class="headerlink" title="Linux的两种时钟"></a>Linux的两种时钟</h3><p>&emsp;&emsp;系统时钟：由Linux内核通过CPU的工作频率进行的<br><br>&emsp;&emsp;硬件时钟：主板<br></p><h4 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h4><p>&emsp;&emsp;date显示和设置系统时间<br><br>&emsp;&emsp;&emsp;&emsp;<code>date+％s</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>date-d@1509536033</code><br><br>&emsp;&emsp;hwclock，clock:显示硬件时钟<br><br>&emsp;&emsp;&emsp;&emsp;<code>-s,--hctosys以硬件时钟为准，校正系统时钟</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-w,--systohc以系统时钟为准，校正硬件时钟</code><br><br>&emsp;&emsp;时区：/etc/localtime<br><br>&emsp;&emsp;显示日历：cal –y<br><br>&emsp;&emsp;查看当前系统时区：timedatectl status.<br><br><img src="https://i1.fuimg.com/709978/c563b769249955b6.png" alt=""><br><br>修改系统时区命令：<code>timedatectl set-timezone +时区名</code><br></p><h2 id="三-简单命令"><a href="#三-简单命令" class="headerlink" title="(三)简单命令"></a>(三)简单命令</h2><p>&emsp;&emsp;关机：halt, poweroff<br><br>&emsp;&emsp;重启reboot<br><br>&emsp;&emsp;&emsp;&emsp;-f:强制，不调用shutdown<br><br>&emsp;&emsp;&emsp;&emsp;-p:切断电源<br><br>&emsp;&emsp;关机或重启：shutdown<br><br>&emsp;&emsp;&emsp;&emsp;<code>shutdown [OPTION]...  TIME[MESSAGE]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-r reboot</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-h：halt</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-c：cancel</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>TIME：无指定，默认相当于+1</code><br><br>&emsp;&emsp;&emsp;&emsp;now：<code>立刻，相当于+0</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>+m：相对时间表示法，几分钟之后；例如+3</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>hh:mm：绝对时间表示，指明具体时间</code><br><br>&emsp;&emsp;screen命令<br><br>&emsp;&emsp;创建新screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>screen -S[SESSION]</code><br><br>&emsp;&emsp;加入screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>screen -X[SESSION]</code><br><br>&emsp;&emsp;退出并关闭screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>exit</code><br><br>&emsp;&emsp;剥离当前screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>Ctrl+a,d</code><br><br>&emsp;&emsp;显示所有已经打开的screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>screen -ls</code><br><br>&emsp;&emsp; 恢复某screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>screen -r[SESSION]</code><br><br>&emsp;&emsp;注意：可以在开始长时间命令之前使用screen命令再开始会话，这样可以避免断网等情况下命令终止的问题。<br><br>&emsp;&emsp;echo命令<br><br>&emsp;&emsp;功能：显示字符<br><br>&emsp;&emsp;语法：echo [-neE][字符串]|<br><br>&emsp;&emsp;说明：echo会将输入的字符串送往标准输出。输出的字符串间以空白字符隔开，并在最后加上行号<br><br>&emsp;&emsp;选项：<br></p></li><li><p>-E（默认）不支持\解释功能</p></li><li><p>-n不自动换行</p></li><li><p>-e启用\字符的解释功能<br><br>&emsp;&emsp;显示变量<br><br>&emsp;&emsp;&emsp;&emsp;<code>echo &quot;$VAR_NAME”      变量会替换/弱引用</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>echo ‘$VAR_NAME’       变量不会替换，强引用</code><br><br>启用命令项-e，若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字处理<br></p></li><li><p>\a发出警告声</p></li><li><p>\b退格键</p></li><li><p>\c最后不加上换行符号</p></li><li><p>\n换行且光标移至行首</p></li><li><p>\r回车，即光标移至行首，但不换行</p></li><li><p>\t插入tab</p></li><li><p>\插入\字符</p></li><li><p>\0nnn插入nnn（八进制）所代表的ASCII字符<br><br>&emsp;&emsp;echo-e’\033[43;31;5mmagedu\033[0m’<br></p></li><li><p>\xHH插入HH（十六进制）所代表的ASCII字</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux企业运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 企业运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>四、Linux使用和基础操作</title>
       <link href="/2020/02/22/%E5%9B%9B%E3%80%81Linux%E4%BD%BF%E7%94%A8%E5%92%8C%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"/>
       <url>/2020/02/22/%E5%9B%9B%E3%80%81Linux%E4%BD%BF%E7%94%A8%E5%92%8C%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</url>
