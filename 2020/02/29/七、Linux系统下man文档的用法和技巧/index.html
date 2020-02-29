@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>七、Linux系统下man文档的用法和技巧 - 互联网那些事儿</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Python 人工智能,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）man 命令&amp;emsp;&amp;emsp;提供命令帮助的文件&amp;emsp;&amp;emsp;手册页存放在/usr/share/man&amp;emsp;&amp;emsp;几乎每个命令都有man的 “页面”&amp;emsp;&amp;e,"> 
+    <meta name="author" content="王建惠"> 
+    <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">互联网那些事儿</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">七、Linux系统下man文档的用法和技巧</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/Linux企业运维"><b>「
+                    </b>LINUX企业运维<b> 」</b></a>
+                
+                February 29, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/29/%E4%B8%83%E3%80%81Linux%E7%B3%BB%E7%BB%9F%E4%B8%8Bman%E6%96%87%E6%A1%A3%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%8A%80%E5%B7%A7/" title="七、Linux系统下man文档的用法和技巧" class="">七、Linux系统下man文档的用法和技巧</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    9.7k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    9 mins.
+                </span>
+                
+                
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E8%BF%90%E7%BB%B4/" rel="tag">企业运维</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="（一）man-命令"><a href="#（一）man-命令" class="headerlink" title="（一）man 命令"></a>（一）man 命令</h2><p>&emsp;&emsp;提供命令帮助的文件<br><br>&emsp;&emsp;手册页存放在/usr/share/man<br><br>&emsp;&emsp;几乎每个命令都有man的 “页面”<br><br>&emsp;&emsp;man页面分组为不同的“章节”<br><br>&emsp;&emsp;统称为Linux手册<br><br>&emsp;&emsp;man命令的配置文件：/etc/man.config|man_db.conf<br><br>&emsp;&emsp;&emsp;&emsp;<code>MANPATH/PATH/TO/SOMEWHERE指明man文搜索位置</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>man -M/PATH/TO/SOMEWHERE  COMMAND：到指定位置一下搜索</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>COMMAND命令的手册页并显示</code><br><br>&emsp;&emsp;中文man需安装包man-pages-zh-CN<br><br>&emsp;&emsp;man命令的操作方法：使用less命令实现<br><br>&emsp;&emsp;&emsp;&emsp;<code>space，^v，^f，^F：向文件尾翻屏</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>b，^b：向文件首部翻屏</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>d，^d：向文件尾部翻半屏</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>u，^u：向文件首部翻半屏</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>RETURN，^N，e，^Eorjor  ^J：上向文件尾部翻一行   y or ^ Y or ^P or k</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>or  ^K：向文件首部翻一行</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>q：退出</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>#：跳转至第#行</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>1G：回到文件首部</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>G：翻至文件尾部</code><br></p>
+<h3 id="man-章节"><a href="#man-章节" class="headerlink" title="man 章节"></a>man 章节</h3><p>&emsp;&emsp;1：用户命令<br><br>&emsp;&emsp;2：系统调用<br><br>&emsp;&emsp;3：C库调用<br><br>&emsp;&emsp;4：设备文件及特殊文件<br><br>&emsp;&emsp;5：配置文件格式<br><br>&emsp;&emsp;6：游戏<br><br>&emsp;&emsp;7：杂项<br><br>&emsp;&emsp;8：管理类的命令<br><br>&emsp;&emsp;9：Linux内核API<br></p>
+<h3 id="man-帮助"><a href="#man-帮助" class="headerlink" title="man 帮助"></a>man 帮助</h3><p>&emsp;&emsp;查看man手册页<br><br>&emsp;&emsp;&emsp;&emsp;<code>man[章节]keyword</code><br><br>&emsp;&emsp;列出所有帮助<br><br>&emsp;&emsp;&emsp;&emsp;<code>man-a keyword</code><br><br>&emsp;&emsp;搜索man手册<br><br>&emsp;&emsp;&emsp;&emsp;<code>man -k keyword列出所有匹配的页面</code><br><br>&emsp;&emsp;使用whatis数据库<br><br>&emsp;&emsp;相当于whatis<br><br>&emsp;&emsp;&emsp;&emsp;<code>man-f keyword</code><br><br>&emsp;&emsp;打印man帮助文件的路径<br><br>&emsp;&emsp;&emsp;&emsp;<code>man -w[章节]keyword</code><br></p>
+<h3 id="man-搜索"><a href="#man-搜索" class="headerlink" title="man 搜索"></a>man 搜索</h3><h4 id="KEYWORD"><a href="#KEYWORD" class="headerlink" title="KEYWORD:"></a>KEYWORD:</h4><p>&emsp;&emsp;以KEYWORD指定的字符串为关键字，从当前位置向文件尾部搜索；不区分字符大小写<br><br>&emsp;&emsp;n：跟搜索命令同方向，下一个<br><br>&emsp;&emsp;&emsp;&emsp;N：跟搜索命令反方向，上一个<br><br>&emsp;&emsp;&emsp;&emsp;n：下一个<br><br>&emsp;&emsp;&emsp;&emsp;N：上一个<br><br>&emsp;&emsp;?KEYWORD.<br><br>&emsp;&emsp;&emsp;&emsp;以KEYWORD指定的字符串为关键字，从当前位置向文件首部搜索符大小写，不区分字<br></p>
+<h3 id="bash-的快捷键"><a href="#bash-的快捷键" class="headerlink" title="bash 的快捷键"></a>bash 的快捷键</h3><p>&emsp;&emsp;Ctrl+w&emsp;&emsp;         从光标处向左删除至单词首<br><br>&emsp;&emsp;Alt+d &emsp;&emsp;         从光标处向右删除至单词尾<br><br>&emsp;&emsp;Ctrl+d &emsp;&emsp;        删除光标处的一个字符<br><br>&emsp;&emsp;Ctrl+h  &emsp;&emsp;      删除光标前的一个字符<br><br>&emsp;&emsp;Ctrl+y &emsp;&emsp;        将删除的字符粘贴至光标后<br><br>&emsp;&emsp;Alt+c&emsp;&emsp;          从光标处开始向右更改为首字母大写的单词<br><br>&emsp;&emsp;Alt+u &emsp;&emsp;         从光标处开始，将右边一个单词更改为大写<br><br>&emsp;&emsp;Alt+l &emsp;&emsp;         从光标处开，将右边一个单词更改为小写<br><br>&emsp;&emsp;Ctrl+t&emsp;&emsp;         交换光标处和之前的字符位置<br><br>&emsp;&emsp;Alt+t &emsp;&emsp;         交换光标处和之前的单词位置<br><br>&emsp;&emsp;Alt+N&emsp;&emsp;         提示输入指定字符后，重复显示该字符N次<br><br>&emsp;&emsp;注意：Alt组合决捷键经常和其它软件冲突<br><br>&emsp;&emsp;Ctrl+l &emsp;&emsp;        清屏，相当于clear命令<br><br>&emsp;&emsp;Ctrl+o&emsp;&emsp;         执行当前命令，并重新显示本命令<br><br>&emsp;&emsp;Ctrl+s &emsp;&emsp;        阻止屏幕输出，锁定<br><br>&emsp;&emsp;Ctrl+q  &emsp;&emsp;       允许屏幕输出<br><br>&emsp;&emsp;Ctrl+c  &emsp;&emsp;       终止命令<br><br>&emsp;&emsp;Ctrl+z  &emsp;&emsp;       挂起命令<br><br>&emsp;&emsp;Ctrl+a  &emsp;&emsp;      光标移到命令行首，相当于Home<br><br>&emsp;&emsp;Ctrl+e   &emsp;&emsp;     光标移到命令行尾，相当于End<br><br>&emsp;&emsp;Ctrl+f  &emsp;&emsp;      光标向右移动一个字符<br><br>&emsp;&emsp;Ctrl+b  &emsp;&emsp;     光标向左移动一个字符<br><br>&emsp;&emsp;Alt+f  &emsp;&emsp;       光标向右移动一个单词尾<br><br>&emsp;&emsp;Alt+b  &emsp;&emsp;       光标向左移动“个单词首<br><br>&emsp;&emsp;Ctrl+xx  &emsp;&emsp;     光标在命令行首和光标之间移动<br><br>&emsp;&emsp;Ctrl+u   &emsp;&emsp;     从光标处删除至命令行首<br><br>&emsp;&emsp;Ctrl+k   &emsp;&emsp;    从光标处删除至命令行尾<br><br>&emsp;&emsp;Alt+r   &emsp;&emsp;      删除当前整行<br></p>
+<h3 id="gnome-terminal"><a href="#gnome-terminal" class="headerlink" title="gnome-terminal"></a>gnome-terminal</h3><p>&emsp;&emsp;应用程序-&gt;附件-&gt;终端<br><br>&emsp;&emsp;支持多个”标签”  shell的图形化终端模拟器<br><br>&emsp;&emsp;&emsp;&emsp;Ctrl-Shift-n创建新窗口<br><br>&emsp;&emsp;&emsp;&emsp;Ctrl-Shift-q关闭当前窗口<br><br>&emsp;&emsp;&emsp;&emsp;Ctrl-Shift-t创建一个标签页<br><br>&emsp;&emsp;&emsp;&emsp;Ctrl-Shift-w关闭一个标签页<br><br>&emsp;&emsp;&emsp;&emsp;Ctrl-PaUp/PgUn切换到下一个/前一个标签页<br><br>&emsp;&emsp;&emsp;&emsp;Ctrl-Shift-c复制选中的文本<br><br>&emsp;&emsp;&emsp;&emsp;Ctrl-Shift-v把文本粘帖到当前光标处<br></p>
+<h3 id="命令历史相关环境变量"><a href="#命令历史相关环境变量" class="headerlink" title="命令历史相关环境变量"></a>命令历史相关环境变量</h3><p>&emsp;&emsp;HISTSIZE：命令历史记录的条数<br><br>&emsp;&emsp;HISTFILE：指定历史文件，默认为~/.bash_history<br><br>&emsp;&emsp;HISTFILESIZE：命令历史文件记录历史的条数<br><br>&emsp;&emsp;HISTTIMEFORMAT=“%F%TI” 显示日寸间<br><br>&emsp;&emsp;HISTIGNORE=“strl:str2*:…”  忽略strl命令，str2开头的历史<br><br>&emsp;&emsp;控制命令历史的记录方式：<br></p>
+<h4 id="环境变量HISTCONTROL"><a href="#环境变量HISTCONTROL" class="headerlink" title="环境变量HISTCONTROL"></a>环境变量HISTCONTROL</h4><p>&emsp;&emsp;ignoredups默认，忽略重复的命令，连续且相同为重复<br><br>&emsp;&emsp;ignorespace忽略所有以空白开头的命令<br><br>&emsp;&emsp;ignoreboth相当于ignoredups，ignorespace的组合<br><br>&emsp;&emsp;erasedups删除重复命令<br><br>&emsp;&emsp;export变量名=“值”<br><br>&emsp;&emsp;存放在/etc/profile或～/.bash_profile<br></p>
+<h2 id="二-info"><a href="#二-info" class="headerlink" title="(二)info"></a>(二)info</h2><p>&emsp;&emsp;man常用于命令参考GNU工具info适合通用文档参考<br><br>&emsp;&emsp;没有参数列出所有的页面<br><br>&emsp;&emsp;info页面的结构就像一个网站<br><br>&emsp;&emsp;每一页分为点<br><br>&emsp;&emsp;链接节点之前<br><br>&emsp;&emsp;info[命令]<br></p>
+<h3 id="导航info页面"><a href="#导航info页面" class="headerlink" title="导航info页面"></a>导航info页面</h3><p>&emsp;&emsp;方向键，PgUp，PgDn导航<br><br>&emsp;&emsp;Tab键移动到下一个链接<br><br>&emsp;&emsp;d显示主题目录<br><br>&emsp;&emsp;Home显示主题首部<br><br>&emsp;&emsp;Enter进入选定链接<br><br>&emsp;&emsp;n/p/u/l进入下/前/上一层/最后一个链接<br><br>&emsp;&emsp;s文字文本搜索<br><br>&emsp;&emsp;q退出info<br></p>
+<h2 id="（三）通过本地文档获取帮助"><a href="#（三）通过本地文档获取帮助" class="headerlink" title="（三）通过本地文档获取帮助"></a>（三）通过本地文档获取帮助</h2><p>&emsp;&emsp;System-&gt;help（centos6）<br><br>&emsp;&emsp;Applications-&gt;documentation-&gt;help（centos7）<br><br>&emsp;&emsp;&emsp;&emsp;提供的官方使用指南和发行注记<br><br>&emsp;&emsp;/usr/share/doc目录<br><br>&emsp;&emsp;多数安装了的软件包的子目录，包括了这些软件的相关原理说明<br><br>&emsp;&emsp;常见文当：README INSTALL CHANGES<br><br>&emsp;&emsp;不适合其它地方的文档的位置<br><br>&emsp;&emsp;&emsp;&emsp;配置文件范例<br><br>&emsp;&emsp;&emsp;&emsp;HTML/PDF/PS格式的文档<br><br>&emsp;&emsp;&emsp;&emsp;授权书详情<br></p>
+<h2 id="（四）通过在线文档获取帮助"><a href="#（四）通过在线文档获取帮助" class="headerlink" title="（四）通过在线文档获取帮助"></a>（四）通过在线文档获取帮助</h2><p>&emsp;&emsp;第三方应用官方文档<br><br>&emsp;&emsp;<a href="http://www.nginx.org" target="_blank" rel="noopener">http://www.nginx.org</a><br><br>&emsp;&emsp;<a href="http://tomcat.apache.org" target="_blank" rel="noopener">http://tomcat.apache.org</a><br><br>&emsp;&emsp;<a href="http://www.python.org" target="_blank" rel="noopener">http://www.python.org</a><br><br>&emsp;&emsp;通过发行版官方的文档光盘或网站可以获得<br><br>&emsp;&emsp;安装指南、部署指南、虚拟化指南等<br><br>&emsp;&emsp;户红帽知识库和官方在线文档<br><br>&emsp;&emsp;&emsp;&emsp;<a href="http://kbase.redhat.com" target="_blank" rel="noopener">http://kbase.redhat.com</a><br><br>&emsp;&emsp;&emsp;&emsp;<a href="http://www.redhat.com/docs" target="_blank" rel="noopener">http://www.redhat.com/docs</a><br><br>&emsp;&emsp;&emsp;&emsp;<a href="http://access.redhat.com" target="_blank" rel="noopener">http://access.redhat.com</a><br></p>
+<h3 id="红帽全球技术支持服务"><a href="#红帽全球技术支持服务" class="headerlink" title="红帽全球技术支持服务"></a>红帽全球技术支持服务</h3><p>&emsp;&emsp;rhn.redhat.com或者本地卫星服务器/代理服务器<br><br>&emsp;&emsp;基于网络管理的服务器<br><br>&emsp;&emsp;RHN代理服务器为RHN流量提供缓存<br><br>&emsp;&emsp;RHN卫星服务器提供自主的RHN<br><br>&emsp;&emsp;RHN账户<br><br>&emsp;&emsp;为及其注册和基于网络管理的RHN用户<br><br>&emsp;&emsp;用于系统自动验证的系统旧<br><br>&emsp;&emsp;sosreport<br><br>&emsp;&emsp;收集所有系统上的日志信息的工具，并自动打成压缩包, 方便技术支持人员和红帽全球支持提供分析问题依据<br></p>
+<h3 id="网站和搜索"><a href="#网站和搜索" class="headerlink" title="网站和搜索"></a>网站和搜索</h3><p>&emsp;&emsp;<a href="http://tldp.org" target="_blank" rel="noopener">http://tldp.org</a><br><br>&emsp;&emsp;<a href="http://www.slideshare.net" target="_blank" rel="noopener">http://www.slideshare.net</a><br><br>&emsp;&emsp;<a href="http://www.google.com" target="_blank" rel="noopener">http://www.google.com</a><br><br>&emsp;&emsp;Openstack filetype:pdf<br><br>&emsp;&emsp;rhca site:redhat.com/docs<br></p>
+<h3 id="–help-和-h选项"><a href="#–help-和-h选项" class="headerlink" title="–help 和 -h选项"></a>–help 和 -h选项</h3><p>&emsp;&emsp;显示用法总结和参数列表<br><br>&emsp;&emsp;使用的大多数，但并非所有的<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;<code>date--help</code><br><br>&emsp;&emsp;<code>Usage：date[OPTION]...[+FORMAT]or:date[-u|--utc|--universal][MMDDhhmm[[CC]YY][.ss]]</code><br><br>&emsp;&emsp;<code>[ ]表示可选项</code><br><br>&emsp;&emsp;<code>CAPS或&lt; &gt;表示变化的数据</code><br><br>&emsp;&emsp;<code>…表示一个列表</code><br><br>&emsp;&emsp;<code>x|y|z的意思是“x或y或z”</code><br><br>&emsp;&emsp;<code>-abc的意思是-a-b-c</code><br><br>&emsp;&emsp;<code>{ }表示分组</code><br></p>
+<h3 id="whatis"><a href="#whatis" class="headerlink" title="whatis"></a>whatis</h3><p>&emsp;&emsp;显示命令的简短描述<br><br>&emsp;&emsp;使用数据库<br><br>&emsp;&emsp;刚安装后不可立即使用<br><br>&emsp;&emsp;makewhatis|mandb制作数据库<br><br>&emsp;&emsp;使用示例：<br><br>&emsp;&emsp;&emsp;&emsp;<code>whatis cal或man –f cal</code><br></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='75e9819dd06bdb99716c'
+        data-cs='7bd6efa1783c94cd35a86d94f225613935b026da'
+        data-r='wjhll.github.io'
+        data-o='wjhll'
+        data-a='wjhll'
+        data-d=''
+    >Comments</div>
+
+
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://res.cloudinary.com/tridiamond/image/upload/v1573019751/TriDiamond_logo_ui_xeublz.jpg" height=300 width=300></img>
+                    <p>王建惠</p>
+                    <span>Think like an artist, develop like an artisan</span>
+                    <dl>
+                        <dd><a href="https://github.com/wjhll" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">9 <p>Articles</p></a></li>
+                    <li><a href="/categories">2 <p>Categories</p></a></li>
+                    <li><a href="/tags">6 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）man-命令"><span class="toc-number">1.</span> <span class="toc-text">（一）man 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#man-章节"><span class="toc-number">1.1.</span> <span class="toc-text">man 章节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#man-帮助"><span class="toc-number">1.2.</span> <span class="toc-text">man 帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#man-搜索"><span class="toc-number">1.3.</span> <span class="toc-text">man 搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bash-的快捷键"><span class="toc-number">1.4.</span> <span class="toc-text">bash 的快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-terminal"><span class="toc-number">1.5.</span> <span class="toc-text">gnome-terminal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令历史相关环境变量"><span class="toc-number">1.6.</span> <span class="toc-text">命令历史相关环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-info"><span class="toc-number">2.</span> <span class="toc-text">(二)info</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导航info页面"><span class="toc-number">2.1.</span> <span class="toc-text">导航info页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）通过本地文档获取帮助"><span class="toc-number">3.</span> <span class="toc-text">（三）通过本地文档获取帮助</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）通过在线文档获取帮助"><span class="toc-number">4.</span> <span class="toc-text">（四）通过在线文档获取帮助</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#红帽全球技术支持服务"><span class="toc-number">4.1.</span> <span class="toc-text">红帽全球技术支持服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网站和搜索"><span class="toc-number">4.2.</span> <span class="toc-text">网站和搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#–help-和-h选项"><span class="toc-number">4.3.</span> <span class="toc-text">–help 和 -h选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whatis"><span class="toc-number">4.4.</span> <span class="toc-text">whatis</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2020
+        <span class="gradient-text">
+            王建惠
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.3" target="_blank" rel="noopener">v1.4.3</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+
+    
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+
+
+
+    
+<script src="/js/busuanzi.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            if ($('span[id^="busuanzi_"]').length) {
+                initialBusuanzi();
+            }
+        });
+    </script>
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149874671-1');
+    </script>
+
+
+
+
+
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["Think like an artist, develop like an artisan", "艺术家思维去思考问题，工匠创造精神去开发"],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+
+
+
+</html>
