@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>五、Linux别名管理、日期和时钟设置和简单命令 - 互联网那些事儿</title>
+    <title>八、Linux平台文件系统管理 - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）Linux别名管理命令别名显示当前shell进不斤有可用的命令别名&amp;emsp;&amp;emsp;alias
-定义别名NAME，其相当于执行命令VALUE&amp;emsp;&amp;emsp;alias NAME=,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）文件系统与目录结构&amp;emsp;&amp;emsp;文件和目录被组织成一个单根倒置树结构&amp;emsp;&amp;emsp;文件系统从根目录下开始，用“/”表示&amp;emsp;&amp;emsp;根文件系统（rootfs）：r,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -58,7 +57,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">五、Linux别名管理、日期和时钟设置和简单命令</h3>
+        <h3 class="subtitle">八、Linux平台文件系统管理</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -91,22 +90,22 @@
                 <a href="/categories/Linux企业运维"><b>「
                     </b>LINUX企业运维<b> 」</b></a>
                 
-                February 23, 2020
+                March 01, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/02/23/%E4%BA%94%E3%80%81Linux%E5%88%AB%E5%90%8D%E7%AE%A1%E7%90%86%E3%80%81%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%92%9F%E8%AE%BE%E7%BD%AE%E5%92%8C%E7%AE%80%E5%8D%95%E5%91%BD%E4%BB%A4/" title="五、Linux别名管理、日期和时钟设置和简单命令" class="">五、Linux别名管理、日期和时钟设置和简单命令</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/03/01/%E5%85%AB%E3%80%81Linux%E5%B9%B3%E5%8F%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" title="八、Linux平台文件系统管理" class="">八、Linux平台文件系统管理</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    5.4k
+                    4.9k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    5 mins.
+                    4 mins.
                 </span>
                 
                 
@@ -140,50 +139,12 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="（一）Linux别名管理"><a href="#（一）Linux别名管理" class="headerlink" title="（一）Linux别名管理"></a>（一）Linux别名管理</h2><h3 id="命令别名"><a href="#命令别名" class="headerlink" title="命令别名"></a>命令别名</h3><h4 id="显示当前shell进不斤有可用的命令别名"><a href="#显示当前shell进不斤有可用的命令别名" class="headerlink" title="显示当前shell进不斤有可用的命令别名"></a>显示当前shell进不斤有可用的命令别名</h4><p>&emsp;&emsp;<code>alias</code></p>
-<h4 id="定义别名NAME，其相当于执行命令VALUE"><a href="#定义别名NAME，其相当于执行命令VALUE" class="headerlink" title="定义别名NAME，其相当于执行命令VALUE"></a>定义别名NAME，其相当于执行命令VALUE</h4><p>&emsp;&emsp;<code>alias NAME=&#39;VALUE&#39;</code></p>
-<h4 id="在命令行中定义的别名，仅对当前shell进程有效"><a href="#在命令行中定义的别名，仅对当前shell进程有效" class="headerlink" title="在命令行中定义的别名，仅对当前shell进程有效"></a>在命令行中定义的别名，仅对当前shell进程有效</h4><p>&emsp;&emsp;如果想永久有效，要定义在配置文件中 <br><br>&emsp;&emsp;仅对当前用户：<code>～/.bashrc</code><br><br>&emsp;&emsp;对所有用户有效：<code>/etc/bashrc</code><br><br>&emsp;&emsp;编辑配置给出的新配置不会立即生效<br><br>&emsp;&emsp;bash进程重新读取配置文件&lt;br&lt;</p>
-<p>&emsp;&emsp;<code>source /path/to/configfile</code><br><br>&emsp;&emsp;<code>·/path/to/configfile</code><br></p>
-<h4 id="撤消别名：unalias"><a href="#撤消别名：unalias" class="headerlink" title="撤消别名：unalias"></a>撤消别名：unalias</h4><p>&emsp;&emsp;<code>unalias [-a] name[name…]</code><br><br>&emsp;&emsp;<code>-a取消所有别名</code><br></p>
-<h4 id="如果别名同原命令同名，如果要执行原命令，可使用"><a href="#如果别名同原命令同名，如果要执行原命令，可使用" class="headerlink" title="如果别名同原命令同名，如果要执行原命令，可使用"></a>如果别名同原命令同名，如果要执行原命令，可使用</h4><p>&emsp;&emsp;<code>\ALIASNAME</code><br><br>&emsp;&emsp;<code>“A凵ASNAME”</code><br><br>&emsp;&emsp;<code>‘ALIASNAME’</code><br><br>&emsp;&emsp;<code>command ALIASNAME</code><br><br>&emsp;&emsp;<code>/path/commmand</code><br></p>
-<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><h4 id="COMMAND-OPTIONS…-ARGUMENTS…"><a href="#COMMAND-OPTIONS…-ARGUMENTS…" class="headerlink" title="COMMAND [OPTIONS…] [ARGUMENTS…]"></a>COMMAND [OPTIONS…] [ARGUMENTS…]</h4><p>&emsp;&emsp;选项：用于启用或关闭命令的某个或某些功能<br><br>&emsp;&emsp;&emsp;&emsp;短选项：-c 还例如：-l，-h<br><br>&emsp;&emsp;&emsp;&emsp;长选项：–word例如：–all,–human-readable<br><br>&emsp;&emsp;参数：命令的作用对象，比如文件名用户名等<br><br>&emsp;&emsp;注意：<br></p>
-<ul>
-<li><p>多个选项以及多参数和命令之间使用空白字符分隔</p>
-</li>
-<li><p>取消和结束命令执行：ctrl+c，ctrl+d</p>
-</li>
-<li><p>多个命令可以用; 符号分开</p>
-</li>
-<li><p>一个命令可以用\分成多行</p>
-<h2 id="二-日期和时间"><a href="#二-日期和时间" class="headerlink" title="(二)日期和时间"></a>(二)日期和时间</h2><h3 id="Linux的两种时钟"><a href="#Linux的两种时钟" class="headerlink" title="Linux的两种时钟"></a>Linux的两种时钟</h3><p>&emsp;&emsp;系统时钟：由Linux内核通过CPU的工作频率进行的<br><br>&emsp;&emsp;硬件时钟：主板<br></p>
-<h4 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h4><p>&emsp;&emsp;date显示和设置系统时间<br><br>&emsp;&emsp;&emsp;&emsp;<code>date+％s</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>date-d@1509536033</code><br><br>&emsp;&emsp;hwclock，clock:显示硬件时钟<br><br>&emsp;&emsp;&emsp;&emsp;<code>-s,--hctosys以硬件时钟为准，校正系统时钟</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-w,--systohc以系统时钟为准，校正硬件时钟</code><br><br>&emsp;&emsp;时区：/etc/localtime<br><br>&emsp;&emsp;显示日历：cal –y<br><br>&emsp;&emsp;查看当前系统时区：timedatectl status.<br><br><img src="https://i1.fuimg.com/709978/c563b769249955b6.png" alt=""><br><br>修改系统时区命令：<code>timedatectl set-timezone +时区名</code><br></p>
-<h2 id="三-简单命令"><a href="#三-简单命令" class="headerlink" title="(三)简单命令"></a>(三)简单命令</h2><p>&emsp;&emsp;关机：halt, poweroff<br><br>&emsp;&emsp;重启reboot<br><br>&emsp;&emsp;&emsp;&emsp;-f:强制，不调用shutdown<br><br>&emsp;&emsp;&emsp;&emsp;-p:切断电源<br><br>&emsp;&emsp;关机或重启：shutdown<br><br>&emsp;&emsp;&emsp;&emsp;<code>shutdown [OPTION]...  TIME[MESSAGE]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-r reboot</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-h：halt</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-c：cancel</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>TIME：无指定，默认相当于+1</code><br><br>&emsp;&emsp;&emsp;&emsp;now：<code>立刻，相当于+0</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>+m：相对时间表示法，几分钟之后；例如+3</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>hh:mm：绝对时间表示，指明具体时间</code><br><br>&emsp;&emsp;screen命令<br><br>&emsp;&emsp;创建新screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>screen -S[SESSION]</code><br><br>&emsp;&emsp;加入screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>screen -X[SESSION]</code><br><br>&emsp;&emsp;退出并关闭screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>exit</code><br><br>&emsp;&emsp;剥离当前screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>Ctrl+a,d</code><br><br>&emsp;&emsp;显示所有已经打开的screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>screen -ls</code><br><br>&emsp;&emsp; 恢复某screen会话<br><br>&emsp;&emsp;&emsp;&emsp;<code>screen -r[SESSION]</code><br><br>&emsp;&emsp;注意：可以在开始长时间命令之前使用screen命令再开始会话，这样可以避免断网等情况下命令终止的问题。<br><br>&emsp;&emsp;echo命令<br><br>&emsp;&emsp;功能：显示字符<br><br>&emsp;&emsp;语法：echo [-neE][字符串]|<br><br>&emsp;&emsp;说明：echo会将输入的字符串送往标准输出。输出的字符串间以空白字符隔开，并在最后加上行号<br><br>&emsp;&emsp;选项：<br></p>
-</li>
-<li><p>-E（默认）不支持\解释功能</p>
-</li>
-<li><p>-n不自动换行</p>
-</li>
-<li><p>-e启用\字符的解释功能<br><br>&emsp;&emsp;显示变量<br><br>&emsp;&emsp;&emsp;&emsp;<code>echo &quot;$VAR_NAME”      变量会替换/弱引用</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>echo ‘$VAR_NAME’       变量不会替换，强引用</code><br><br>启用命令项-e，若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字处理<br></p>
-</li>
-<li><p>\a发出警告声</p>
-</li>
-<li><p>\b退格键</p>
-</li>
-<li><p>\c最后不加上换行符号</p>
-</li>
-<li><p>\n换行且光标移至行首</p>
-</li>
-<li><p>\r回车，即光标移至行首，但不换行</p>
-</li>
-<li><p>\t插入tab</p>
-</li>
-<li><p>\插入\字符</p>
-</li>
-<li><p>\0nnn插入nnn（八进制）所代表的ASCII字符<br><br>&emsp;&emsp;echo-e’\033[43;31;5mmagedu\033[0m’<br></p>
-</li>
-<li><p>\xHH插入HH（十六进制）所代表的ASCII字</p>
-</li>
-</ul>
+            <h2 id="（一）文件系统与目录结构"><a href="#（一）文件系统与目录结构" class="headerlink" title="（一）文件系统与目录结构"></a>（一）文件系统与目录结构</h2><p><img src="https://i2.tiimg.com/709978/1af7aae9d4811aa0.png" alt=""><br><br>&emsp;&emsp;文件和目录被组织成一个单根倒置树结构<br><br>&emsp;&emsp;文件系统从根目录下开始，用“/”表示<br><br>&emsp;&emsp;根文件系统（rootfs）：root filesystem<br><br>&emsp;&emsp;文件名称区分大小写<br><br>&emsp;&emsp;以．开头的文件为藏文件<br><br>&emsp;&emsp;路径分隔的/<br><br>&emsp;&emsp;文件有两类数据<br><br>&emsp;&emsp;&emsp;&emsp;文件数据：metadata<br><br>&emsp;&emsp;&emsp;&emsp;数据data<br><br>&emsp;&emsp;文件系统分层结构：LSB Linux Standard Base<br><br>&emsp;&emsp;FHS:(FiIesystemHierarchyStandard)<br><br>&emsp;&emsp;&emsp;&emsp;<a href="http://www.pathname.com/fhs/" target="_blank" rel="noopener">http://www.pathname.com/fhs/</a><br><br>&emsp;&emsp;在不关机的前提下进行磁盘扫描 echo ‘- – -‘ &gt; /sys/class/scsi_host/host2/scan<br></p>
+<h2 id="（二）文件名规则"><a href="#（二）文件名规则" class="headerlink" title="（二）文件名规则"></a>（二）文件名规则</h2><p>&emsp;&emsp;文件名最长255个字节<br><br>&emsp;&emsp;包括路径在内文件名称最长4095个字节<br><br>&emsp;&emsp;蓝色–&gt;目录   绿色–|&gt;可执行文件     红色–&gt;压缩文件浅    蓝色–&gt;链接文件  灰色–&gt;其他文件<br><br>&emsp;&emsp;除了斜杠和NUL，所有字符都有效，但使用特殊字符的目录名和文件不推荐使用，有些字符需要用引号来引用它们。<br><br>&emsp;&emsp;标准Linux文件系统（如ext4），文件名称大小写敏感。例如<br><br>&emsp;&emsp;&emsp;&emsp;MAIL, Mail, mail, mAiL<br></p>
+<h2 id="（三）文件系统结构"><a href="#（三）文件系统结构" class="headerlink" title="（三）文件系统结构"></a>（三）文件系统结构</h2><p>&emsp;&emsp;/boot：引导文件存放目录，内核文件(vmlinuz)、引导加载器（bootloader,grub）都存放于此目录<br><br>&emsp;&emsp;/bin：供所有用户使用的基本命令；不能关联至独立分区，OS启动即会用到的程序<br><br>&emsp;&emsp;/sbin管理类的基本命令；不能关联至独立分区，OS启动即会用到的程序<br>&emsp;&emsp;/lib：启动时程序依赖的基本共享库文件以及内核模块文件(lib/modules)<br><br>&emsp;&emsp;/lib64：专用于×86_64系统上的辅助共享库文件存放位置<br><br>&emsp;&emsp;/etc：配置文件目录<br><br>&emsp;&emsp;/home/USERNAME：普通用户家目录<br><br>&emsp;&emsp;/root：管理员的家目录<br><br>&emsp;&emsp;/media便携式移动设备挂载点<br><br>&emsp;&emsp;/mnt：临时文件系统挂载点<br><br>&emsp;&emsp;/dev：设备文件及特殊文件存储位置<br><br>&emsp;&emsp;&emsp;&emsp;b：block device，随机访问<br><br>&emsp;&emsp;&emsp;&emsp;c：character device，线性访问<br><br>&emsp;&emsp;/opt：第三方应用程序的安装位置<br><br>&emsp;&emsp;/srv：系统上运行的服务用到的数据<br><br>&emsp;&emsp;/tmp：临时文件存储位置<br><br>&emsp;&emsp;/usr：universal shared, read-only data<br><br>&emsp;&emsp;&emsp;&emsp;bin:保证系统拥有完整功能而提供的应用程序<br><br>&emsp;&emsp;&emsp;&emsp;sbin:<br><br>&emsp;&emsp;&emsp;&emsp;lib：32位使用<br><br>&emsp;&emsp;&emsp;&emsp;lib64：只存在64位系统<br><br>&emsp;&emsp;&emsp;&emsp;include：C程序的头文件(header files)<br><br>&emsp;&emsp;&emsp;&emsp;share：结构伴独立的数据，例如doc, man等<br><br>&emsp;&emsp;local：第三方应用程序的安装位置<br><br>&emsp;&emsp;&emsp;&emsp;bin, sbin, lib, lib64, etc, share<br><br>&emsp;&emsp;/var：variable data files<br><br>&emsp;&emsp;&emsp;&emsp;cache：应用程序缓存数据目录<br><br>&emsp;&emsp;&emsp;&emsp;lib：应用程序状态信息数据<br><br>&emsp;&emsp;&emsp;&emsp;local：专用于为/usr/local下的应用程序存储可变数据<br><br>&emsp;&emsp;&emsp;&emsp;lock：锁文件<br><br>&emsp;&emsp;&emsp;&emsp;log：日志目录及文件<br><br>&emsp;&emsp;&emsp;&emsp;opt：专用于为/opt下的应用程序存储可变数据<br><br>&emsp;&emsp;&emsp;&emsp;run：运行中的进程相关数据，通常用于存储进程pid文件<br><br>&emsp;&emsp;&emsp;&emsp;spool:上应用程序数据池<br><br>&emsp;&emsp;&emsp;&emsp;tmp：保存系统两次重启之间产生的临时数据<br><br>&emsp;&emsp;/proc：用于输出内核与进程信息相关的虚拟文件系统<br><br>&emsp;&emsp;/sys：用于输出当前系统上硬件设备相关信息虚拟文件系统<br><br>&emsp;&emsp;/selinux：security enhanced Linux，selinux相关的安全策略等信息的存储位置<br><br>&emsp;&emsp;二进制程序：/bin ,/sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin<br><br>&emsp;&emsp;库文件：/lib, /lib64，/usr/lib, /usr/lib64, /usr/local/lib, /usr/local/lib64<br><br>&emsp;&emsp;配置文件：/etc, /etc/DIRECTORY, /usr/local/etc<br><br>&emsp;&emsp;帮助文件：/usr/share/man, /usr/share/doc, /usr/local/share/man, /usr/local/share)doc<br><br>&emsp;&emsp;-：普通文件<br><br>&emsp;&emsp;d：目录文件<br><br>&emsp;&emsp;b：块设备<br><br>&emsp;&emsp;c：字符设备<br><br>&emsp;&emsp;l：符号链接文件<br><br>&emsp;&emsp;p：管道文件pipe<br><br>&emsp;&emsp;s：套接字文件socket<br></p>
+<h2 id="（四）CentOS-7-目录变化"><a href="#（四）CentOS-7-目录变化" class="headerlink" title="（四）CentOS 7 目录变化"></a>（四）CentOS 7 目录变化</h2><p>&emsp;&emsp;/bin和/usr/bin<br><br>&emsp;&emsp;/sbin和/usr/sbin<br><br>&emsp;&emsp;/lib和/usr/lib<br><br>&emsp;&emsp;/lib64和/usr/lib64<br></p>
+<h2 id="（五）显示当前工作目录"><a href="#（五）显示当前工作目录" class="headerlink" title="（五）显示当前工作目录"></a>（五）显示当前工作目录</h2><p>&emsp;&emsp;每个shell和系统进程都有一个当前的工作目录<br><br>&emsp;&emsp;CWD：current work directory<br><br>&emsp;&emsp;显示当前shell CWD的绝对路径<br><br>&emsp;&emsp;&emsp;&emsp;pwd：printing working directory<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-P显示真实物理路径<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-L显示链接路径（默认）<br></p>
+<h2 id="（六）绝对路径和相对路径"><a href="#（六）绝对路径和相对路径" class="headerlink" title="（六）绝对路径和相对路径"></a>（六）绝对路径和相对路径</h2><p>&emsp;&emsp;绝对路径<br><br>&emsp;&emsp;&emsp;&emsp;以正斜杠开始<br><br>&emsp;&emsp;&emsp;&emsp;完整的文件的位置路径<br><br>&emsp;&emsp;&emsp;&emsp;可用于任何想指定一个文件名的时候<br><br>&emsp;&emsp;相对路径名<br><br>&emsp;&emsp;&emsp;&emsp;不以斜线开始<br><br>&emsp;&emsp;&emsp;&emsp;指定相对于当前工作目录或某目录的位置<br><br>&emsp;&emsp;&emsp;&emsp;可以作为一个简短的形式指定一个文件名<br><br>&emsp;&emsp;基名：bdsename<br><br>&emsp;&emsp;目录名：dirname<br></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -242,7 +203,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）Linux别名管理"><span class="toc-number">1.</span> <span class="toc-text">（一）Linux别名管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令别名"><span class="toc-number">1.1.</span> <span class="toc-text">命令别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令格式"><span class="toc-number">1.2.</span> <span class="toc-text">命令格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-日期和时间"><span class="toc-number">2.</span> <span class="toc-text">(二)日期和时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux的两种时钟"><span class="toc-number">2.1.</span> <span class="toc-text">Linux的两种时钟</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-简单命令"><span class="toc-number">3.</span> <span class="toc-text">(三)简单命令</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）文件系统与目录结构"><span class="toc-number">1.</span> <span class="toc-text">（一）文件系统与目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）文件名规则"><span class="toc-number">2.</span> <span class="toc-text">（二）文件名规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）文件系统结构"><span class="toc-number">3.</span> <span class="toc-text">（三）文件系统结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）CentOS-7-目录变化"><span class="toc-number">4.</span> <span class="toc-text">（四）CentOS 7 目录变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（五）显示当前工作目录"><span class="toc-number">5.</span> <span class="toc-text">（五）显示当前工作目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（六）绝对路径和相对路径"><span class="toc-number">6.</span> <span class="toc-text">（六）绝对路径和相对路径</span></a></li></ol>
                 </div>
             </div>
             

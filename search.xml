@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>八、Linux平台文件系统管理</title>
+      <link href="/2020/03/01/%E5%85%AB%E3%80%81Linux%E5%B9%B3%E5%8F%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/"/>
+      <url>/2020/03/01/%E5%85%AB%E3%80%81Linux%E5%B9%B3%E5%8F%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="（一）文件系统与目录结构"><a href="#（一）文件系统与目录结构" class="headerlink" title="（一）文件系统与目录结构"></a>（一）文件系统与目录结构</h2><p><img src="https://i2.tiimg.com/709978/1af7aae9d4811aa0.png" alt=""><br><br>&emsp;&emsp;文件和目录被组织成一个单根倒置树结构<br><br>&emsp;&emsp;文件系统从根目录下开始，用“/”表示<br><br>&emsp;&emsp;根文件系统（rootfs）：root filesystem<br><br>&emsp;&emsp;文件名称区分大小写<br><br>&emsp;&emsp;以．开头的文件为藏文件<br><br>&emsp;&emsp;路径分隔的/<br><br>&emsp;&emsp;文件有两类数据<br><br>&emsp;&emsp;&emsp;&emsp;文件数据：metadata<br><br>&emsp;&emsp;&emsp;&emsp;数据data<br><br>&emsp;&emsp;文件系统分层结构：LSB Linux Standard Base<br><br>&emsp;&emsp;FHS:(FiIesystemHierarchyStandard)<br><br>&emsp;&emsp;&emsp;&emsp;<a href="http://www.pathname.com/fhs/" target="_blank" rel="noopener">http://www.pathname.com/fhs/</a><br><br>&emsp;&emsp;在不关机的前提下进行磁盘扫描 echo ‘- – -‘ &gt; /sys/class/scsi_host/host2/scan<br></p><h2 id="（二）文件名规则"><a href="#（二）文件名规则" class="headerlink" title="（二）文件名规则"></a>（二）文件名规则</h2><p>&emsp;&emsp;文件名最长255个字节<br><br>&emsp;&emsp;包括路径在内文件名称最长4095个字节<br><br>&emsp;&emsp;蓝色–&gt;目录   绿色–|&gt;可执行文件     红色–&gt;压缩文件浅    蓝色–&gt;链接文件  灰色–&gt;其他文件<br><br>&emsp;&emsp;除了斜杠和NUL，所有字符都有效，但使用特殊字符的目录名和文件不推荐使用，有些字符需要用引号来引用它们。<br><br>&emsp;&emsp;标准Linux文件系统（如ext4），文件名称大小写敏感。例如<br><br>&emsp;&emsp;&emsp;&emsp;MAIL, Mail, mail, mAiL<br></p><h2 id="（三）文件系统结构"><a href="#（三）文件系统结构" class="headerlink" title="（三）文件系统结构"></a>（三）文件系统结构</h2><p>&emsp;&emsp;/boot：引导文件存放目录，内核文件(vmlinuz)、引导加载器（bootloader,grub）都存放于此目录<br><br>&emsp;&emsp;/bin：供所有用户使用的基本命令；不能关联至独立分区，OS启动即会用到的程序<br><br>&emsp;&emsp;/sbin管理类的基本命令；不能关联至独立分区，OS启动即会用到的程序<br>&emsp;&emsp;/lib：启动时程序依赖的基本共享库文件以及内核模块文件(lib/modules)<br><br>&emsp;&emsp;/lib64：专用于×86_64系统上的辅助共享库文件存放位置<br><br>&emsp;&emsp;/etc：配置文件目录<br><br>&emsp;&emsp;/home/USERNAME：普通用户家目录<br><br>&emsp;&emsp;/root：管理员的家目录<br><br>&emsp;&emsp;/media便携式移动设备挂载点<br><br>&emsp;&emsp;/mnt：临时文件系统挂载点<br><br>&emsp;&emsp;/dev：设备文件及特殊文件存储位置<br><br>&emsp;&emsp;&emsp;&emsp;b：block device，随机访问<br><br>&emsp;&emsp;&emsp;&emsp;c：character device，线性访问<br><br>&emsp;&emsp;/opt：第三方应用程序的安装位置<br><br>&emsp;&emsp;/srv：系统上运行的服务用到的数据<br><br>&emsp;&emsp;/tmp：临时文件存储位置<br><br>&emsp;&emsp;/usr：universal shared, read-only data<br><br>&emsp;&emsp;&emsp;&emsp;bin:保证系统拥有完整功能而提供的应用程序<br><br>&emsp;&emsp;&emsp;&emsp;sbin:<br><br>&emsp;&emsp;&emsp;&emsp;lib：32位使用<br><br>&emsp;&emsp;&emsp;&emsp;lib64：只存在64位系统<br><br>&emsp;&emsp;&emsp;&emsp;include：C程序的头文件(header files)<br><br>&emsp;&emsp;&emsp;&emsp;share：结构伴独立的数据，例如doc, man等<br><br>&emsp;&emsp;local：第三方应用程序的安装位置<br><br>&emsp;&emsp;&emsp;&emsp;bin, sbin, lib, lib64, etc, share<br><br>&emsp;&emsp;/var：variable data files<br><br>&emsp;&emsp;&emsp;&emsp;cache：应用程序缓存数据目录<br><br>&emsp;&emsp;&emsp;&emsp;lib：应用程序状态信息数据<br><br>&emsp;&emsp;&emsp;&emsp;local：专用于为/usr/local下的应用程序存储可变数据<br><br>&emsp;&emsp;&emsp;&emsp;lock：锁文件<br><br>&emsp;&emsp;&emsp;&emsp;log：日志目录及文件<br><br>&emsp;&emsp;&emsp;&emsp;opt：专用于为/opt下的应用程序存储可变数据<br><br>&emsp;&emsp;&emsp;&emsp;run：运行中的进程相关数据，通常用于存储进程pid文件<br><br>&emsp;&emsp;&emsp;&emsp;spool:上应用程序数据池<br><br>&emsp;&emsp;&emsp;&emsp;tmp：保存系统两次重启之间产生的临时数据<br><br>&emsp;&emsp;/proc：用于输出内核与进程信息相关的虚拟文件系统<br><br>&emsp;&emsp;/sys：用于输出当前系统上硬件设备相关信息虚拟文件系统<br><br>&emsp;&emsp;/selinux：security enhanced Linux，selinux相关的安全策略等信息的存储位置<br><br>&emsp;&emsp;二进制程序：/bin ,/sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin<br><br>&emsp;&emsp;库文件：/lib, /lib64，/usr/lib, /usr/lib64, /usr/local/lib, /usr/local/lib64<br><br>&emsp;&emsp;配置文件：/etc, /etc/DIRECTORY, /usr/local/etc<br><br>&emsp;&emsp;帮助文件：/usr/share/man, /usr/share/doc, /usr/local/share/man, /usr/local/share)doc<br><br>&emsp;&emsp;-：普通文件<br><br>&emsp;&emsp;d：目录文件<br><br>&emsp;&emsp;b：块设备<br><br>&emsp;&emsp;c：字符设备<br><br>&emsp;&emsp;l：符号链接文件<br><br>&emsp;&emsp;p：管道文件pipe<br><br>&emsp;&emsp;s：套接字文件socket<br></p><h2 id="（四）CentOS-7-目录变化"><a href="#（四）CentOS-7-目录变化" class="headerlink" title="（四）CentOS 7 目录变化"></a>（四）CentOS 7 目录变化</h2><p>&emsp;&emsp;/bin和/usr/bin<br><br>&emsp;&emsp;/sbin和/usr/sbin<br><br>&emsp;&emsp;/lib和/usr/lib<br><br>&emsp;&emsp;/lib64和/usr/lib64<br></p><h2 id="（五）显示当前工作目录"><a href="#（五）显示当前工作目录" class="headerlink" title="（五）显示当前工作目录"></a>（五）显示当前工作目录</h2><p>&emsp;&emsp;每个shell和系统进程都有一个当前的工作目录<br><br>&emsp;&emsp;CWD：current work directory<br><br>&emsp;&emsp;显示当前shell CWD的绝对路径<br><br>&emsp;&emsp;&emsp;&emsp;pwd：printing working directory<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-P显示真实物理路径<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-L显示链接路径（默认）<br></p><h2 id="（六）绝对路径和相对路径"><a href="#（六）绝对路径和相对路径" class="headerlink" title="（六）绝对路径和相对路径"></a>（六）绝对路径和相对路径</h2><p>&emsp;&emsp;绝对路径<br><br>&emsp;&emsp;&emsp;&emsp;以正斜杠开始<br><br>&emsp;&emsp;&emsp;&emsp;完整的文件的位置路径<br><br>&emsp;&emsp;&emsp;&emsp;可用于任何想指定一个文件名的时候<br><br>&emsp;&emsp;相对路径名<br><br>&emsp;&emsp;&emsp;&emsp;不以斜线开始<br><br>&emsp;&emsp;&emsp;&emsp;指定相对于当前工作目录或某目录的位置<br><br>&emsp;&emsp;&emsp;&emsp;可以作为一个简短的形式指定一个文件名<br><br>&emsp;&emsp;基名：bdsename<br><br>&emsp;&emsp;目录名：dirname<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux企业运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 企业运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>七、Linux系统下man文档的用法和技巧</title>
       <link href="/2020/02/29/%E4%B8%83%E3%80%81Linux%E7%B3%BB%E7%BB%9F%E4%B8%8Bman%E6%96%87%E6%A1%A3%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%8A%80%E5%B7%A7/"/>
       <url>/2020/02/29/%E4%B8%83%E3%80%81Linux%E7%B3%BB%E7%BB%9F%E4%B8%8Bman%E6%96%87%E6%A1%A3%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%8A%80%E5%B7%A7/</url>
