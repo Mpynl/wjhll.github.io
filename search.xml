@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>十、Linux 文件通配符进阶及cp命令详解</title>
+      <link href="/2020/03/08/%E5%8D%81%E3%80%81Linux-%E6%96%87%E4%BB%B6%E9%80%9A%E9%85%8D%E7%AC%A6%E8%BF%9B%E9%98%B6%E5%8F%8Acp%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2020/03/08/%E5%8D%81%E3%80%81Linux-%E6%96%87%E4%BB%B6%E9%80%9A%E9%85%8D%E7%AC%A6%E8%BF%9B%E9%98%B6%E5%8F%8Acp%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="（一）创建空文件和刷新时间"><a href="#（一）创建空文件和刷新时间" class="headerlink" title="（一）创建空文件和刷新时间"></a>（一）创建空文件和刷新时间</h2><h3 id="touch命令"><a href="#touch命令" class="headerlink" title="touch命令"></a>touch命令</h3><p>&emsp;&emsp;touch[OPTION]…FILE…<br><br>&emsp;&emsp;-a仅改变atime和ctime<br><br>&emsp;&emsp;-m仅改变mtime和ctime<br><br>&emsp;&emsp;-t [[CC]YY]MMDDhhmm[.ss]<br><br>&emsp;&emsp;&emsp;&emsp;指定atime和mtime的时间戳<br><br>&emsp;&emsp;-c 还如果文件不存在，则不予创建<br></p><h3 id="（二）复制文件和目录CP"><a href="#（二）复制文件和目录CP" class="headerlink" title="（二）复制文件和目录CP"></a>（二）复制文件和目录CP</h3><p>&emsp;&emsp;cp [OPTION]…[-T]SOURCE DEST<br><br>&emsp;&emsp;cp [OPTION]…SOURCE…DIRECTORY<br><br>&emsp;&emsp;cp [OPTIONJ…-t DIRECTORY SOURCE…<br><br>&emsp;&emsp;cp SRC DEST<br><br>&emsp;&emsp;SRC是文件：<br><br>&emsp;&emsp;&emsp;&emsp;如果目标不存在：新建DEST，并将SRC中内容填充至DEST中<br><br>&emsp;&emsp;&emsp;&emsp;如果目标存在：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如果DEST是文件：将SRC中的内容覆盖至DEST中，基于安全，建议为cp命令使用 -i选项<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如果DEST是目录：在DEST下新建与原文件同名的文件，并将SRC中内容填充至新文件中<br></p><h4 id="复制cp"><a href="#复制cp" class="headerlink" title="复制cp"></a>复制cp</h4><p><img src="https://i2.tiimg.com/709978/fc9780e1d69ce404.png" alt=""></p><h3 id="cp-选项"><a href="#cp-选项" class="headerlink" title="cp 选项"></a>cp 选项</h3><p>&emsp;&emsp;-i：覆盖前提示  -n：不榿盖，注意两者顺序<br><br>&emsp;&emsp;-r,-R：递归复制目录及内部的所有内容<br><br>&emsp;&emsp;-a：归档，相当于-dR –preserv=all<br><br>&emsp;&emsp;-d：–no-dereference–preserv=links不复制原文件，只复制链接名<br><br>&emsp;&emsp;–preserv[=ATTR_LIST]<br><br>&emsp;&emsp;&emsp;&emsp;mode:权限<br><br>&emsp;&emsp;&emsp;&emsp;ownership:属主属组<br><br>&emsp;&emsp;&emsp;&emsp;timestamp:<br><br>&emsp;&emsp;&emsp;&emsp;links<br><br>&emsp;&emsp;&emsp;&emsp;xattr<br><br>&emsp;&emsp;&emsp;&emsp;context<br><br>&emsp;&emsp;-p：等同–preserv=mode,ownership,timestamp<br><br>&emsp;&emsp;-v：–verbose<br><br>&emsp;&emsp;-f：–force<br><br>&emsp;&emsp;-u:–update只复制源比目标更新文件或目标不存在的文件<br><br>&emsp;&emsp;–backup=numbered目标存在覆盖前先备份加数字后缀<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux企业运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 企业运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>九、Linux常见命令用法、变量及文件通配符</title>
       <link href="/2020/03/07/%E4%B9%9D%E3%80%81Linux%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95%E3%80%81%E5%8F%98%E9%87%8F%E5%8F%8A%E6%96%87%E4%BB%B6%E9%80%9A%E9%85%8D%E7%AC%A6/"/>
       <url>/2020/03/07/%E4%B9%9D%E3%80%81Linux%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95%E3%80%81%E5%8F%98%E9%87%8F%E5%8F%8A%E6%96%87%E4%BB%B6%E9%80%9A%E9%85%8D%E7%AC%A6/</url>

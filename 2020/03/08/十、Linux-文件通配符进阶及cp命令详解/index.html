@@ -5,15 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>二、CentOS系列全新Linux系统安装及部署 - 互联网那些事儿</title>
+    <title>十、Linux 文件通配符进阶及cp命令详解 - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）Linux系统主要文件夹介绍
-/usr = windows 和 program file 操作系统数据
-/home = Windows系统的/Users 文件夹用于存放用户数据
-/tmp 用于,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）创建空文件和刷新时间touch命令&amp;emsp;&amp;emsp;touch[OPTION]…FILE…&amp;emsp;&amp;emsp;-a仅改变atime和ctime&amp;emsp;&amp;emsp;-m仅改变mti,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -60,7 +57,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">二、CentOS系列全新Linux系统安装及部署</h3>
+        <h3 class="subtitle">十、Linux 文件通配符进阶及cp命令详解</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -93,22 +90,22 @@
                 <a href="/categories/Linux企业运维"><b>「
                     </b>LINUX企业运维<b> 」</b></a>
                 
-                February 21, 2020
+                March 08, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/02/21/%E4%BA%8C%E3%80%81CentOS%E7%B3%BB%E5%88%97%E5%85%A8%E6%96%B0Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2/" title="二、CentOS系列全新Linux系统安装及部署" class="">二、CentOS系列全新Linux系统安装及部署</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/03/08/%E5%8D%81%E3%80%81Linux-%E6%96%87%E4%BB%B6%E9%80%9A%E9%85%8D%E7%AC%A6%E8%BF%9B%E9%98%B6%E5%8F%8Acp%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="十、Linux 文件通配符进阶及cp命令详解" class="">十、Linux 文件通配符进阶及cp命令详解</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.2k
+                    2k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -142,18 +139,10 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="（一）Linux系统主要文件夹介绍"><a href="#（一）Linux系统主要文件夹介绍" class="headerlink" title="（一）Linux系统主要文件夹介绍"></a>（一）Linux系统主要文件夹介绍</h2><ol>
-<li>/usr = windows 和 program file 操作系统数据</li>
-<li>/home = Windows系统的/Users 文件夹用于存放用户数据</li>
-<li>/tmp 用于存放临时数据</li>
-<li>/var 用于存放变化数据</li>
-<li>/etc 相当于Windows注册表，用于存放Linux相关配置数据</li>
-<li>/boot 启动相关文件</li>
-<li>/dev 存放硬件设备的文件夹</li>
-<li>linux 虚拟内存技术 swap，是一个独立分区，早期大小建议为内存的1.5-2倍，现在服务器内存普遍较大，不需要配置虚拟内存。</li>
-<li>Linux硬盘 分区表示方法：从CentOS 6.X开始 /dev/sda,以sd开头，a,b,c…依次表示每一块硬盘。</li>
-<li>CentOS 4.X CentOS 5.X 下不同接口的硬盘的表示方法：1）IDE /dev/hd/； 2)SCSI /dev/sd/； 3)STAT /dev/sd/； 4)SAS /dev/sd ； 5）/dev/vda/表示虚拟机。<h2 id="（二）CentOS-操作系统的安装"><a href="#（二）CentOS-操作系统的安装" class="headerlink" title="（二）CentOS 操作系统的安装"></a>（二）CentOS 操作系统的安装</h2>&emsp;&emsp;第一步，选择安装类型，必须在60秒之内做出选择，安装菜单的选项依次是安装和升级、用基本显卡安装、救援模式、用本地磁盘启动、内存检测，在这里因为我们是第一安装所以选择第一项全新安装，按回车开始安装。<br><br><img src="https://i2.tiimg.com/709978/dfc801486bed23b6.png" alt=""><br><br>&emsp;&emsp;第二步，是否进行光盘检测以保证安装包的完整性，这里我们建议大家进行安装包检测，以确保整个安装过程的顺利进行。<br><br><img src="https://i2.tiimg.com/709978/dba35538007bde51.png" alt=""><br><br>&emsp;&emsp;第三步，来到安装系统的启动页面，我们直接点击next便可开始安装。<br><br><img src="https://i2.tiimg.com/709978/2a435a0e896d00db.png" alt=""><br><br>&emsp;&emsp;第四步，选择操作系统的语音，这里不建议选择中文，因为作为开发人员而言最新的文档全是英文文档，选择中文不利于之后系统的维护，所以这里建议选择英文，点击next继续。<br><br><img src="https://i2.tiimg.com/709978/49cefc4597bc0ac6.png" alt=""><br><br>&emsp;&emsp;第五步，选择键盘布局，我们这里选择 U.S.English 英语键盘，英语键盘和我们日常使用的键盘布局是一致的，选择其他键盘有可能会使我们的键盘输入出现错误。<br><br><img src="https://i2.tiimg.com/709978/b0e1bec9dada5b8c.png" alt=""><br><br>&emsp;&emsp;第六步，安装设备类型，第一项是装在本机硬盘上也就是基本存储设备，第二项是远程存储，我们选择第一项。<br><br><img src="https://i2.tiimg.com/709978/0ce219016050c4d3.png" alt=""><br><br>&emsp;&emsp;第七步，硬盘选择，安装程序需要讲硬盘进行初始化，我们建议选择一个空白的分区，如果有数据请做好数据备份，初始化意味着删除所有数据。我们这里选择第一项删除所有数据并进行硬盘的初始化。<br><br><img src="https://i2.tiimg.com/709978/1c0da6e583d68891.png" alt=""><br><br>&emsp;&emsp;第八步，修改主机名，主机名由计算机名+域后缀组成，可自行进行修改。左下角的configure network，为计算机配置网络，我们这里可以不做配置，稍后在系统中也可以进行相关配置。但是在生产环境中的网络配置建议是静态IP，这样可以方便管理。<br><br><img src="https://i2.tiimg.com/709978/36b19155c1978a5c.png" alt=""><br><br>&emsp;&emsp;第九步，选择我们所在区域，直接在地图上选取即可，下面的system clock uses UTC 的对勾一定要去掉，否则计算及的默认时间会根据格林尼治时间来确定。<br><br><img src="https://i2.tiimg.com/709978/e10e7565224d76c9.png" alt=""><br><br>&emsp;&emsp;第十步，为root用户创建一个密码，root用户就相当于Windows系统的administrator。<br><br><img src="https://i1.fuimg.com/709978/60b5ce6c43bf4845.png" alt=""><br><br>&emsp;&emsp;第十一步，分区设置，我们这里不按照安装程序的默认分区策略，这里我们选择最后一个自定义分区策略。<br><br><img src="https://i2.tiimg.com/709978/a6ab87ee3eac4d94.png" alt=""><br><br>&emsp;&emsp;第十二步，我们可以按照自己的需要对硬盘进行分区，点击create便可以对硬盘进行相应的分区。<br><br><img src="https://i2.tiimg.com/709978/6b37d734f97b3f63.png" alt=""><br><br>&emsp;&emsp;第十三步，启动菜单选择，我们选择默认即可，当然你也可以进行相关编辑，我们这里直接点解next进入下一步。<br><br><img src="https://i2.tiimg.com/709978/ff374414e631383f.png" alt=""><br><br>&emsp;&emsp;第十四步，选择你需要安装的软件，这里一般选择第三个最小化安装，如果使初学者建议安装第一个或者第二个图形界面。点击next系统便正式开始安装，我们只需要耐心等待即可。<br><br><img src="https://i2.tiimg.com/709978/ed02071c42cf9111.png" alt=""><br><br>&emsp;&emsp;对于CentOS 7的安装就比CentOS 6要简单的多，在安装类型界面，就是很直接的install centos 7，直接回车就好，其他的设置方法和6就是大同小异，按照6的安装方法即可。</li>
-</ol>
+            <h2 id="（一）创建空文件和刷新时间"><a href="#（一）创建空文件和刷新时间" class="headerlink" title="（一）创建空文件和刷新时间"></a>（一）创建空文件和刷新时间</h2><h3 id="touch命令"><a href="#touch命令" class="headerlink" title="touch命令"></a>touch命令</h3><p>&emsp;&emsp;touch[OPTION]…FILE…<br><br>&emsp;&emsp;-a仅改变atime和ctime<br><br>&emsp;&emsp;-m仅改变mtime和ctime<br><br>&emsp;&emsp;-t [[CC]YY]MMDDhhmm[.ss]<br><br>&emsp;&emsp;&emsp;&emsp;指定atime和mtime的时间戳<br><br>&emsp;&emsp;-c 还如果文件不存在，则不予创建<br></p>
+<h3 id="（二）复制文件和目录CP"><a href="#（二）复制文件和目录CP" class="headerlink" title="（二）复制文件和目录CP"></a>（二）复制文件和目录CP</h3><p>&emsp;&emsp;cp [OPTION]…[-T]SOURCE DEST<br><br>&emsp;&emsp;cp [OPTION]…SOURCE…DIRECTORY<br><br>&emsp;&emsp;cp [OPTIONJ…-t DIRECTORY SOURCE…<br><br>&emsp;&emsp;cp SRC DEST<br><br>&emsp;&emsp;SRC是文件：<br><br>&emsp;&emsp;&emsp;&emsp;如果目标不存在：新建DEST，并将SRC中内容填充至DEST中<br><br>&emsp;&emsp;&emsp;&emsp;如果目标存在：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如果DEST是文件：将SRC中的内容覆盖至DEST中，基于安全，建议为cp命令使用 -i选项<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如果DEST是目录：在DEST下新建与原文件同名的文件，并将SRC中内容填充至新文件中<br></p>
+<h4 id="复制cp"><a href="#复制cp" class="headerlink" title="复制cp"></a>复制cp</h4><p><img src="https://i2.tiimg.com/709978/fc9780e1d69ce404.png" alt=""></p>
+<h3 id="cp-选项"><a href="#cp-选项" class="headerlink" title="cp 选项"></a>cp 选项</h3><p>&emsp;&emsp;-i：覆盖前提示  -n：不榿盖，注意两者顺序<br><br>&emsp;&emsp;-r,-R：递归复制目录及内部的所有内容<br><br>&emsp;&emsp;-a：归档，相当于-dR –preserv=all<br><br>&emsp;&emsp;-d：–no-dereference–preserv=links不复制原文件，只复制链接名<br><br>&emsp;&emsp;–preserv[=ATTR_LIST]<br><br>&emsp;&emsp;&emsp;&emsp;mode:权限<br><br>&emsp;&emsp;&emsp;&emsp;ownership:属主属组<br><br>&emsp;&emsp;&emsp;&emsp;timestamp:<br><br>&emsp;&emsp;&emsp;&emsp;links<br><br>&emsp;&emsp;&emsp;&emsp;xattr<br><br>&emsp;&emsp;&emsp;&emsp;context<br><br>&emsp;&emsp;-p：等同–preserv=mode,ownership,timestamp<br><br>&emsp;&emsp;-v：–verbose<br><br>&emsp;&emsp;-f：–force<br><br>&emsp;&emsp;-u:–update只复制源比目标更新文件或目标不存在的文件<br><br>&emsp;&emsp;–backup=numbered目标存在覆盖前先备份加数字后缀<br></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -212,7 +201,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）Linux系统主要文件夹介绍"><span class="toc-number">1.</span> <span class="toc-text">（一）Linux系统主要文件夹介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）CentOS-操作系统的安装"><span class="toc-number">2.</span> <span class="toc-text">（二）CentOS 操作系统的安装</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）创建空文件和刷新时间"><span class="toc-number">1.</span> <span class="toc-text">（一）创建空文件和刷新时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#touch命令"><span class="toc-number">1.1.</span> <span class="toc-text">touch命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）复制文件和目录CP"><span class="toc-number">1.2.</span> <span class="toc-text">（二）复制文件和目录CP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-选项"><span class="toc-number">1.3.</span> <span class="toc-text">cp 选项</span></a></li></ol></li></ol>
                 </div>
             </div>
             
