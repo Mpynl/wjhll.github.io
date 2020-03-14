@@ -5,15 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>二、CentOS系列全新Linux系统安装及部署 - 互联网那些事儿</title>
+    <title>十一、Linux文件管理命令mv、rm、which、tree命令 - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）Linux系统主要文件夹介绍
-/usr = windows 和 program file 操作系统数据
-/home = Windows系统的/Users 文件夹用于存放用户数据
-/tmp 用于,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,移动和重命名文件&amp;emsp;&amp;emsp;mv [OPTION]...[-T] SOURCE DEST&amp;emsp;&amp;emsp;mv [OPTION]...SOURCE...DIRECTORY&amp;emsp,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -60,7 +57,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">二、CentOS系列全新Linux系统安装及部署</h3>
+        <h3 class="subtitle">十一、Linux文件管理命令mv、rm、which、tree命令</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -93,22 +90,22 @@
                 <a href="/categories/Linux企业运维"><b>「
                     </b>LINUX企业运维<b> 」</b></a>
                 
-                February 21, 2020
+                March 14, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/02/21/%E4%BA%8C%E3%80%81CentOS%E7%B3%BB%E5%88%97%E5%85%A8%E6%96%B0Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2/" title="二、CentOS系列全新Linux系统安装及部署" class="">二、CentOS系列全新Linux系统安装及部署</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/03/14/%E5%8D%81%E4%B8%80%E3%80%81Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4mv%E3%80%81rm%E3%80%81which%E3%80%81tree%E5%91%BD%E4%BB%A4/" title="十一、Linux文件管理命令mv、rm、which、tree命令" class="">十一、Linux文件管理命令mv、rm、which、tree命令</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.2k
+                    2.6k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -142,18 +139,12 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="（一）Linux系统主要文件夹介绍"><a href="#（一）Linux系统主要文件夹介绍" class="headerlink" title="（一）Linux系统主要文件夹介绍"></a>（一）Linux系统主要文件夹介绍</h2><ol>
-<li>/usr = windows 和 program file 操作系统数据</li>
-<li>/home = Windows系统的/Users 文件夹用于存放用户数据</li>
-<li>/tmp 用于存放临时数据</li>
-<li>/var 用于存放变化数据</li>
-<li>/etc 相当于Windows注册表，用于存放Linux相关配置数据</li>
-<li>/boot 启动相关文件</li>
-<li>/dev 存放硬件设备的文件夹</li>
-<li>linux 虚拟内存技术 swap，是一个独立分区，早期大小建议为内存的1.5-2倍，现在服务器内存普遍较大，不需要配置虚拟内存。</li>
-<li>Linux硬盘 分区表示方法：从CentOS 6.X开始 /dev/sda,以sd开头，a,b,c…依次表示每一块硬盘。</li>
-<li>CentOS 4.X CentOS 5.X 下不同接口的硬盘的表示方法：1）IDE /dev/hd/； 2)SCSI /dev/sd/； 3)STAT /dev/sd/； 4)SAS /dev/sd ； 5）/dev/vda/表示虚拟机。<h2 id="（二）CentOS-操作系统的安装"><a href="#（二）CentOS-操作系统的安装" class="headerlink" title="（二）CentOS 操作系统的安装"></a>（二）CentOS 操作系统的安装</h2>&emsp;&emsp;第一步，选择安装类型，必须在60秒之内做出选择，安装菜单的选项依次是安装和升级、用基本显卡安装、救援模式、用本地磁盘启动、内存检测，在这里因为我们是第一安装所以选择第一项全新安装，按回车开始安装。<br><br><img src="https://i2.tiimg.com/709978/dfc801486bed23b6.png" alt=""><br><br>&emsp;&emsp;第二步，是否进行光盘检测以保证安装包的完整性，这里我们建议大家进行安装包检测，以确保整个安装过程的顺利进行。<br><br><img src="https://i2.tiimg.com/709978/dba35538007bde51.png" alt=""><br><br>&emsp;&emsp;第三步，来到安装系统的启动页面，我们直接点击next便可开始安装。<br><br><img src="https://i2.tiimg.com/709978/2a435a0e896d00db.png" alt=""><br><br>&emsp;&emsp;第四步，选择操作系统的语音，这里不建议选择中文，因为作为开发人员而言最新的文档全是英文文档，选择中文不利于之后系统的维护，所以这里建议选择英文，点击next继续。<br><br><img src="https://i2.tiimg.com/709978/49cefc4597bc0ac6.png" alt=""><br><br>&emsp;&emsp;第五步，选择键盘布局，我们这里选择 U.S.English 英语键盘，英语键盘和我们日常使用的键盘布局是一致的，选择其他键盘有可能会使我们的键盘输入出现错误。<br><br><img src="https://i2.tiimg.com/709978/b0e1bec9dada5b8c.png" alt=""><br><br>&emsp;&emsp;第六步，安装设备类型，第一项是装在本机硬盘上也就是基本存储设备，第二项是远程存储，我们选择第一项。<br><br><img src="https://i2.tiimg.com/709978/0ce219016050c4d3.png" alt=""><br><br>&emsp;&emsp;第七步，硬盘选择，安装程序需要讲硬盘进行初始化，我们建议选择一个空白的分区，如果有数据请做好数据备份，初始化意味着删除所有数据。我们这里选择第一项删除所有数据并进行硬盘的初始化。<br><br><img src="https://i2.tiimg.com/709978/1c0da6e583d68891.png" alt=""><br><br>&emsp;&emsp;第八步，修改主机名，主机名由计算机名+域后缀组成，可自行进行修改。左下角的configure network，为计算机配置网络，我们这里可以不做配置，稍后在系统中也可以进行相关配置。但是在生产环境中的网络配置建议是静态IP，这样可以方便管理。<br><br><img src="https://i2.tiimg.com/709978/36b19155c1978a5c.png" alt=""><br><br>&emsp;&emsp;第九步，选择我们所在区域，直接在地图上选取即可，下面的system clock uses UTC 的对勾一定要去掉，否则计算及的默认时间会根据格林尼治时间来确定。<br><br><img src="https://i2.tiimg.com/709978/e10e7565224d76c9.png" alt=""><br><br>&emsp;&emsp;第十步，为root用户创建一个密码，root用户就相当于Windows系统的administrator。<br><br><img src="https://i1.fuimg.com/709978/60b5ce6c43bf4845.png" alt=""><br><br>&emsp;&emsp;第十一步，分区设置，我们这里不按照安装程序的默认分区策略，这里我们选择最后一个自定义分区策略。<br><br><img src="https://i2.tiimg.com/709978/a6ab87ee3eac4d94.png" alt=""><br><br>&emsp;&emsp;第十二步，我们可以按照自己的需要对硬盘进行分区，点击create便可以对硬盘进行相应的分区。<br><br><img src="https://i2.tiimg.com/709978/6b37d734f97b3f63.png" alt=""><br><br>&emsp;&emsp;第十三步，启动菜单选择，我们选择默认即可，当然你也可以进行相关编辑，我们这里直接点解next进入下一步。<br><br><img src="https://i2.tiimg.com/709978/ff374414e631383f.png" alt=""><br><br>&emsp;&emsp;第十四步，选择你需要安装的软件，这里一般选择第三个最小化安装，如果使初学者建议安装第一个或者第二个图形界面。点击next系统便正式开始安装，我们只需要耐心等待即可。<br><br><img src="https://i2.tiimg.com/709978/ed02071c42cf9111.png" alt=""><br><br>&emsp;&emsp;对于CentOS 7的安装就比CentOS 6要简单的多，在安装类型界面，就是很直接的install centos 7，直接回车就好，其他的设置方法和6就是大同小异，按照6的安装方法即可。</li>
-</ol>
+            <h2 id="移动和重命名文件"><a href="#移动和重命名文件" class="headerlink" title="移动和重命名文件"></a>移动和重命名文件</h2><p>&emsp;&emsp;<code>mv [OPTION]...[-T] SOURCE DEST</code><br><br>&emsp;&emsp;mv <code>[OPTION]...SOURCE...DIRECTORY</code><br><br>&emsp;&emsp;mv <code>[OPTION]...-t DIRECTORY SOURCE...</code><br><br>&emsp;&emsp;&emsp;&emsp;常用选项：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-i: 交互式<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-f: 强制<br></p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>&emsp;&emsp;rm [OPTION]…FILE..<br><br>&emsp;&emsp;常用选项：<br><br>&emsp;&emsp;&emsp;&emsp;-i       交互式<br><br>&emsp;&emsp;&emsp;&emsp;-f       强制删除<br><br>&emsp;&emsp;&emsp;&emsp;-r       递归<br><br>&emsp;&emsp;&emsp;&emsp;–no-preserve-root 删除<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;&emsp;&amp;emsp&emsp;&emsp;rm  –rf    /<br></p>
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><p>&emsp;&emsp;tree 显示目录树<br><br>&emsp;&emsp;&emsp;&emsp;-d: 只显示目录<br><br>&emsp;&emsp;&emsp;&emsp;-L level：指定显示的层级数目<br><br>&emsp;&emsp;&emsp;&emsp;-P pattern:只显示由指定pattern匹配到的路径<br><br>&emsp;&emsp;mkdir 创建目录<br><br>&emsp;&emsp;&emsp;&emsp;-p: 存在于不报错，且可自动创建所需的各目录<br><br>&emsp;&emsp;&emsp;&emsp;-v: 显示详细信息<br><br>&emsp;&emsp;&emsp;&emsp;-m MODE: 创建目录时直接指定权限<br><br>&emsp;&emsp;rmdir删除空目录<br><br>&emsp;&emsp;&emsp;&emsp;-p: 递归删除父空目录<br><br>&emsp;&emsp;&emsp;&emsp;-v: 显示详细信息<br><br>&emsp;&emsp;rm –r 递归删除目录树<br></p>
+<h3 id="索引节点"><a href="#索引节点" class="headerlink" title="索引节点"></a>索引节点</h3><p>&emsp;&emsp;inode（index node）表中包含文件系统所有文件列表<br><br>&emsp;&emsp;一个节点（索引节点）是在一个表项，包含有关文件的信息（元数据），包括：<br><br>&emsp;&emsp;&emsp;&emsp;文件类型，权限，UID，GID<br><br>&emsp;&emsp;&emsp;&emsp;链接数（指向这个文件名路径名称个数）<br><br>&emsp;&emsp;&emsp;&emsp;该文件的大小和不同的时间戳<br><br>&emsp;&emsp;&emsp;&emsp;指向磁盘上文件的数据块指针<br><br>&emsp;&emsp;&emsp;&emsp;有关文件的其他数据<br><br><img src="https://i1.fuimg.com/709978/c05395d68caaf064.png" alt=""><br><br>&emsp;&emsp;文件引用一个是inode号<br><br>&emsp;&emsp;人是通过文件名来引用一个文件<br><br>&emsp;&emsp;一个目录是目录下的文件名和文件inode号之间的映射<br><br><img src="https://i1.fuimg.com/709978/d4f76f0cce70595a.png" alt=""><br></p>
+<h3 id="在CP的命令"><a href="#在CP的命令" class="headerlink" title="在CP的命令:"></a>在CP的命令:</h3><p>&emsp;&emsp;&emsp;&emsp;分配一个仝闲的inode号，在inode表中生成新条目<br><br>&emsp;&emsp;&emsp;&emsp;在目录中创建一个目录项，名称与inode编号关联<br><br>&emsp;&emsp;&emsp;&emsp;拷贝数据生成新的文件<br></p>
+<h3 id="rm-命令"><a href="#rm-命令" class="headerlink" title="rm 命令"></a>rm 命令</h3><p>&emsp;&emsp;&emsp;&emsp;链接数递减，从而释放的inode号可以被重用<br><br>&emsp;&emsp;&emsp;&emsp;把数据块放在空闲列表中<br><br>&emsp;&emsp;&emsp;&emsp;删除目录项<br><br>&emsp;&emsp;&emsp;&emsp;数据实际上不会马上被删除，但当另一个文件使用数据块时将被覆盖。<br></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -212,7 +203,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）Linux系统主要文件夹介绍"><span class="toc-number">1.</span> <span class="toc-text">（一）Linux系统主要文件夹介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）CentOS-操作系统的安装"><span class="toc-number">2.</span> <span class="toc-text">（二）CentOS 操作系统的安装</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动和重命名文件"><span class="toc-number">1.</span> <span class="toc-text">移动和重命名文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">1.1.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录操作"><span class="toc-number">1.2.</span> <span class="toc-text">目录操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引节点"><span class="toc-number">1.3.</span> <span class="toc-text">索引节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在CP的命令"><span class="toc-number">1.4.</span> <span class="toc-text">在CP的命令:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-命令"><span class="toc-number">1.5.</span> <span class="toc-text">rm 命令</span></a></li></ol></li></ol>
                 </div>
             </div>
             
