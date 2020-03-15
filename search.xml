@@ -4,11 +4,40 @@
   
     
     <entry>
+      <title>十二、软硬连接及文件系统inode</title>
+      <link href="/2020/03/15/%E5%8D%81%E4%BA%8C%E3%80%81%E8%BD%AF%E7%A1%AC%E8%BF%9E%E6%8E%A5%E5%8F%8A%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9Finode/"/>
+      <url>/2020/03/15/%E5%8D%81%E4%BA%8C%E3%80%81%E8%BD%AF%E7%A1%AC%E8%BF%9E%E6%8E%A5%E5%8F%8A%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9Finode/</url>
+      
+        <content type="html"><![CDATA[<h2 id="（一）软硬链接区别"><a href="#（一）软硬链接区别" class="headerlink" title="（一）软硬链接区别"></a>（一）软硬链接区别</h2><p>&emsp;&emsp;本质： 硬链接：一个文件多个名字。 软链接：一个文件对应的快捷方式，本质上不是同一个文件。<br><br>&emsp;&emsp;链接数：硬链接会增长链接数，软链接不会增长链接数。<br><br>&emsp;&emsp;跨分区：软链接可以跨分区，硬连接不能跨分区。<br><br>&emsp;&emsp;目录：硬链接不支持跨目录操作，软链接支持跨目录操作。<br><br>&emsp;&emsp;原始和链接文件关系：硬链接本质上是相同的，软链接是依赖于的关系。<br><br>&emsp;&emsp;删除：硬链接删除原始文件，硬链接不受影响，软链接删除原始文件，软链接就会失效。<br><br>&emsp;&emsp;查看软件界对应文件：readlink。<br></p><h3 id="mv-和-indoe"><a href="#mv-和-indoe" class="headerlink" title="mv 和 indoe"></a>mv 和 indoe</h3><p>&emsp;&emsp;如果mv命令的目标和源在相同的文件系统，作为mv命令<br><br>&emsp;&emsp;&emsp;&emsp;用新的文件名创建对应新的目录项<br><br>&emsp;&emsp;&emsp;&emsp;删除旧目录条目对应的旧的文件名<br><br>&emsp;&emsp;&emsp;&emsp;不影响inode表（除时间戳）或磁盘上的数据位置没有数据被移动！<br><br>&emsp;&emsp;如果目标和源在一个不同的文件系统，mv相当于cp和rm<br></p><h3 id="file命令确定文件内容"><a href="#file命令确定文件内容" class="headerlink" title="file命令确定文件内容"></a>file命令确定文件内容</h3><p>&emsp;&emsp;文件可以包含多种类型的数据<br><br>&emsp;&emsp;检查文件的类型，然后确定适当的打开命令或应用程序使用<br><br>&emsp;&emsp;file[options]<filename>…<br><br>&emsp;&emsp;常用选项：<br><br>&emsp;&emsp;&emsp;&emsp;-b 列出文件辨识结果时，不显示文件名称<br><br>&emsp;&emsp;&emsp;&emsp;-f filelist列出文件filelist中文件名的文件类型<br><br>&emsp;&emsp;&emsp;&emsp;-F使用指定分隔符号替换输出文件名后默认的”：” 分隔符<br><br>&emsp;&emsp;&emsp;&emsp;-L查看对应软链接对应文件的文件类型<br><br>&emsp;&emsp;&emsp;&emsp;–help显示命令在线帮助<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux企业运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> 企业运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>十一、Linux文件管理命令mv、rm、which、tree命令</title>
       <link href="/2020/03/14/%E5%8D%81%E4%B8%80%E3%80%81Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4mv%E3%80%81rm%E3%80%81which%E3%80%81tree%E5%91%BD%E4%BB%A4/"/>
       <url>/2020/03/14/%E5%8D%81%E4%B8%80%E3%80%81Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4mv%E3%80%81rm%E3%80%81which%E3%80%81tree%E5%91%BD%E4%BB%A4/</url>
       
-        <content type="html"><![CDATA[<h2 id="移动和重命名文件"><a href="#移动和重命名文件" class="headerlink" title="移动和重命名文件"></a>移动和重命名文件</h2><p>&emsp;&emsp;<code>mv [OPTION]...[-T] SOURCE DEST</code><br><br>&emsp;&emsp;mv <code>[OPTION]...SOURCE...DIRECTORY</code><br><br>&emsp;&emsp;mv <code>[OPTION]...-t DIRECTORY SOURCE...</code><br><br>&emsp;&emsp;&emsp;&emsp;常用选项：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-i: 交互式<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-f: 强制<br></p><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>&emsp;&emsp;rm [OPTION]…FILE..<br><br>&emsp;&emsp;常用选项：<br><br>&emsp;&emsp;&emsp;&emsp;-i       交互式<br><br>&emsp;&emsp;&emsp;&emsp;-f       强制删除<br><br>&emsp;&emsp;&emsp;&emsp;-r       递归<br><br>&emsp;&emsp;&emsp;&emsp;–no-preserve-root 删除<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;&emsp;&amp;emsp&emsp;&emsp;rm  –rf    /<br></p><h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><p>&emsp;&emsp;tree 显示目录树<br><br>&emsp;&emsp;&emsp;&emsp;-d: 只显示目录<br><br>&emsp;&emsp;&emsp;&emsp;-L level：指定显示的层级数目<br><br>&emsp;&emsp;&emsp;&emsp;-P pattern:只显示由指定pattern匹配到的路径<br><br>&emsp;&emsp;mkdir 创建目录<br><br>&emsp;&emsp;&emsp;&emsp;-p: 存在于不报错，且可自动创建所需的各目录<br><br>&emsp;&emsp;&emsp;&emsp;-v: 显示详细信息<br><br>&emsp;&emsp;&emsp;&emsp;-m MODE: 创建目录时直接指定权限<br><br>&emsp;&emsp;rmdir删除空目录<br><br>&emsp;&emsp;&emsp;&emsp;-p: 递归删除父空目录<br><br>&emsp;&emsp;&emsp;&emsp;-v: 显示详细信息<br><br>&emsp;&emsp;rm –r 递归删除目录树<br></p><h3 id="索引节点"><a href="#索引节点" class="headerlink" title="索引节点"></a>索引节点</h3><p>&emsp;&emsp;inode（index node）表中包含文件系统所有文件列表<br><br>&emsp;&emsp;一个节点（索引节点）是在一个表项，包含有关文件的信息（元数据），包括：<br><br>&emsp;&emsp;&emsp;&emsp;文件类型，权限，UID，GID<br><br>&emsp;&emsp;&emsp;&emsp;链接数（指向这个文件名路径名称个数）<br><br>&emsp;&emsp;&emsp;&emsp;该文件的大小和不同的时间戳<br><br>&emsp;&emsp;&emsp;&emsp;指向磁盘上文件的数据块指针<br><br>&emsp;&emsp;&emsp;&emsp;有关文件的其他数据<br><br><img src="https://i1.fuimg.com/709978/c05395d68caaf064.png" alt=""><br><br>&emsp;&emsp;文件引用一个是inode号<br><br>&emsp;&emsp;人是通过文件名来引用一个文件<br><br>&emsp;&emsp;一个目录是目录下的文件名和文件inode号之间的映射<br><br><img src="https://i1.fuimg.com/709978/d4f76f0cce70595a.png" alt=""><br></p><h3 id="在CP的命令"><a href="#在CP的命令" class="headerlink" title="在CP的命令:"></a>在CP的命令:</h3><p>&emsp;&emsp;&emsp;&emsp;分配一个仝闲的inode号，在inode表中生成新条目<br><br>&emsp;&emsp;&emsp;&emsp;在目录中创建一个目录项，名称与inode编号关联<br><br>&emsp;&emsp;&emsp;&emsp;拷贝数据生成新的文件<br></p><h3 id="rm-命令"><a href="#rm-命令" class="headerlink" title="rm 命令"></a>rm 命令</h3><p>&emsp;&emsp;&emsp;&emsp;链接数递减，从而释放的inode号可以被重用<br><br>&emsp;&emsp;&emsp;&emsp;把数据块放在空闲列表中<br><br>&emsp;&emsp;&emsp;&emsp;删除目录项<br><br>&emsp;&emsp;&emsp;&emsp;数据实际上不会马上被删除，但当另一个文件使用数据块时将被覆盖。<br></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="移动和重命名文件"><a href="#移动和重命名文件" class="headerlink" title="移动和重命名文件"></a>移动和重命名文件</h2><p>&emsp;&emsp;<code>mv [OPTION]...[-T] SOURCE DEST</code><br><br>&emsp;&emsp;<code>mv [OPTION]...SOURCE...DIRECTORY</code><br><br>&emsp;&emsp;<code>mv [OPTION]...-t DIRECTORY SOURCE...</code><br><br>&emsp;&emsp;&emsp;&emsp;常用选项：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-i: 交互式<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-f: 强制<br></p><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>&emsp;&emsp;rm [OPTION]…FILE..<br><br>&emsp;&emsp;常用选项：<br><br>&emsp;&emsp;&emsp;&emsp;-i       交互式<br><br>&emsp;&emsp;&emsp;&emsp;-f       强制删除<br><br>&emsp;&emsp;&emsp;&emsp;-r       递归<br><br>&emsp;&emsp;&emsp;&emsp;–no-preserve-root 删除<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;&emsp;&amp;emsp&emsp;&emsp;rm  –rf    /<br></p><h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><p>&emsp;&emsp;tree 显示目录树<br><br>&emsp;&emsp;&emsp;&emsp;-d: 只显示目录<br><br>&emsp;&emsp;&emsp;&emsp;-L level：指定显示的层级数目<br><br>&emsp;&emsp;&emsp;&emsp;-P pattern:只显示由指定pattern匹配到的路径<br><br>&emsp;&emsp;mkdir 创建目录<br><br>&emsp;&emsp;&emsp;&emsp;-p: 存在于不报错，且可自动创建所需的各目录<br><br>&emsp;&emsp;&emsp;&emsp;-v: 显示详细信息<br><br>&emsp;&emsp;&emsp;&emsp;-m MODE: 创建目录时直接指定权限<br><br>&emsp;&emsp;rmdir删除空目录<br><br>&emsp;&emsp;&emsp;&emsp;-p: 递归删除父空目录<br><br>&emsp;&emsp;&emsp;&emsp;-v: 显示详细信息<br><br>&emsp;&emsp;rm –r 递归删除目录树<br></p><h3 id="索引节点"><a href="#索引节点" class="headerlink" title="索引节点"></a>索引节点</h3><p>&emsp;&emsp;inode（index node）表中包含文件系统所有文件列表<br><br>&emsp;&emsp;一个节点（索引节点）是在一个表项，包含有关文件的信息（元数据），包括：<br><br>&emsp;&emsp;&emsp;&emsp;文件类型，权限，UID，GID<br><br>&emsp;&emsp;&emsp;&emsp;链接数（指向这个文件名路径名称个数）<br><br>&emsp;&emsp;&emsp;&emsp;该文件的大小和不同的时间戳<br><br>&emsp;&emsp;&emsp;&emsp;指向磁盘上文件的数据块指针<br><br>&emsp;&emsp;&emsp;&emsp;有关文件的其他数据<br><br><img src="https://i1.fuimg.com/709978/c05395d68caaf064.png" alt=""><br><br>&emsp;&emsp;文件引用一个是inode号<br><br>&emsp;&emsp;人是通过文件名来引用一个文件<br><br>&emsp;&emsp;一个目录是目录下的文件名和文件inode号之间的映射<br><br><img src="https://i1.fuimg.com/709978/d4f76f0cce70595a.png" alt=""><br></p><h3 id="在CP的命令"><a href="#在CP的命令" class="headerlink" title="在CP的命令:"></a>在CP的命令:</h3><p>&emsp;&emsp;&emsp;&emsp;分配一个仝闲的inode号，在inode表中生成新条目<br><br>&emsp;&emsp;&emsp;&emsp;在目录中创建一个目录项，名称与inode编号关联<br><br>&emsp;&emsp;&emsp;&emsp;拷贝数据生成新的文件<br></p><h3 id="rm-命令"><a href="#rm-命令" class="headerlink" title="rm 命令"></a>rm 命令</h3><p>&emsp;&emsp;&emsp;&emsp;链接数递减，从而释放的inode号可以被重用<br><br>&emsp;&emsp;&emsp;&emsp;把数据块放在空闲列表中<br><br>&emsp;&emsp;&emsp;&emsp;删除目录项<br><br>&emsp;&emsp;&emsp;&emsp;数据实际上不会马上被删除，但当另一个文件使用数据块时将被覆盖。<br></p>]]></content>
       
       
       <categories>

@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>三、Linux系统使用和初始化配置 - 互联网那些事儿</title>
+    <title>十二、软硬连接及文件系统inode - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）初始化配置&amp;emsp;&amp;emsp;在第一启动系统会进行相关检测，等所有检测通过之后我们便可以启动系统，在其中的一些设置我们按照默认设置即可。&amp;emsp;&amp;emsp;如果发现网卡未连接，请点击网,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）软硬链接区别&amp;emsp;&amp;emsp;本质： 硬链接：一个文件多个名字。 软链接：一个文件对应的快捷方式，本质上不是同一个文件。&amp;emsp;&amp;emsp;链接数：硬链接会增长链接数，软链接不会增长,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -57,7 +57,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">三、Linux系统使用和初始化配置</h3>
+        <h3 class="subtitle">十二、软硬连接及文件系统inode</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -90,22 +90,22 @@
                 <a href="/categories/Linux企业运维"><b>「
                     </b>LINUX企业运维<b> 」</b></a>
                 
-                February 21, 2020
+                March 15, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/02/21/%E4%B8%89%E3%80%81Linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/" title="三、Linux系统使用和初始化配置" class="">三、Linux系统使用和初始化配置</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/03/15/%E5%8D%81%E4%BA%8C%E3%80%81%E8%BD%AF%E7%A1%AC%E8%BF%9E%E6%8E%A5%E5%8F%8A%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9Finode/" title="十二、软硬连接及文件系统inode" class="">十二、软硬连接及文件系统inode</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.1k
+                    1.3k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
+                    1 mins.
                 </span>
                 
                 
@@ -139,8 +139,9 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="（一）初始化配置"><a href="#（一）初始化配置" class="headerlink" title="（一）初始化配置"></a>（一）初始化配置</h2><p>&emsp;&emsp;在第一启动系统会进行相关检测，等所有检测通过之后我们便可以启动系统，在其中的一些设置我们按照默认设置即可。<br><br>&emsp;&emsp;如果发现网卡未连接，请点击网络连接的图标，点击Edit Connections,在弹出的界面选择你使用的网卡名，把自动连接的对勾点上即Connect automatically即可。<br><br><img src="https://i2.tiimg.com/709978/e7385d975d353c5f.png" alt=""><br><br>&emsp;&emsp;得到IP地址之后我们就可以使用相关的工具对系统进行远程访问常用的Windows下常用的工具由Xhell ，SecureCRT，Putty等工具，使用方法是输入IP地址，端口号，用户名和密码就可以正常连接，SSH服务端口号一般是22，当然也可以自己设定。Mac或者Linux 可以直接使用自带的终端工具进行连接，相应的命令是：用户名@IP:端口号，默认22号端口可以不输，会车之后输入密码便可以连接到相应的服务器，例如 <br><br>&emsp;&emsp;<a href="mailto:root@192.168.1.22">root@192.168.1.22</a><br></p>
-<h2 id="（二）Linux常用命令介绍"><a href="#（二）Linux常用命令介绍" class="headerlink" title="（二）Linux常用命令介绍"></a>（二）Linux常用命令介绍</h2><p>&emsp;&emsp;1. 查看系统内核版本命令：uname -r ,其中3.10.0 就是内核版本号。<br><br><img src="https://i1.fuimg.com/709978/bf0d6b3331739768.png" alt=""><br><br>&emsp;&emsp;2.查看网卡级网络信息命令：ifconfig，eth0就代表你现在使用的网卡信息，其中0代表是系统中的第一块网卡。<br><br><img src="https://i2.tiimg.com/709978/ad69ed2882de4804.png" alt=""><br><br>&emsp;&emsp;3.进入某一个文件夹命令：cd /文件夹/。<br><br>&emsp;&emsp;4.查看发行系统的版本命令: cat /etc/ctntos-relase。<br><br><img src="https://i2.tiimg.com/709978/b6e964ff17b8a426.png" alt=""><br><br>&emsp;&emsp;5.查看系统总内存的大小：cat /proc/meminfo。<br><br><img src="https://i1.fuimg.com/709978/68a90822eff57171.png" alt=""><br><br>&emsp;&emsp;6.查看系统分区情况：ls /dev/sda<em>、fdisk -l或者lsblk，lsblk命令只能在系统安装完成才可以使用。<br><br><img src="https://i1.fuimg.com/709978/5d97c21c4b991822.png" alt=""><br><br>&emsp;&emsp;ls /dev/sda</em>命令窗口<br><br><img src="https://i1.fuimg.com/709978/7bbcfcb41cd362ee.png" alt=""><br><br>&emsp;&emsp;fdisk -l 命令窗口<br><br><img src="https://i1.fuimg.com/709978/bda630d28f2fafae.png" alt=""><br><br>&emsp;&emsp;lsblk命令窗口<br><br>&emsp;&emsp;7.关机命令：poweroff、halt、shutdown等命令。<br><br>&emsp;&emsp;8.查看安装rpm包的情况：rpm -qa | wc -l。<br><br><img src="https://i1.fuimg.com/709978/0768bc37f0f043d6.png" alt=""><br><br>&emsp;&emsp;9.查看内存使用情况命令: free。<br><br>&emsp;&emsp;10.查看system call（系统调用）命令：strace，查看library（库调用）：ltrace。</p>
+            <h2 id="（一）软硬链接区别"><a href="#（一）软硬链接区别" class="headerlink" title="（一）软硬链接区别"></a>（一）软硬链接区别</h2><p>&emsp;&emsp;本质： 硬链接：一个文件多个名字。 软链接：一个文件对应的快捷方式，本质上不是同一个文件。<br><br>&emsp;&emsp;链接数：硬链接会增长链接数，软链接不会增长链接数。<br><br>&emsp;&emsp;跨分区：软链接可以跨分区，硬连接不能跨分区。<br><br>&emsp;&emsp;目录：硬链接不支持跨目录操作，软链接支持跨目录操作。<br><br>&emsp;&emsp;原始和链接文件关系：硬链接本质上是相同的，软链接是依赖于的关系。<br><br>&emsp;&emsp;删除：硬链接删除原始文件，硬链接不受影响，软链接删除原始文件，软链接就会失效。<br><br>&emsp;&emsp;查看软件界对应文件：readlink。<br></p>
+<h3 id="mv-和-indoe"><a href="#mv-和-indoe" class="headerlink" title="mv 和 indoe"></a>mv 和 indoe</h3><p>&emsp;&emsp;如果mv命令的目标和源在相同的文件系统，作为mv命令<br><br>&emsp;&emsp;&emsp;&emsp;用新的文件名创建对应新的目录项<br><br>&emsp;&emsp;&emsp;&emsp;删除旧目录条目对应的旧的文件名<br><br>&emsp;&emsp;&emsp;&emsp;不影响inode表（除时间戳）或磁盘上的数据位置没有数据被移动！<br><br>&emsp;&emsp;如果目标和源在一个不同的文件系统，mv相当于cp和rm<br></p>
+<h3 id="file命令确定文件内容"><a href="#file命令确定文件内容" class="headerlink" title="file命令确定文件内容"></a>file命令确定文件内容</h3><p>&emsp;&emsp;文件可以包含多种类型的数据<br><br>&emsp;&emsp;检查文件的类型，然后确定适当的打开命令或应用程序使用<br><br>&emsp;&emsp;file[options]<filename>…<br><br>&emsp;&emsp;常用选项：<br><br>&emsp;&emsp;&emsp;&emsp;-b 列出文件辨识结果时，不显示文件名称<br><br>&emsp;&emsp;&emsp;&emsp;-f filelist列出文件filelist中文件名的文件类型<br><br>&emsp;&emsp;&emsp;&emsp;-F使用指定分隔符号替换输出文件名后默认的”：” 分隔符<br><br>&emsp;&emsp;&emsp;&emsp;-L查看对应软链接对应文件的文件类型<br><br>&emsp;&emsp;&emsp;&emsp;–help显示命令在线帮助<br></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -199,7 +200,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）初始化配置"><span class="toc-number">1.</span> <span class="toc-text">（一）初始化配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）Linux常用命令介绍"><span class="toc-number">2.</span> <span class="toc-text">（二）Linux常用命令介绍</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）软硬链接区别"><span class="toc-number">1.</span> <span class="toc-text">（一）软硬链接区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-和-indoe"><span class="toc-number">1.1.</span> <span class="toc-text">mv 和 indoe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file命令确定文件内容"><span class="toc-number">1.2.</span> <span class="toc-text">file命令确定文件内容</span></a></li></ol></li></ol>
                 </div>
             </div>
             
