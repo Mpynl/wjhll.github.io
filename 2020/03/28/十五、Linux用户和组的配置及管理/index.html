@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>一、计算机基础入门、硬件和系统组成 - 互联网那些事儿</title>
+    <title>十五、Linux用户和组的配置及管理 - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）计算机系统的组成&amp;emsp;&amp;emsp;1.计算机系统由硬件(Hardware)系统和软件(Software)系统两大系统组成
-&amp;emsp;&amp;emsp;2.冯.诺伊曼体系结构：1946年数学家,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）用户和组的配置文件Linux用户和组的主要配置文件:&amp;emsp;&amp;emsp;/etc/passwd：用户及其属性信息（名称、UID主组ID等）&amp;emsp;&amp;emsp;/etc/group：组及,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -58,7 +57,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">一、计算机基础入门、硬件和系统组成</h3>
+        <h3 class="subtitle">十五、Linux用户和组的配置及管理</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -88,25 +87,25 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/服务器相关"><b>「
-                    </b>服务器相关<b> 」</b></a>
+                <a href="/categories/Linux企业运维"><b>「
+                    </b>LINUX企业运维<b> 」</b></a>
                 
-                July 14, 2019
+                March 28, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/07/14/%E4%B8%80%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E3%80%81%E7%A1%AC%E4%BB%B6%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/" title="一、计算机基础入门、硬件和系统组成" class="">一、计算机基础入门、硬件和系统组成</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/03/28/%E5%8D%81%E4%BA%94%E3%80%81Linux%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AE%A1%E7%90%86/" title="十五、Linux用户和组的配置及管理" class="">十五、Linux用户和组的配置及管理</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.9k
+                    2.7k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -119,7 +118,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E8%BF%90%E7%BB%B4/" rel="tag">企业运维</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li></ul>
             
         </div>
     </div>
@@ -140,28 +139,13 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="（一）计算机系统的组成"><a href="#（一）计算机系统的组成" class="headerlink" title="（一）计算机系统的组成"></a>（一）计算机系统的组成</h2><h3 id="emsp-emsp-1-计算机系统由硬件-Hardware-系统和软件-Software-系统两大系统组成"><a href="#emsp-emsp-1-计算机系统由硬件-Hardware-系统和软件-Software-系统两大系统组成" class="headerlink" title="&emsp;&emsp;1.计算机系统由硬件(Hardware)系统和软件(Software)系统两大系统组成"></a>&emsp;&emsp;1.计算机系统由硬件(Hardware)系统和软件(Software)系统两大系统组成</h3><p><img src="https://i1.fuimg.com/709978/cd03db4976c90302.png" alt="计算机系统的组成"></p>
-<h3 id="emsp-emsp-2-冯-诺伊曼体系结构：1946年数学家冯-诺伊曼提出"><a href="#emsp-emsp-2-冯-诺伊曼体系结构：1946年数学家冯-诺伊曼提出" class="headerlink" title="&emsp;&emsp;2.冯.诺伊曼体系结构：1946年数学家冯.诺伊曼提出"></a>&emsp;&emsp;2.冯.诺伊曼体系结构：1946年数学家冯.诺伊曼提出</h3><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>运算器、控制器、存储器、输入设备、输出设备</strong> <br><br><img src="https://i1.fuimg.com/709978/a2235d1ee9c85ac0.png" alt="冯.诺伊曼体系结构"></p>
-<h2 id="（二）计算机的存储单位介绍"><a href="#（二）计算机的存储单位介绍" class="headerlink" title="（二）计算机的存储单位介绍"></a>（二）计算机的存储单位介绍</h2><h3 id="emsp-emsp-1-定义"><a href="#emsp-emsp-1-定义" class="headerlink" title="&emsp;&emsp;1.定义"></a>&emsp;&emsp;1.定义</h3><p>&emsp;&emsp;&emsp;&emsp;二进制序列用以表示计算机、电子信息数据容量的量纲，基本单位为字节B，字节向上分别为KB、MB、GB、TB，每级为前一级的1024倍，比如1KB=1024B，1M=1024KB。</p>
-<h3 id="emsp-emsp-2-单位换算"><a href="#emsp-emsp-2-单位换算" class="headerlink" title="&emsp;&emsp;2.单位换算"></a>&emsp;&emsp;2.单位换算</h3><p>&emsp;&emsp;&emsp;&emsp;计算机存储单位一般用bit、B、KB、MB、GB、TB、PB、EB、ZB、YB、BB、NB、DB……来表示，它们之间的关系是：<br></p>
-<ul>
-<li>1 Byte（B） = 8 bit</li>
-<li>1 Kilo Byte（KB） = 1024B</li>
-<li>1 Mega Byte（MB） = 1024 KB</li>
-<li>1 Giga Byte （GB）= 1024 MB</li>
-<li>1 Tera Byte（TB）= 1024 GB</li>
-<li>1 Peta Byte（PB） = 1024 TB</li>
-<li>1 Exa Byte（EB） = 1024 PB</li>
-<li>1 Zetta Byte（ZB） = 1024 EB</li>
-<li>1Yotta Byte（YB）= 1024 ZB</li>
-<li>1 Bronto Byte（BB） = 1024 YB</li>
-<li>1Nona Byte（NB）=1024 BB</li>
-<li>1 Dogga Byte（DB）=1024 NB</li>
-<li>1 Corydon Byte（CB）=1024DB</li>
-<li>1 Xero Byte （XB）=1024CB</li>
-</ul>
-<h2 id="（三）计算机的分类"><a href="#（三）计算机的分类" class="headerlink" title="（三）计算机的分类"></a>（三）计算机的分类</h2><p>&emsp;&emsp;<strong>巨型计算机：</strong> 应用于国防尖端技术和现代科学计算中。巨型机的运算速度可达每秒百万亿次以上，“天河一号”为我国首台千万亿次超级计算机<br><br>&emsp;&emsp;<strong>大型计算机：</strong> 具有较高的运算速度每秒可以执行几千万条指令，而且有较大的存储空间。往往用于科学计算、数据处理或作为网络服务器使用，如：IBM、Z13 mainframe<br><br>&emsp;&emsp;<strong>小型计算机：</strong> 规模较小、结构简单、运行环境要求较低，一般应用于工业自动控制、测量仪器、医疗设备中的数据采集等方面<br><br>&emsp;&emsp;<strong>微型计算机：</strong> 中央处理器（CPU）采用微处理器芯片，体积小巧轻便，广泛用于商业、服务业、工厂的自动控制、办公自动化以及大众化的信息处理<br></p>
-<h2 id="（四）服务器"><a href="#（四）服务器" class="headerlink" title="（四）服务器"></a>（四）服务器</h2><p>&emsp;&emsp;<strong>服务器Server</strong>是计算机的一种，是网络中为客户端计算机提供各种服务的高性能的计算机，服务器在网络操作系统的控制下，将与其相连的硬盘、磁带、打印机及昂贵的专用通讯设备提供给网络上的客户站点共享，也能为网络用户提供集中计算、信息发布及数据管理等服务<br><br>&emsp;&emsp;<strong>服务器按应用功能可分为：</strong> <br><br>&emsp;&emsp;web服务器、数据库服务、文件服务器、中间件应用服务器、日志服务器、监控服器，程序版本控制服务器、虚拟机服务器、邮件服务器、打印服务器、域控制服务器、多媒体服务器、通讯服务器、ERP服务器等<br>&emsp;&emsp;<strong>服务器按外形分类：</strong><br><br>&emsp;&emsp;塔式服务器、机架式服务器、刀片式服务器</p>
+            <h2 id="（一）用户和组的配置文件"><a href="#（一）用户和组的配置文件" class="headerlink" title="（一）用户和组的配置文件"></a>（一）用户和组的配置文件</h2><h3 id="Linux用户和组的主要配置文件"><a href="#Linux用户和组的主要配置文件" class="headerlink" title="Linux用户和组的主要配置文件:"></a>Linux用户和组的主要配置文件:</h3><p>&emsp;&emsp;/etc/passwd：用户及其属性信息（名称、UID主组ID等）<br><br>&emsp;&emsp;/etc/group：组及属性信息<br><br>&emsp;&emsp;/etc/shadolv：用户密码及其相关属性<br><br>&emsp;&emsp;/etc/gshadow：组密码及其相关属性<br></p>
+<h3 id="passwd文件格式"><a href="#passwd文件格式" class="headerlink" title="passwd文件格式"></a>passwd文件格式</h3><p>&emsp;&emsp;loginname：登录用名（wang）<br><br>&emsp;&emsp;passwd：密码（×）<br><br>&emsp;&emsp;UID：用户身份编号（1000）<br><br>&emsp;&emsp;GID：登录默认所在组编号（1000）<br><br>&emsp;&emsp;GECOS用户全名或注释<br><br>&emsp;&emsp;home directory：用户主目录(/home/wang)<br><br>&emsp;&emsp;shell：用户默认使用shell(/bin/bash)<br></p>
+<h3 id="shadow文件格式"><a href="#shadow文件格式" class="headerlink" title="shadow文件格式"></a>shadow文件格式</h3><p>&emsp;&emsp;登录用名<br><br>&emsp;&emsp;用户密码：一般用sha512加密<br><br>&emsp;&emsp;从1970年1月1日起到密码最近一次被更改的时间<br><br>&emsp;&emsp;密码再过几天可以被变更（0表示随时可被变更）<br><br>&emsp;&emsp;密码再过几天必须被变更（99999表示永不过期）<br><br>&emsp;&emsp;密码过期前几天系统提醒用户（默认为一周）<br><br>&emsp;&emsp;密码过期几天后帐号会被锁定<br><br>&emsp;&emsp;从1970年1月1日算起，多少天后帐号失效<br></p>
+<h3 id="密码加密"><a href="#密码加密" class="headerlink" title="密码加密"></a>密码加密</h3><h4 id="加密机制"><a href="#加密机制" class="headerlink" title="加密机制"></a>加密机制</h4><p>&emsp;&emsp;加密：明文–&gt;密文<br><br>&emsp;&emsp;解密：密文–&gt;明文<br><br>&emsp;&emsp;单向加密：哈希算法，原文不同，密文必不同<br><br>&emsp;&emsp;&emsp;&emsp;相同算法定长输出，获得密文不可逆推出原始数据<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;雪崩效应：初始条件的微小改变，引起结果的巨大改变<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>md5: message digest,128bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha1: secure hash algorithm,160bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha224: 224bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha256: 256bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha384: 384bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha512: 512bits</code><br><br>&emsp;&emsp;更改加密算法authconfig    –passalgo=sha256–update<br></p>
+<h3 id="密码的复杂性策略"><a href="#密码的复杂性策略" class="headerlink" title="密码的复杂性策略"></a>密码的复杂性策略</h3><p>&emsp;&emsp;使用数字、大写字母、小写字母及特殊字符中至少3种<br><br>&emsp;&emsp;足够长<br><br>&emsp;&emsp;使用随机密码<br><br>&emsp;&emsp;定期更换，不要使用最近曾经使用过的密码<br></p>
+<h3 id="密码期限"><a href="#密码期限" class="headerlink" title="密码期限"></a>密码期限</h3><p><img src="http://i1.fuimg.com/709978/9bd1eb0b738c1886.png" alt=""><br></p>
+<h3 id="roup-文件格式"><a href="#roup-文件格式" class="headerlink" title="roup 文件格式"></a>roup 文件格式</h3><p>&emsp;&emsp;群组名称：就是群组名称<br><br>&emsp;&emsp;群组密码：通常不需要设定，密码是被记录在/etc/gshadow<br><br>&emsp;&emsp;GID：就是群组的ID<br><br>&emsp;&emsp;以当前组为附加组的用户列表（分隔符为逗号）</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -220,7 +204,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）计算机系统的组成"><span class="toc-number">1.</span> <span class="toc-text">（一）计算机系统的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#emsp-emsp-1-计算机系统由硬件-Hardware-系统和软件-Software-系统两大系统组成"><span class="toc-number">1.1.</span> <span class="toc-text">&amp;emsp;&amp;emsp;1.计算机系统由硬件(Hardware)系统和软件(Software)系统两大系统组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#emsp-emsp-2-冯-诺伊曼体系结构：1946年数学家冯-诺伊曼提出"><span class="toc-number">1.2.</span> <span class="toc-text">&amp;emsp;&amp;emsp;2.冯.诺伊曼体系结构：1946年数学家冯.诺伊曼提出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）计算机的存储单位介绍"><span class="toc-number">2.</span> <span class="toc-text">（二）计算机的存储单位介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#emsp-emsp-1-定义"><span class="toc-number">2.1.</span> <span class="toc-text">&amp;emsp;&amp;emsp;1.定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#emsp-emsp-2-单位换算"><span class="toc-number">2.2.</span> <span class="toc-text">&amp;emsp;&amp;emsp;2.单位换算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）计算机的分类"><span class="toc-number">3.</span> <span class="toc-text">（三）计算机的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）服务器"><span class="toc-number">4.</span> <span class="toc-text">（四）服务器</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）用户和组的配置文件"><span class="toc-number">1.</span> <span class="toc-text">（一）用户和组的配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux用户和组的主要配置文件"><span class="toc-number">1.1.</span> <span class="toc-text">Linux用户和组的主要配置文件:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd文件格式"><span class="toc-number">1.2.</span> <span class="toc-text">passwd文件格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shadow文件格式"><span class="toc-number">1.3.</span> <span class="toc-text">shadow文件格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#密码加密"><span class="toc-number">1.4.</span> <span class="toc-text">密码加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#密码的复杂性策略"><span class="toc-number">1.5.</span> <span class="toc-text">密码的复杂性策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#密码期限"><span class="toc-number">1.6.</span> <span class="toc-text">密码期限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#roup-文件格式"><span class="toc-number">1.7.</span> <span class="toc-text">roup 文件格式</span></a></li></ol></li></ol>
                 </div>
             </div>
             

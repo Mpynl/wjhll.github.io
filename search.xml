@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>十五、Linux用户和组的配置及管理</title>
+      <link href="/2020/03/28/%E5%8D%81%E4%BA%94%E3%80%81Linux%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AE%A1%E7%90%86/"/>
+      <url>/2020/03/28/%E5%8D%81%E4%BA%94%E3%80%81Linux%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%AE%A1%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="（一）用户和组的配置文件"><a href="#（一）用户和组的配置文件" class="headerlink" title="（一）用户和组的配置文件"></a>（一）用户和组的配置文件</h2><h3 id="Linux用户和组的主要配置文件"><a href="#Linux用户和组的主要配置文件" class="headerlink" title="Linux用户和组的主要配置文件:"></a>Linux用户和组的主要配置文件:</h3><p>&emsp;&emsp;/etc/passwd：用户及其属性信息（名称、UID主组ID等）<br><br>&emsp;&emsp;/etc/group：组及属性信息<br><br>&emsp;&emsp;/etc/shadolv：用户密码及其相关属性<br><br>&emsp;&emsp;/etc/gshadow：组密码及其相关属性<br></p><h3 id="passwd文件格式"><a href="#passwd文件格式" class="headerlink" title="passwd文件格式"></a>passwd文件格式</h3><p>&emsp;&emsp;loginname：登录用名（wang）<br><br>&emsp;&emsp;passwd：密码（×）<br><br>&emsp;&emsp;UID：用户身份编号（1000）<br><br>&emsp;&emsp;GID：登录默认所在组编号（1000）<br><br>&emsp;&emsp;GECOS用户全名或注释<br><br>&emsp;&emsp;home directory：用户主目录(/home/wang)<br><br>&emsp;&emsp;shell：用户默认使用shell(/bin/bash)<br></p><h3 id="shadow文件格式"><a href="#shadow文件格式" class="headerlink" title="shadow文件格式"></a>shadow文件格式</h3><p>&emsp;&emsp;登录用名<br><br>&emsp;&emsp;用户密码：一般用sha512加密<br><br>&emsp;&emsp;从1970年1月1日起到密码最近一次被更改的时间<br><br>&emsp;&emsp;密码再过几天可以被变更（0表示随时可被变更）<br><br>&emsp;&emsp;密码再过几天必须被变更（99999表示永不过期）<br><br>&emsp;&emsp;密码过期前几天系统提醒用户（默认为一周）<br><br>&emsp;&emsp;密码过期几天后帐号会被锁定<br><br>&emsp;&emsp;从1970年1月1日算起，多少天后帐号失效<br></p><h3 id="密码加密"><a href="#密码加密" class="headerlink" title="密码加密"></a>密码加密</h3><h4 id="加密机制"><a href="#加密机制" class="headerlink" title="加密机制"></a>加密机制</h4><p>&emsp;&emsp;加密：明文–&gt;密文<br><br>&emsp;&emsp;解密：密文–&gt;明文<br><br>&emsp;&emsp;单向加密：哈希算法，原文不同，密文必不同<br><br>&emsp;&emsp;&emsp;&emsp;相同算法定长输出，获得密文不可逆推出原始数据<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;雪崩效应：初始条件的微小改变，引起结果的巨大改变<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>md5: message digest,128bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha1: secure hash algorithm,160bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha224: 224bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha256: 256bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha384: 384bits</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>sha512: 512bits</code><br><br>&emsp;&emsp;更改加密算法authconfig    –passalgo=sha256–update<br></p><h3 id="密码的复杂性策略"><a href="#密码的复杂性策略" class="headerlink" title="密码的复杂性策略"></a>密码的复杂性策略</h3><p>&emsp;&emsp;使用数字、大写字母、小写字母及特殊字符中至少3种<br><br>&emsp;&emsp;足够长<br><br>&emsp;&emsp;使用随机密码<br><br>&emsp;&emsp;定期更换，不要使用最近曾经使用过的密码<br></p><h3 id="密码期限"><a href="#密码期限" class="headerlink" title="密码期限"></a>密码期限</h3><p><img src="http://i1.fuimg.com/709978/9bd1eb0b738c1886.png" alt=""><br></p><h3 id="roup-文件格式"><a href="#roup-文件格式" class="headerlink" title="roup 文件格式"></a>roup 文件格式</h3><p>&emsp;&emsp;群组名称：就是群组名称<br><br>&emsp;&emsp;群组密码：通常不需要设定，密码是被记录在/etc/gshadow<br><br>&emsp;&emsp;GID：就是群组的ID<br><br>&emsp;&emsp;以当前组为附加组的用户列表（分隔符为逗号）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux企业运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 企业运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>十四、Linux认证授权及用户定义及组的类别</title>
       <link href="/2020/03/22/%E5%8D%81%E5%9B%9B%E3%80%81Linux%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%E5%8F%8A%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E5%8F%8A%E7%BB%84%E7%9A%84%E7%B1%BB%E5%88%AB/"/>
       <url>/2020/03/22/%E5%8D%81%E5%9B%9B%E3%80%81Linux%E8%AE%A4%E8%AF%81%E6%8E%88%E6%9D%83%E5%8F%8A%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E5%8F%8A%E7%BB%84%E7%9A%84%E7%B1%BB%E5%88%AB/</url>
@@ -20,9 +49,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -49,9 +78,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -78,9 +107,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -107,9 +136,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -136,9 +165,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -165,9 +194,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -194,9 +223,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -223,9 +252,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -252,9 +281,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -281,9 +310,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -310,9 +339,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -339,9 +368,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -368,9 +397,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
