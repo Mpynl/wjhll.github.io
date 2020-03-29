@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>十、Linux 文件通配符进阶及cp命令详解 - 互联网那些事儿</title>
+    <title>十六、Linux用户权限设置及企业管理 - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）创建空文件和刷新时间touch命令&amp;emsp;&amp;emsp;touch[OPTION]…FILE…&amp;emsp;&amp;emsp;-a仅改变atime和ctime&amp;emsp;&amp;emsp;-m仅改变mti,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,文件操作&amp;emsp;&amp;emsp;vipw和vigr&amp;emsp;&amp;emsp;pwck和grpck&amp;emsp;&amp;emsp;vipw命令相当于nano /etc/passwd,用于更改用户密码&amp;emsp;,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -57,7 +57,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">十、Linux 文件通配符进阶及cp命令详解</h3>
+        <h3 class="subtitle">十六、Linux用户权限设置及企业管理</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -90,22 +90,22 @@
                 <a href="/categories/Linux企业运维"><b>「
                     </b>LINUX企业运维<b> 」</b></a>
                 
-                March 08, 2020
+                March 29, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/03/08/%E5%8D%81%E3%80%81Linux-%E6%96%87%E4%BB%B6%E9%80%9A%E9%85%8D%E7%AC%A6%E8%BF%9B%E9%98%B6%E5%8F%8Acp%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="十、Linux 文件通配符进阶及cp命令详解" class="">十、Linux 文件通配符进阶及cp命令详解</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/03/29/%E5%8D%81%E5%85%AD%E3%80%81Linux%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE%E5%8F%8A%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86/" title="十六、Linux用户权限设置及企业管理" class="">十六、Linux用户权限设置及企业管理</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2k
+                    8.4k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
+                    8 mins.
                 </span>
                 
                 
@@ -139,10 +139,22 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="（一）创建空文件和刷新时间"><a href="#（一）创建空文件和刷新时间" class="headerlink" title="（一）创建空文件和刷新时间"></a>（一）创建空文件和刷新时间</h2><h3 id="touch命令"><a href="#touch命令" class="headerlink" title="touch命令"></a>touch命令</h3><p>&emsp;&emsp;touch[OPTION]…FILE…<br><br>&emsp;&emsp;-a仅改变atime和ctime<br><br>&emsp;&emsp;-m仅改变mtime和ctime<br><br>&emsp;&emsp;-t [[CC]YY]MMDDhhmm[.ss]<br><br>&emsp;&emsp;&emsp;&emsp;指定atime和mtime的时间戳<br><br>&emsp;&emsp;-c 还如果文件不存在，则不予创建<br></p>
-<h3 id="（二）复制文件和目录CP"><a href="#（二）复制文件和目录CP" class="headerlink" title="（二）复制文件和目录CP"></a>（二）复制文件和目录CP</h3><p>&emsp;&emsp;cp [OPTION]…[-T]SOURCE DEST<br><br>&emsp;&emsp;cp [OPTION]…SOURCE…DIRECTORY<br><br>&emsp;&emsp;cp [OPTIONJ…-t DIRECTORY SOURCE…<br><br>&emsp;&emsp;cp SRC DEST<br><br>&emsp;&emsp;SRC是文件：<br><br>&emsp;&emsp;&emsp;&emsp;如果目标不存在：新建DEST，并将SRC中内容填充至DEST中<br><br>&emsp;&emsp;&emsp;&emsp;如果目标存在：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如果DEST是文件：将SRC中的内容覆盖至DEST中，基于安全，建议为cp命令使用 -i选项<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如果DEST是目录：在DEST下新建与原文件同名的文件，并将SRC中内容填充至新文件中<br></p>
-<h4 id="复制cp"><a href="#复制cp" class="headerlink" title="复制cp"></a>复制cp</h4><p><img src="https://i2.tiimg.com/709978/fc9780e1d69ce404.png" alt=""></p>
-<h3 id="cp-选项"><a href="#cp-选项" class="headerlink" title="cp 选项"></a>cp 选项</h3><p>&emsp;&emsp;-i：覆盖前提示  -n：不榿盖，注意两者顺序<br><br>&emsp;&emsp;-r,-R：递归复制目录及内部的所有内容<br><br>&emsp;&emsp;-a：归档，相当于-dR –preserv=all<br><br>&emsp;&emsp;-d：–no-dereference–preserv=links不复制原文件，只复制链接名<br><br>&emsp;&emsp;–preserv[=ATTR_LIST]<br><br>&emsp;&emsp;&emsp;&emsp;mode:权限<br><br>&emsp;&emsp;&emsp;&emsp;ownership:属主属组<br><br>&emsp;&emsp;&emsp;&emsp;timestamp:<br><br>&emsp;&emsp;&emsp;&emsp;links<br><br>&emsp;&emsp;&emsp;&emsp;xattr<br><br>&emsp;&emsp;&emsp;&emsp;context<br><br>&emsp;&emsp;-p：等同–preserv=mode,ownership,timestamp<br><br>&emsp;&emsp;-v：–verbose<br><br>&emsp;&emsp;-f：–force<br><br>&emsp;&emsp;-u:–update只复制源比目标更新文件或目标不存在的文件<br><br>&emsp;&emsp;–backup=numbered目标存在覆盖前先备份加数字后缀<br></p>
+            <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>&emsp;&emsp;vipw和vigr<br><br>&emsp;&emsp;pwck和grpck<br><br>&emsp;&emsp;vipw命令相当于nano /etc/passwd,用于更改用户密码<br><br>&emsp;&emsp;vigr命令相当于nano /etc/group,用于更改组的相关文件<br><br>&emsp;&emsp;pwck 命令用于检查用户密码的配置格式是否正确<br><br>&emsp;&emsp;grpck 用于检查组的配置文件的格式的正确性。<br><br>&emsp;&emsp;一般情况下不建议直接更改用于配置命令。我们推荐通过以下的几条命令来更改相关配置。<br></p>
+<h2 id="用户和组的配置文件"><a href="#用户和组的配置文件" class="headerlink" title="用户和组的配置文件"></a>用户和组的配置文件</h2><p>&emsp;&emsp;用户管理命令<br><br>&emsp;&emsp;&emsp;&emsp;／useradd<br><br>&emsp;&emsp;&emsp;&emsp;／usermod<br><br>&emsp;&emsp;&emsp;&emsp;／userdel<br><br>&emsp;&emsp;组帐号维护命令<br><br>&emsp;&emsp;&emsp;&emsp;groupadd<br><br>&emsp;&emsp;&emsp;&emsp;groupmod<br><br>&emsp;&emsp;&emsp;&emsp;groupdel<br><br>&emsp;&emsp;查看某一用户的相关信息可以使用命令getnet passwd +用户名。<br></p>
+<h2 id="用户创建"><a href="#用户创建" class="headerlink" title="用户创建"></a>用户创建</h2><p>&emsp;&emsp;<code>useradd [options] LOGIN</code><br><br>&emsp;&emsp;<code>-u UID</code><br><br>&emsp;&emsp;<code>-o配合-u选项，不检查UID的唯一性</code><br><br>&emsp;&emsp;<code>-g GID：指明用户所属基本组，可为组名，也可以GID</code><br><br>&emsp;&emsp;<code>-c &quot;COMMENT&quot;：用户的注释信息</code><br><br>&emsp;&emsp;<code>-d HOME-DIR.以指定的路径（不存在）为家目录</code><br><br>&emsp;&emsp;<code>-s SHELL:指明用户的默认shell程序</code><br><br>&emsp;&emsp;&emsp;&emsp;可用列表在/etc/shells文件中<br><br>&emsp;&emsp;<code>-G GROUP1[,GROUP2,...]：为用户指明附加组，组须事先存在</code><br><br>&emsp;&emsp;<code>-N不创建私用组做主组，使用users组做主组</code><br><br>&emsp;&emsp;<code>-r：创建系统用户CentOS6：ID&lt;500，CentOS7：ID&lt;1000</code><br><br>&emsp;&emsp;<code>-m创建家目录，用于系统用户</code><br><br>&emsp;&emsp;<code>-M不创建家目录，用于非系统用户</code><br><br>&emsp;&emsp;默认值设定：/etc/default/useradd文件中<br></p>
+<h2 id="显示或更改默认设置"><a href="#显示或更改默认设置" class="headerlink" title="显示或更改默认设置"></a>显示或更改默认设置</h2><p>&emsp;&emsp;<code>useradd -D</code><br><br>&emsp;&emsp;<code>useradd –D –s SHELL</code><br><br>&emsp;&emsp;<code>useradd –D -b BASE_DIR</code><br><br>&emsp;&emsp;<code>useradd –D –g GROUP</code><br></p>
+<h2 id="新建用户的相关文件和命令"><a href="#新建用户的相关文件和命令" class="headerlink" title="新建用户的相关文件和命令"></a>新建用户的相关文件和命令</h2><p>&emsp;&emsp;/etc/default/useradd<br><br>&emsp;&emsp;/etc/skel/*<br><br>&emsp;&emsp;/etc/login.defs<br><br>&emsp;&emsp;newusers passwd 格式文件批量创建用户<br><br>&emsp;&emsp;chpasswd 批量修改用户口令<br></p>
+<h2 id="用户属性修改"><a href="#用户属性修改" class="headerlink" title="用户属性修改"></a>用户属性修改</h2><p>&emsp;&emsp;<code>usermod [OPTION] login</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-u UID: 新UID</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-g GID: 新主组</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-G GROUP1[,GROUP2,...[,GROUPN]]]：新附加组，原来的附加组将会被覆盖</code><br><br>&emsp;&emsp;若保留原有，则要同时使用 -a选项<br><br>&emsp;&emsp;&emsp;&emsp;<code>-s SHELL：新的默认SHELL</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-c OMMENT&#39;：新的注释信息</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-d HOME: 新家目录不会自动创建，若要创建新家目录并移动原家数据，同时使用-m选项</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-l login-name: 新的名字</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-L: lock指定用户，在/etc/shadow密码栏的增加！</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-U: unlock指定用户，将/etc/shadow密码栏的！拿掉</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-e YYYY-MM-DD: 指明用户账号过期日期</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-f INACTIVE: 设定非活动期限</code><br></p>
+<h2 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h2><p>&emsp;&emsp;userdel[OPTION]…login<br><br>&emsp;&emsp;&emsp;&emsp;<code>-r:删除用户家目录</code><br></p>
+<h3 id="查看用户相关的ID信息"><a href="#查看用户相关的ID信息" class="headerlink" title="查看用户相关的ID信息"></a>查看用户相关的ID信息</h3><p>&emsp;&emsp;id [OPTION]…[USER]<br><br>&emsp;&emsp;&emsp;&emsp;<code>-u：显示UID</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-g: 显示GID</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-G:显示用户所属的组的ID</code><br><br> &emsp;&emsp;&emsp;&emsp;<code>-n:显示名称，需配合ugG使用</code><br></p>
+<h3 id="切换命令或以其他用户身份执行命令"><a href="#切换命令或以其他用户身份执行命令" class="headerlink" title="切换命令或以其他用户身份执行命令"></a>切换命令或以其他用户身份执行命令</h3><p>&emsp;&emsp;<code>su[options...][-][user[args...]]</code><br><br>&emsp;&emsp;切换用户的方式<br><br>&emsp;&emsp;&emsp;&emsp;<code>su UserName：非登录式切换，即不会读取目标用户的配置文件，不改变当前工作目录</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>su -UserName：登录式切换，会读取目标用户的配置文件，切换至家目录，完全切换</code><br><br>&emsp;&emsp;root su至其他用户无须密码；非root用户切换时需要密码<br><br>&emsp;&emsp;换个身份执行命令：<br><br>&emsp;&emsp;&emsp;&emsp;<code>su[-]UserName –c COMMAND</code><br><br>&emsp;&emsp;选项：-l    –login<br><br>&emsp;&emsp;&emsp;&emsp;<code>su -| UserName相当于su - UserName</code><br></p>
+<h2 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h2><p>&emsp;&emsp;passwd [OPTIONS] UserName: 修改指定用户的密码<br><br>&emsp;&emsp;常用选项: <br><br>&emsp;&emsp;&emsp;&emsp;<code>-d：删除指定用户密码</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-l：锁定指定用户</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-u：解锁指定用户</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-e：强制用户下次登录修改密码</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-f: 强制操作</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-n mindays: 指定最短使用期限</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-x maxdays: 最大使用期限</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-w warndays: 提前多少天开始警告</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-i inactivedays：非活动期限</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>--stdin：从标准输入接收用户密码</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>echO&quot;PASSWORD&quot;|passwd--stdin USERNAME</code><br></p>
+<h2 id="修改用户密码策略"><a href="#修改用户密码策略" class="headerlink" title="修改用户密码策略"></a>修改用户密码策略</h2><p>&emsp;&emsp;<code>chage[OPTION]...LOGIN</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-d LAST_DAY</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-E -–expiredate EXPIRE_DATE</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-I -–inactive INACTIVE</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-m –mindays MIN_DAYS</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-M –maxdays MAX_DAYS</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-W –warndays WARN_DAYS</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-l  显示密码策略</code><br><br>&emsp;&emsp;示例:<br>&emsp;&emsp;&emsp;&emsp;<code>chage-d 0 tom下一次登录强制重设密码</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>chage -m 0 -M42 -W14 -I7 tom</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>chage –E 2016-09-10 tom</code><br></p>
+<h2 id="用户相关其他命令"><a href="#用户相关其他命令" class="headerlink" title="用户相关其他命令"></a>用户相关其他命令</h2><p>&emsp;&emsp;<code>chfn指定个人信息</code><br><br>&emsp;&emsp;<code>chsh指定shell</code><br><br>&emsp;&emsp;<code>finger</code><br></p>
+<h2 id="创建组"><a href="#创建组" class="headerlink" title="创建组"></a>创建组</h2><p>&emsp;&emsp;<code>groupadd[OPTION]...group_name</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-g GID: 指明GIDS；[GID_MIN,GID_MAX]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-r: 创建系统组</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>CentOS6：ID&lt;500</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>CentOS7：ID&lt;1000</code><br></p>
+<h2 id="修改和删除组"><a href="#修改和删除组" class="headerlink" title="修改和删除组"></a>修改和删除组</h2><p>&emsp;&emsp;<code>组属性修改groupmod</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>groupmod[OPTION]..group</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-ngroup_name: 新名字</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-g GID: 新的GID</code><br><br>&emsp;&emsp;<code>组删除groupdel</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>groupdel GROUP</code><br></p>
+<h2 id="更改组密码"><a href="#更改组密码" class="headerlink" title="更改组密码"></a>更改组密码</h2><p>&emsp;&emsp;<code>组密码gpasswd</code><br><br>&emsp;&emsp;<code>gpasswd [OPTION] GROUP</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-a user将user添加至指定组中</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-d user从指定组中移除用户user</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-A user1,user2,..设置有管理权限的用户列</code><br><br>&emsp;&emsp;<code>newgrp命令：临时切换主组</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>如果用户本不属于此组，则需要组密码</code><br></p>
+<h2 id="更改和查看组成员"><a href="#更改和查看组成员" class="headerlink" title="更改和查看组成员"></a>更改和查看组成员</h2><p>&emsp;&emsp;<code>groupmems [options] [action]</code><br><br>&emsp;&emsp;options:<br><br>&emsp;&emsp;&emsp;&emsp;<code>-g, --groupgroupname更改为指定组（只有root）</code><br><br>&emsp;&emsp;Actions:<br><br>&emsp;&emsp;&emsp;&emsp;<code>-a, --addusername   指定用户加入组</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-d,--deleteusername   从组中删除角户</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-p, --purge    从组中清除所有成员</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-l, --list     显示组成员列表</code><br><br>&emsp;&emsp;<code>groups[OPTION].[USERNAME]..查看用户所属组列表</code><br></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -201,7 +213,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）创建空文件和刷新时间"><span class="toc-number">1.</span> <span class="toc-text">（一）创建空文件和刷新时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#touch命令"><span class="toc-number">1.1.</span> <span class="toc-text">touch命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（二）复制文件和目录CP"><span class="toc-number">1.2.</span> <span class="toc-text">（二）复制文件和目录CP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-选项"><span class="toc-number">1.3.</span> <span class="toc-text">cp 选项</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">1.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户和组的配置文件"><span class="toc-number">2.</span> <span class="toc-text">用户和组的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户创建"><span class="toc-number">3.</span> <span class="toc-text">用户创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示或更改默认设置"><span class="toc-number">4.</span> <span class="toc-text">显示或更改默认设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建用户的相关文件和命令"><span class="toc-number">5.</span> <span class="toc-text">新建用户的相关文件和命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户属性修改"><span class="toc-number">6.</span> <span class="toc-text">用户属性修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除用户"><span class="toc-number">7.</span> <span class="toc-text">删除用户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看用户相关的ID信息"><span class="toc-number">7.1.</span> <span class="toc-text">查看用户相关的ID信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换命令或以其他用户身份执行命令"><span class="toc-number">7.2.</span> <span class="toc-text">切换命令或以其他用户身份执行命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置密码"><span class="toc-number">8.</span> <span class="toc-text">设置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改用户密码策略"><span class="toc-number">9.</span> <span class="toc-text">修改用户密码策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户相关其他命令"><span class="toc-number">10.</span> <span class="toc-text">用户相关其他命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建组"><span class="toc-number">11.</span> <span class="toc-text">创建组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改和删除组"><span class="toc-number">12.</span> <span class="toc-text">修改和删除组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改组密码"><span class="toc-number">13.</span> <span class="toc-text">更改组密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改和查看组成员"><span class="toc-number">14.</span> <span class="toc-text">更改和查看组成员</span></a></li></ol>
                 </div>
             </div>
             
