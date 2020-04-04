@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>十七、Linux文件执行、读写权限管理 - 互联网那些事儿</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Python 人工智能,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,十七、Linux文件执行、读写权限管理权限设置相关命令&amp;emsp;&amp;emsp;chmod 可以对文件进行修改权限操作。命令格式：chmod + 用户+权限&amp;emsp;&amp;emsp;chown 可以修改,"> 
+    <meta name="author" content="王建惠"> 
+    <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">互联网那些事儿</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">十七、Linux文件执行、读写权限管理</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/Linux企业运维"><b>「
+                    </b>LINUX企业运维<b> 」</b></a>
+                
+                April 04, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/04/04/%E5%8D%81%E4%B8%83%E3%80%81Linux%E6%96%87%E4%BB%B6%E6%89%A7%E8%A1%8C%E3%80%81%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="十七、Linux文件执行、读写权限管理" class="">十七、Linux文件执行、读写权限管理</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    11k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    10 mins.
+                </span>
+                
+                
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E8%BF%90%E7%BB%B4/" rel="tag">企业运维</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="十七、Linux文件执行、读写权限管理"><a href="#十七、Linux文件执行、读写权限管理" class="headerlink" title="十七、Linux文件执行、读写权限管理"></a>十七、Linux文件执行、读写权限管理</h2><h3 id="权限设置相关命令"><a href="#权限设置相关命令" class="headerlink" title="权限设置相关命令"></a>权限设置相关命令</h3><p>&emsp;&emsp;chmod 可以对文件进行修改权限操作。命令格式：chmod + 用户+权限<br><br>&emsp;&emsp;chown 可以修改文件的所有者和所有组。chown + 权限+用户名:组 + 文件<br><br>&emsp;&emsp;chmod 也可以使用数字代表相关权限，r:4 , w:2 ,x 1,chmod 764 代表的权限就是：rwx rw- x–-<br></p>
+<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p>&emsp;&emsp;文件属性<br><br><img src="http://i2.tiimg.com/709978/7914f969a2eb418a.png" alt=""><br>&emsp;&emsp;文件属性操作<br><br>&emsp;&emsp;&emsp;&emsp;多chown设置文件的所有者<br><br>&emsp;&emsp;&emsp;&emsp;多chgrp设置文件的属组信息<br></p>
+<h3 id="修改文件属主和属组"><a href="#修改文件属主和属组" class="headerlink" title="修改文件属主和属组"></a>修改文件属主和属组</h3><p>&emsp;&emsp;修改文件的属主chown<br><br>&emsp;&emsp;&emsp;&emsp;<code>chown [OPTION]...[OWNER]:[GROUP]] FILE…</code><br><br>&emsp;&emsp;用法：<br><br>&emsp;&emsp;&emsp;&emsp;<code>OWNER</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>OWNER: GROUP</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>:GROUP</code><br><br>&emsp;&emsp;&emsp;&emsp;命令中的冒号可用.替换<br><br>&emsp;&emsp;&emsp;&emsp;-R: 递归<br><br>&emsp;&emsp;&emsp;&emsp;<code>chown [OPTIONJ...   --reference=RFILE FILE…</code><br><br>&emsp;&emsp;修改文件的属组：chgrp<br><br>&emsp;&emsp;&emsp;&emsp;<code>chgrp [OPTIONJ...GROUPFILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>chgrp [OPTION]...--reference=RFILEFILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;-R递归<br></p>
+<h3 id="文件权限-1"><a href="#文件权限-1" class="headerlink" title="文件权限"></a>文件权限</h3><p>&emsp;&emsp;文件的权限主要针对三类对象进行定义<br><br>&emsp;&emsp;&emsp;&emsp;owner: 属主，u<br><br>&emsp;&emsp;&emsp;&emsp;group: 属组，g<br><br>&emsp;&emsp;&emsp;&emsp;other: 其他，0<br><br>&emsp;&emsp;每个文件针对每类访问者都定义了三种权限<br><br>&emsp;&emsp;&emsp;&emsp;r: Readable<br><br>&emsp;&emsp;&emsp;&emsp;w: Writable<br><br>&emsp;&emsp;&emsp;&emsp;x：eXcutable<br><br>&emsp;&emsp;文件: <br><br>&emsp;&emsp;&emsp;&emsp;r: 可使用文件查看类工具获取其内容<br><br>&emsp;&emsp;&emsp;&emsp;w: 可修改其内容<br><br>&emsp;&emsp;&emsp;&emsp;x：可以把此文件提请内核启动为一个进程<br><br>&emsp;&emsp;目录:<br><br>&emsp;&emsp;&emsp;&emsp;r: 可以使用ls查看此目录中文件列表<br><br>&emsp;&emsp;&emsp;&emsp;w: 可在此目录中创建文件，也可删除此目录中的文件<br><br>&emsp;&emsp;&emsp;&emsp;x: 可以使用ls -l查看此目录中文件列表，可以cd进入此目录<br><br>&emsp;&emsp;&emsp;&emsp;X：只给目录x权限，不给文件x权限</p>
+<h3 id="文件权限操作"><a href="#文件权限操作" class="headerlink" title="文件权限操作"></a>文件权限操作</h3><p>&emsp;&emsp;文件权限（rwx|X）<br><br><img src="http://i1.fuimg.com/709978/7efb9714e58a3fa9.png" alt=""><br></p>
+<h3 id="文件权限操作命令"><a href="#文件权限操作命令" class="headerlink" title="文件权限操作命令"></a>文件权限操作命令</h3><p>&emsp;&emsp;chmod<br></p>
+<h3 id="八进制数字"><a href="#八进制数字" class="headerlink" title="八进制数字"></a>八进制数字</h3><p>&emsp;&emsp;<code>--- 000 0</code><br><br>&emsp;&emsp;<code>--x 001 1</code><br><br>&emsp;&emsp;<code>-w- 010 2</code><br><br>&emsp;&emsp;<code>-wx 011 3</code><br><br>&emsp;&emsp;<code>r-- 100 4</code><br><br>&emsp;&emsp;<code>r-x 101 5</code><br><br>&emsp;&emsp;<code>rw- 110 6</code><br><br>&emsp;&emsp;<code>rwx 111 7</code><br><br>&emsp;&emsp;例如：<br><br>&emsp;&emsp;&emsp;&emsp;<code>640: rw-r-----&lt;br&gt;</code><br>&emsp;&emsp;&emsp;&emsp;<code>755: rwxr-xr-x&lt;br&gt;</code></p>
+<h3 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h3><p>&emsp;&emsp;<code>chmod [OPTION]… OCTAL-MODE FILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;-R: 递归修改权限<br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod [OPTION]...MODE[,MODE]...FILE..</code><br><br>&emsp;&emsp;MODE:<br><br>&emsp;&emsp;修改一类用户的所有权限:<br><br>&emsp;&emsp;u=&emsp;&emsp; g=&emsp;&emsp; o=&emsp;&emsp; ug=&emsp;&emsp; a=&emsp;&emsp; u=&emsp;&emsp;,g=&emsp;&emsp;<br><br>&emsp;&emsp;修改一类用户某位或某些位权限<br><br>&emsp;&emsp;u+&emsp;&emsp; u-&emsp;&emsp; g+&emsp;&emsp; g-&emsp;&emsp; o+&emsp;&emsp; o-&emsp;&emsp; a+&emsp;&emsp; a-&emsp;&emsp; +&emsp;&emsp; - <br><br>&emsp;&emsp;<code>chmod [OPTION]...--reference=RFIL EFILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;参考RFILE文件的权限，将FILE的修改为同RFILE<br></p>
+<h3 id="权限设置示例"><a href="#权限设置示例" class="headerlink" title="权限设置示例"></a>权限设置示例</h3><p>&emsp;&emsp;<code>chgrp sales testfile</code><br><br>&emsp;&emsp;<code>chownm root:admins testfile</code><br><br>&emsp;&emsp;<code>chmod u+wx,g-r,o=rx file</code><br><br>&emsp;&emsp;<code>chmod –R g+rwX/textdir</code><br><br>&emsp;&emsp;<code>chmd 600 file</code><br><br>&emsp;&emsp;<code>chown mage testfile</code><br></p>
+<h3 id="新建文件和目录的默认权限"><a href="#新建文件和目录的默认权限" class="headerlink" title="新建文件和目录的默认权限"></a>新建文件和目录的默认权限</h3><p>&emsp;&emsp;umask值可以用来保留在创建文件权限<br><br>&emsp;&emsp;新建FILE权：666-umask<br><br>&emsp;&emsp;&emsp;&emsp;如果所得结果某位存在执行（奇数）权限，则将其权限+1<br><br>&emsp;&emsp;新建DIR权限：777-umask<br><br>&emsp;&emsp;非特权用户umask是002<br><br>&emsp;&emsp;root的umask是022<br><br>&emsp;&emsp;umask：查看<br><br>&emsp;&emsp;umask#：设定<br><br>&emsp;&emsp;&emsp;&emsp;umask 002<br><br>&emsp;&emsp;umask -S模式方式显示<br><br>&emsp;&emsp;umask -P 输出可被调用<br><br>&emsp;&emsp;全局设置/etc/bashrc用户设置：～/.bashrc<br></p>
+<h3 id="Linux-文件系统上的特殊权限"><a href="#Linux-文件系统上的特殊权限" class="headerlink" title="Linux 文件系统上的特殊权限"></a>Linux 文件系统上的特殊权限</h3><p>&emsp;&emsp;<code>SUID,SGID,Sticky</code><br><br>&emsp;&emsp;<code>三种常用权限：r,w,x,user,group,other</code><br><br>&emsp;&emsp;安全上下文<br><br>&emsp;&emsp;前提：进程有属主和属组；文件有属主和属组<br><br>&emsp;&emsp;（1）任何一个可执行程序文件能不能启动为进程，取决发起者对程序文件是否拥有执行权限<br><br>&emsp;&emsp;（2）启动为进程之后，其进程的属主为发起者，进程的属组为发起者所属的组<br><br>&emsp;&emsp;（3）进程访问文件时的权限，取决于进程的发起者<br><br>&emsp;&emsp;&emsp;&emsp;(a)进程的发起者，同文件的属主：则应用文件属主权限<br><br>&emsp;&emsp;&emsp;&emsp;(b)进程的发起者属于文件属组；则应用文件属组权限<br><br>&emsp;&emsp;&emsp;&emsp;(c)应用文件”其它”权限<br></p>
+<h3 id="可执行文件suid权限"><a href="#可执行文件suid权限" class="headerlink" title="可执行文件suid权限"></a>可执行文件suid权限</h3><p>&emsp;&emsp;任何一个可执行程序文件能不能启动为进程：取决发起者对程序文件是否拥有执行权限<br><br>&emsp;&emsp;启动为进程之后，其进程的属主为原程序文件的属主<br><br>&emsp;&emsp;SUID只对二进制可执行程序有效<br><br>&emsp;&emsp;SUID设置在目录上无意义<br><br>&emsp;&emsp;权限设定：<br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod u+s FILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod u-s FILE…</code><br></p>
+<h3 id="可执行文件sgid权限"><a href="#可执行文件sgid权限" class="headerlink" title="可执行文件sgid权限"></a>可执行文件sgid权限</h3><p>&emsp;&emsp;任何一个可执行程序文件能不能启动为进程：取决发起者对程序文件是否拥有执行权限<br><br>&emsp;&emsp;启动为进程之后，其进程的属组为原程序文件的属组<br><br>&emsp;&emsp;权限设定：<br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod g+s FILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod g-s FILE…</code><br></p>
+<h3 id="目录上的sgid权限"><a href="#目录上的sgid权限" class="headerlink" title="目录上的sgid权限"></a>目录上的sgid权限</h3><p>&emsp;&emsp;默认情况下，用户创建文件时，其属组为此用户所属的主组<br><br>&emsp;&emsp;一旦某目录被设定了SGID，则对此目录有写权限的用户在此目录中创建的文件所属的组为此目录的属组<br><br>&emsp;&emsp;通常用于创建一个协作目录<br><br>&emsp;&emsp;权限设定:<br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod g+s DIR…</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod g-s DIR…</code><br></p>
+<h3 id="Sticky-位"><a href="#Sticky-位" class="headerlink" title="Sticky 位"></a>Sticky 位</h3><p>&emsp;&emsp;具有写权限的目录通常用户可以删除该目录中的任何文件，无论该文件的权限或拥有权<br><br>&emsp;&emsp;在目录设置Sticky位，只有文件的所有者或root可以删除该文件<br><br>&emsp;&emsp;sticky设置在文件上无意义<br><br>&emsp;&emsp;权限设定<br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod o+t DIR…</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>chmod o-t DIR…</code><br><br>&emsp;&emsp;例如<br><br>&emsp;&emsp;&emsp;&emsp;<code>ls -ld /tmp drwxrwxrwt 12 root root 4096 Nov 2 15：44/tmp</code><br></p>
+<h3 id="特殊权限数字"><a href="#特殊权限数字" class="headerlink" title="特殊权限数字"></a>特殊权限数字</h3><p>&emsp;&emsp;SUID SGID STICKY<br><br>&emsp;&emsp;&emsp;&emsp;<code>000 0</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>001 1</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>010 2</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>011 3</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>100 4</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>101 5</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>110 6</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>111 7</code><br><br>&emsp;&emsp;<code>chmod 4777 /tmp/a.txt</code><br></p>
+<h3 id="权限位映射"><a href="#权限位映射" class="headerlink" title="权限位映射"></a>权限位映射</h3><p>&emsp;&emsp;SUID: user,占据属主的执行权限位<br><br>&emsp;&emsp;&emsp;&emsp;s: 属主拥有x权限<br><br>&emsp;&emsp;S: 属主没有x权限<br><br>&emsp;&emsp;SGID: group,占据属组的执行权限位<br><br>&emsp;&emsp;&emsp;&emsp;s: group拥有x权限<br><br>&emsp;&emsp;&emsp;&emsp;S: group没有x权限<br><br>&emsp;&emsp;Sticky: other,占据other的执行权限位<br><br>&emsp;&emsp;&emsp;&emsp;t: other拥有x权限<br><br>&emsp;&emsp;&emsp;&emsp;T：other没有x权限<br></p>
+<h3 id="设定文件特定权限"><a href="#设定文件特定权限" class="headerlink" title="设定文件特定权限"></a>设定文件特定权限</h3><p>&emsp;&emsp;chattr +i不能删除，改名，更改<br><br>&emsp;&emsp;chattr +a只能追加内容<br><br>&emsp;&emsp;lsattr显示特定属性<br></p>
+<h3 id="访问控制列表"><a href="#访问控制列表" class="headerlink" title="访问控制列表"></a>访问控制列表</h3><p>&emsp;&emsp;ACL：Access Control List，实现灵活的权限管理<br><br>&emsp;&emsp;除了文仵的所有者，所属组和其它人，可以对更多的用户设置权限<br><br>&emsp;&emsp;CentOS7默认创建的xfs和ext4文件系统具有ACL功能<br><br>&emsp;&emsp;CentOS7之前版本，默认手工创建的ext4文件系统无ACL功能，需手动增加<br><br>&emsp;&emsp;&emsp;&emsp;<code>tune2fs –o acl/dev/sdb1</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>mount –o acl/dev/sdbl /mnt/test</code><br><br>&emsp;&emsp;ACL生效顺序: 所有者，自定义用户，自定义组，其他人<br></p>
+<h3 id="访问控制列表-1"><a href="#访问控制列表-1" class="headerlink" title="访问控制列表"></a>访问控制列表</h3><p>&emsp;&emsp;为多用户或者组的文件和目录赋予访问权限rwx<br><br>&emsp;&emsp;<code>mount –o acl/directory</code><br><br>&emsp;&emsp;<code>getfacl file | directory</code><br><br>&emsp;&emsp;<code>setfacl –m u:wang:rwx file | directory</code><br><br>&emsp;&emsp;<code>setfacl –Rm g:sales:rwX directory</code><br><br>&emsp;&emsp;<code>setfacl  -M file.acl file directory</code><br><br>&emsp;&emsp;<code>setfacl  -m g:salesgroup:rw file | directory</code><br><br>&emsp;&emsp;<code>setfacl –m d:u:wang:rx directory</code><br><br>&emsp;&emsp;<code>setfacl –x u:wang file | directory</code><br><br>&emsp;&emsp;<code>setfacl  -X file.acl directory</code><br><br>&emsp;&emsp;ACL文件上的group权限是mask值（自定义用户，自定义组，拥有组的最大权限），而非传统的组权限<br><br>&emsp;&emsp;getfacl可看到特殊权限：flags<br><br>&emsp;&emsp;通过ACL赋予目录默认x权限，目录内文件也不会继承x权限<br><br>&emsp;&emsp;<code>base ACL不能删除</code><br><br>&emsp;&emsp;<code>setfacl –k dir删除默认ACL权限</code><br><br>&emsp;&emsp;<code>setfacl –b file1清除所有ACL权限</code><br><br>&emsp;&emsp;<code>getfacl filel|setfacl --set-file= -file2复制file1的acl权限给file2</code><br><br>&emsp;&emsp;mask只影响除所有者和other的之外的人和组的最大权限<br><br>&emsp;&emsp;Mask需要与用户的权限进行逻辑与运算后，才能变成有限的权限（Effective Permission）<br><br>&emsp;&emsp;&emsp;&emsp;用户或组的设置必须存在于mask权限设定范围内才会生效setfacl-m mask::rx file<br><br>&emsp;&emsp;–set选项会把原有的ACLI.页都删除，用新的替代，需要注意的是一定要包含UGO的设置，不能象-m一样只是添加ACL就可以<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;&emsp;&emsp;<code>setfacl –set u::rw,u:wang:rw,g::r,o::-file1</code><br><br>&emsp;&emsp;备份和恢复ACL<br><br>&emsp;&emsp;主要的文件操作命令cp和mv都支持ACL，只是印命令需要加上 -p参数。但是tar等常见的备份工具是不会保留目录和文件的ACL信息<br><br>&emsp;&emsp;<code>getfacl -R/tmp/dirl&gt;acl.txt</code><br><br>&emsp;&emsp;<code>setfacl-R -b/tmp/dirl</code><br><br>&emsp;&emsp;<code>setfacl-R --set-file=acl.txt /tmp/dir1</code><br><br>&emsp;&emsp;<code>setfacl—restore acl.txt</code><br><br>&emsp;&emsp;<code>getfacl-R /tmp/dir1</code><br></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='75e9819dd06bdb99716c'
+        data-cs='7bd6efa1783c94cd35a86d94f225613935b026da'
+        data-r='wjhll.github.io'
+        data-o='wjhll'
+        data-a='wjhll'
+        data-d=''
+    >Comments</div>
+
+
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://res.cloudinary.com/tridiamond/image/upload/v1573019751/TriDiamond_logo_ui_xeublz.jpg" height=300 width=300></img>
+                    <p>王建惠</p>
+                    <span>Think like an artist, develop like an artisan</span>
+                    <dl>
+                        <dd><a href="https://github.com/wjhll" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">19 <p>Articles</p></a></li>
+                    <li><a href="/categories">2 <p>Categories</p></a></li>
+                    <li><a href="/tags">6 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#十七、Linux文件执行、读写权限管理"><span class="toc-number">1.</span> <span class="toc-text">十七、Linux文件执行、读写权限管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#权限设置相关命令"><span class="toc-number">1.1.</span> <span class="toc-text">权限设置相关命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件权限"><span class="toc-number">1.2.</span> <span class="toc-text">文件权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文件属主和属组"><span class="toc-number">1.3.</span> <span class="toc-text">修改文件属主和属组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件权限-1"><span class="toc-number">1.4.</span> <span class="toc-text">文件权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件权限操作"><span class="toc-number">1.5.</span> <span class="toc-text">文件权限操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件权限操作命令"><span class="toc-number">1.6.</span> <span class="toc-text">文件权限操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八进制数字"><span class="toc-number">1.7.</span> <span class="toc-text">八进制数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文件权限"><span class="toc-number">1.8.</span> <span class="toc-text">修改文件权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限设置示例"><span class="toc-number">1.9.</span> <span class="toc-text">权限设置示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建文件和目录的默认权限"><span class="toc-number">1.10.</span> <span class="toc-text">新建文件和目录的默认权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-文件系统上的特殊权限"><span class="toc-number">1.11.</span> <span class="toc-text">Linux 文件系统上的特殊权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可执行文件suid权限"><span class="toc-number">1.12.</span> <span class="toc-text">可执行文件suid权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可执行文件sgid权限"><span class="toc-number">1.13.</span> <span class="toc-text">可执行文件sgid权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录上的sgid权限"><span class="toc-number">1.14.</span> <span class="toc-text">目录上的sgid权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sticky-位"><span class="toc-number">1.15.</span> <span class="toc-text">Sticky 位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊权限数字"><span class="toc-number">1.16.</span> <span class="toc-text">特殊权限数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限位映射"><span class="toc-number">1.17.</span> <span class="toc-text">权限位映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设定文件特定权限"><span class="toc-number">1.18.</span> <span class="toc-text">设定文件特定权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问控制列表"><span class="toc-number">1.19.</span> <span class="toc-text">访问控制列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问控制列表-1"><span class="toc-number">1.20.</span> <span class="toc-text">访问控制列表</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2020
+        <span class="gradient-text">
+            王建惠
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.3" target="_blank" rel="noopener">v1.4.3</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+
+    
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+
+
+
+    
+<script src="/js/busuanzi.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            if ($('span[id^="busuanzi_"]').length) {
+                initialBusuanzi();
+            }
+        });
+    </script>
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149874671-1');
+    </script>
+
+
+
+
+
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["Think like an artist, develop like an artisan", "艺术家思维去思考问题，工匠创造精神去开发"],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+
+
+
+</html>
