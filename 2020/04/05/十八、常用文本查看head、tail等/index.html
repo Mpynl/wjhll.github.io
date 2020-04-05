@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>三、Linux系统使用和初始化配置 - 互联网那些事儿</title>
+    <title>十八、常用文本查看head、tail等 - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,（一）初始化配置&amp;emsp;&amp;emsp;在第一启动系统会进行相关检测，等所有检测通过之后我们便可以启动系统，在其中的一些设置我们按照默认设置即可。&amp;emsp;&amp;emsp;如果发现网卡未连接，请点击网,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,文件查看文件查看命令：&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;cat，tac，rev&amp;emsp;&amp;emsp;cat [OPTION]…[FILE]…&amp;emsp;&amp;emsp;&amp;emsp;&amp;em,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -57,7 +57,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">三、Linux系统使用和初始化配置</h3>
+        <h3 class="subtitle">十八、常用文本查看head、tail等</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -90,22 +90,22 @@
                 <a href="/categories/Linux企业运维"><b>「
                     </b>LINUX企业运维<b> 」</b></a>
                 
-                February 21, 2020
+                April 05, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/02/21/%E4%B8%89%E3%80%81Linux%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/" title="三、Linux系统使用和初始化配置" class="">三、Linux系统使用和初始化配置</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/04/05/%E5%8D%81%E5%85%AB%E3%80%81%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E6%9F%A5%E7%9C%8Bhead%E3%80%81tail%E7%AD%89/" title="十八、常用文本查看head、tail等" class="">十八、常用文本查看head、tail等</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.1k
+                    4.8k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
+                    4 mins.
                 </span>
                 
                 
@@ -139,8 +139,18 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="（一）初始化配置"><a href="#（一）初始化配置" class="headerlink" title="（一）初始化配置"></a>（一）初始化配置</h2><p>&emsp;&emsp;在第一启动系统会进行相关检测，等所有检测通过之后我们便可以启动系统，在其中的一些设置我们按照默认设置即可。<br><br>&emsp;&emsp;如果发现网卡未连接，请点击网络连接的图标，点击Edit Connections,在弹出的界面选择你使用的网卡名，把自动连接的对勾点上即Connect automatically即可。<br><br><img src="https://i2.tiimg.com/709978/e7385d975d353c5f.png" alt=""><br><br>&emsp;&emsp;得到IP地址之后我们就可以使用相关的工具对系统进行远程访问常用的Windows下常用的工具由Xhell ，SecureCRT，Putty等工具，使用方法是输入IP地址，端口号，用户名和密码就可以正常连接，SSH服务端口号一般是22，当然也可以自己设定。Mac或者Linux 可以直接使用自带的终端工具进行连接，相应的命令是：用户名@IP:端口号，默认22号端口可以不输，会车之后输入密码便可以连接到相应的服务器，例如 <br><br>&emsp;&emsp;<a href="mailto:root@192.168.1.22">root@192.168.1.22</a><br></p>
-<h2 id="（二）Linux常用命令介绍"><a href="#（二）Linux常用命令介绍" class="headerlink" title="（二）Linux常用命令介绍"></a>（二）Linux常用命令介绍</h2><p>&emsp;&emsp;1. 查看系统内核版本命令：uname -r ,其中3.10.0 就是内核版本号。<br><br><img src="https://i1.fuimg.com/709978/bf0d6b3331739768.png" alt=""><br><br>&emsp;&emsp;2.查看网卡级网络信息命令：ifconfig，eth0就代表你现在使用的网卡信息，其中0代表是系统中的第一块网卡。<br><br><img src="https://i2.tiimg.com/709978/ad69ed2882de4804.png" alt=""><br><br>&emsp;&emsp;3.进入某一个文件夹命令：cd /文件夹/。<br><br>&emsp;&emsp;4.查看发行系统的版本命令: cat /etc/ctntos-relase。<br><br><img src="https://i2.tiimg.com/709978/b6e964ff17b8a426.png" alt=""><br><br>&emsp;&emsp;5.查看系统总内存的大小：cat /proc/meminfo。<br><br><img src="https://i1.fuimg.com/709978/68a90822eff57171.png" alt=""><br><br>&emsp;&emsp;6.查看系统分区情况：ls /dev/sda<em>、fdisk -l或者lsblk，lsblk命令只能在系统安装完成才可以使用。<br><br><img src="https://i1.fuimg.com/709978/5d97c21c4b991822.png" alt=""><br><br>&emsp;&emsp;ls /dev/sda</em>命令窗口<br><br><img src="https://i1.fuimg.com/709978/7bbcfcb41cd362ee.png" alt=""><br><br>&emsp;&emsp;fdisk -l 命令窗口<br><br><img src="https://i1.fuimg.com/709978/bda630d28f2fafae.png" alt=""><br><br>&emsp;&emsp;lsblk命令窗口<br><br>&emsp;&emsp;7.关机命令：poweroff、halt、shutdown等命令。<br><br>&emsp;&emsp;8.查看安装rpm包的情况：rpm -qa | wc -l。<br><br><img src="https://i1.fuimg.com/709978/0768bc37f0f043d6.png" alt=""><br><br>&emsp;&emsp;9.查看内存使用情况命令: free。<br><br>&emsp;&emsp;10.查看system call（系统调用）命令：strace，查看library（库调用）：ltrace。</p>
+            <h2 id="文件查看"><a href="#文件查看" class="headerlink" title="文件查看"></a>文件查看</h2><h3 id="文件查看命令："><a href="#文件查看命令：" class="headerlink" title="文件查看命令："></a>文件查看命令：</h3><p>&emsp;&emsp;&emsp;&emsp;cat，tac，rev<br><br>&emsp;&emsp;cat [OPTION]…[FILE]…<br><br>&emsp;&emsp;&emsp;&emsp;-E: 显示行结束符$<br><br>&emsp;&emsp;&emsp;&emsp;-n: 对显示出的每一行进行编号<br><br>&emsp;&emsp;&emsp;&emsp;-A：显示所有控制符<br><br>&emsp;&emsp;&emsp;&emsp;-b：非空行编号<br><br>&emsp;&emsp;&emsp;&emsp;-s：压缩连续的仝行成一行<br><br>&emsp;&emsp;tac<br><br>&emsp;&emsp;rev<br></p>
+<h3 id="分页查看文件内容"><a href="#分页查看文件内容" class="headerlink" title="分页查看文件内容"></a>分页查看文件内容</h3><p>&emsp;&emsp;more:分页查看文件<br><br>&emsp;&emsp;&emsp;&emsp;<code>more [OPTIONS...] FILE...</code><br><br>&emsp;&emsp;&emsp;&emsp;-d:显示翻页及退出提示<br><br>&emsp;&emsp;less：一页一页地查看文件或STDIN输出<br><br>&emsp;&emsp;查看时有用的命令包括:<br><br>&emsp;&emsp;&emsp;&emsp;/文本搜索  &emsp;&emsp;文本<br><br>&emsp;&emsp;&emsp;&emsp;n/N 跳到下一个或上一个配<br><br>&emsp;&emsp;less 命令是man命令使用的分页器<br></p>
+<h3 id="显示文本前或文本后内容"><a href="#显示文本前或文本后内容" class="headerlink" title="显示文本前或文本后内容"></a>显示文本前或文本后内容</h3><p>&emsp;&emsp;head [OPTION]…[FILE]…<br><br>&emsp;&emsp;&emsp;&emsp;-c #：指定获取前#字节<br><br>&emsp;&emsp;&emsp;&emsp;-n #：指定获取前#行<br><br>&emsp;&emsp;&emsp;&emsp;- #：指定行数<br><br>&emsp;&emsp;<code>tail [OPTION]...[FILE]...</code><br><br>&emsp;&emsp;&emsp;&emsp;-c #：指定获取后#字节<br><br>&emsp;&emsp;-n #：指定获取后#行<br><br>&emsp;&emsp;- #：<br><br>&emsp;&emsp;&emsp;&emsp;-f:跟踪显示文件fd新追加的内容，常用日志监控，相当于 –follow=descriptor<br><br>&emsp;&emsp;&emsp;&emsp;-F：跟踪文件名相当于–follow=name–retry<br><br>&emsp;&emsp;tailf类似tail-f，当文件不增长时并不访问文件<br></p>
+<h3 id="按列抽取文件cut和合并文件paste"><a href="#按列抽取文件cut和合并文件paste" class="headerlink" title="按列抽取文件cut和合并文件paste"></a>按列抽取文件cut和合并文件paste</h3><p>&emsp;&emsp;<code>cut [OPTION]...[FILE]...</code><br><br>&emsp;&emsp;&emsp;&emsp;-d DELIMITER:指明分隔符，默认tab<br><br>&emsp;&emsp;&emsp;&emsp;<code>-f FILEDS:</code><br><br>&emsp;&emsp;&emsp;&emsp;#：第#个字段<br><br>&emsp;&emsp;&emsp;&emsp;#，#[，#]：离散的多个字段，例如1，3，6<br><br>&emsp;&emsp;&emsp;&emsp;#-#：连续的多个字段，例如1-6<br><br>&emsp;&emsp;&emsp;&emsp;混合使用：1-3，7<br><br>&emsp;&emsp;&emsp;&emsp;-c 按字符切割<br><br>&emsp;&emsp;&emsp;&emsp;–output-delimiter=STRING指定输出分隔符<br></p>
+<h3 id="文本分析工具"><a href="#文本分析工具" class="headerlink" title="文本分析工具"></a>文本分析工具</h3><p>&emsp;&emsp;文本数据统计：wc<br><br>&emsp;&emsp;整理文本：sort<br><br>&emsp;&emsp;比较文件：diff和patch<br></p>
+<h3 id="收集文本统计工具wc"><a href="#收集文本统计工具wc" class="headerlink" title="收集文本统计工具wc"></a>收集文本统计工具wc</h3><p>&emsp;&emsp;计数单词总数、行总数、字节总数和字符总数<br><br>&emsp;&emsp;可以对文件或STDIN中的数据运行<br><br>&emsp;&emsp;&emsp;&emsp;<code>wc story.txt</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>39 237 1901 stOry.txt</code><br><br>&emsp;&emsp;&emsp;&emsp;行数 字数 字节数<br></p>
+<h4 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h4><p>&emsp;&emsp;-l 只计数行数<br><br>&emsp;&emsp;-w 只计数单词总数<br><br>&emsp;&emsp;-c 只计数字节总数<br><br>&emsp;&emsp;-m 只计数字符总数<br><br>&emsp;&emsp;-L显示文件中最长行的长度<br></p>
+<h3 id="文本排序sort"><a href="#文本排序sort" class="headerlink" title="文本排序sort"></a>文本排序sort</h3><p>&emsp;&emsp;把整理过的文本显示在STDOUT，不改变原始文件<br><br>&emsp;&emsp;&emsp;&emsp;<code>sort [options] file(s)</code><br></p>
+<h4 id="常用选项-1"><a href="#常用选项-1" class="headerlink" title="常用选项"></a>常用选项</h4><p>&emsp;&emsp;-r执行反方向（由上至下）整理<br><br>&emsp;&emsp;-R随机排序<br><br>&emsp;&emsp;-n执行按数字大小整理<br><br>&emsp;&emsp;-f选项忽略（fold）字符串中的字符大小写<br><br>&emsp;&emsp;-u选项（独特，unique）删除输出中的重复行<br><br>&emsp;&emsp;-t c选项使用c做为字段界是符<br><br>&emsp;&emsp;-k X 选项按照使用c字符分隔的X列来整理能够使用多次<br></p>
+<h4 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h4><p>&emsp;&emsp;uniq命令：从输入中删除前后相接的重复的行<br><br>&emsp;&emsp;<code>uniq [OPTION]...[FILEJ...</code><br><br>&emsp;&emsp;&emsp;&emsp;-c:显示每行重复出现的次数<br><br>&emsp;&emsp;&emsp;&emsp;-d:仅显示重复过的行<br><br>&emsp;&emsp;&emsp;&emsp;-u:仅显示不曾重复的行<br><br>&emsp;&emsp;&emsp;&emsp;注：连续且完全相同方为重复<br><br>&emsp;&emsp;常和sort命令一起配合使用<br><br>&emsp;&emsp;<code>sort userlist.txt | uniq -c</code><br></p>
+<h4 id="比较文件"><a href="#比较文件" class="headerlink" title="比较文件"></a>比较文件</h4><p>&emsp;&emsp;比较两个文件之间的区别<br><br>&emsp;&emsp;<code>diff foo.conf foo2.conf</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>5c5</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>&lt;use_widgets = no</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>---</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>&gt;use_widgets = yes</code><br><br>&emsp;&emsp;注明第5行有区别（改变）<br></p>
+<h3 id="复制对文件改变patch"><a href="#复制对文件改变patch" class="headerlink" title="复制对文件改变patch"></a>复制对文件改变patch</h3><p>&emsp;&emsp;diff  命令的输出被保存在一种叫做”补丁”的文件中<br><br>&emsp;&emsp;使用 –u 选项来输出”统一的（unified）”diff格式文件，最适用于补丁文件<br><br>&emsp;&emsp;patch  复制在其它文件中进行的改变（要谨慎使用）<br><br>&emsp;&emsp;适用 –b 选项来自动备份改变了的文件<br><br>&emsp;&emsp;&emsp;&emsp;<code>$diff –u f00.conf foo2.conf&gt;foo.patch</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>$patch-b foo.conf foo.patch</code><br></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -199,7 +209,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）初始化配置"><span class="toc-number">1.</span> <span class="toc-text">（一）初始化配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）Linux常用命令介绍"><span class="toc-number">2.</span> <span class="toc-text">（二）Linux常用命令介绍</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件查看"><span class="toc-number">1.</span> <span class="toc-text">文件查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件查看命令："><span class="toc-number">1.1.</span> <span class="toc-text">文件查看命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分页查看文件内容"><span class="toc-number">1.2.</span> <span class="toc-text">分页查看文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示文本前或文本后内容"><span class="toc-number">1.3.</span> <span class="toc-text">显示文本前或文本后内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按列抽取文件cut和合并文件paste"><span class="toc-number">1.4.</span> <span class="toc-text">按列抽取文件cut和合并文件paste</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本分析工具"><span class="toc-number">1.5.</span> <span class="toc-text">文本分析工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收集文本统计工具wc"><span class="toc-number">1.6.</span> <span class="toc-text">收集文本统计工具wc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本排序sort"><span class="toc-number">1.7.</span> <span class="toc-text">文本排序sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制对文件改变patch"><span class="toc-number">1.8.</span> <span class="toc-text">复制对文件改变patch</span></a></li></ol></li></ol>
                 </div>
             </div>
             
