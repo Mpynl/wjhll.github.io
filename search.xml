@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>十九、shell脚本及find文件查找基本用法</title>
+      <link href="/2020/04/06/%E5%8D%81%E4%B9%9D%E3%80%81shell%E8%84%9A%E6%9C%AC%E5%8F%8Afind%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/"/>
+      <url>/2020/04/06/%E5%8D%81%E4%B9%9D%E3%80%81shell%E8%84%9A%E6%9C%AC%E5%8F%8Afind%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="bash-如何展开命令行"><a href="#bash-如何展开命令行" class="headerlink" title="bash 如何展开命令行"></a>bash 如何展开命令行</h2><p>&emsp;&emsp;把命令行分成单个命令词<br><br>&emsp;&emsp;展开别名<br><br>&emsp;&emsp;展开大括号的声明（{}）<br><br>&emsp;&emsp;展开波浪符声明（～）<br><br>&emsp;&emsp;命令替换$()和 ``<br><br>&emsp;&emsp;再次把命令行分成命令词<br><br>&emsp;&emsp;展开文件通配（*、？、[abc]等等）<br><br>&emsp;&emsp;准备I/0重导向（&lt;、&gt;）<br><br>&emsp;&emsp;运行命令<br></p><h2 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h2><p>&emsp;&emsp;在文件系统上查找符合条件的文件<br><br>&emsp;&emsp;文件查找：locate,find<br><br>&emsp;&emsp;&emsp;&emsp;非实时查找（数据库查找）：locate<br><br>&emsp;&emsp;&emsp;&emsp;实时查找：find<br></p><h2 id="locate命令"><a href="#locate命令" class="headerlink" title="locate命令"></a>locate命令</h2><p>&emsp;&emsp;查询系统上预建的文件索引数据库<br><br>&emsp;&emsp;&emsp;&emsp;<code>/var/lib/mlocate/mlocate.db</code><br><br>&emsp;&emsp;依赖于事先构建的索引<br><br>&emsp;&emsp;&emsp;&emsp;索引的构建是在系统较为仝闲时自动进行（周期性任务），管理员手动更新数据库(updatedb)<br><br>&emsp;&emsp;索引构建过程需要遍历整个根文件系统，极消耗资源<br><br>&emsp;&emsp;工作特点：<br><br>&emsp;&emsp;&emsp;&emsp;·查找速度快<br><br>&emsp;&emsp;&emsp;&emsp;·模糊查找<br><br>&emsp;&emsp;&emsp;&emsp;·非实时查找<br><br>&emsp;&emsp;&emsp;&emsp;·搜索的是文件的全路径，不仅仅是文件名<br><br>&emsp;&emsp;&emsp;&emsp;·可能只搜索用户具备读取和执行权限的目录<br><br>&emsp;&emsp;locate KEYWORD<br><br>&emsp;&emsp;有用的选项<br><br>&emsp;&emsp;-i不区分大小写的搜索<br><br>&emsp;&emsp;-n N只列举前N个匹配项目<br><br>&emsp;&emsp;-r使用正则表达式<br>&emsp;&emsp;示例<br><br>&emsp;&emsp;搜索名称或路径中带有”conf”的文件<br><br>&emsp;&emsp;&emsp;&emsp;<code>locate conf</code><br><br>&emsp;&emsp;使用Regex来搜索以”.conf”结尾的文件<br><br>&emsp;&emsp;&emsp;&emsp;<code>locate  &#39;\.conf$’</code><br></p><h2 id="find命令"><a href="#find命令" class="headerlink" title="find命令"></a>find命令</h2><p>&emsp;&emsp;实时查找工具，通过遍历指定路径完成文件查找<br><br>&emsp;&emsp;工作特点：<br><br>&emsp;&emsp;查找速度略慢<br><br>&emsp;&emsp;精确查找<br><br>&emsp;&emsp;实时查找<br><br>&emsp;&emsp;可能只搜索用户具备读取和执行权限的目录<br><br>&emsp;&emsp;语法：<br><br>&emsp;&emsp;<code>find[OPTION]...[查找路径][查找条件][处理动作]</code><br><br>&emsp;&emsp;&emsp;&emsp;查找路径：指定具体目标路径；默认为当前目录<br><br>&emsp;&emsp;&emsp;&emsp;查找条件：指定的查找标准，可以文件各、大小、类型、权限等标准进行；默认为找出指定路径下的所有文件<br><br>&emsp;&emsp;&emsp;&emsp;处理动作：对符合条件的文件做操作，默认输出至屏幕<br></p><h2 id="查找条件"><a href="#查找条件" class="headerlink" title="查找条件"></a>查找条件</h2><p>&emsp;&emsp;指搜索层级<br><br>&emsp;&emsp;&emsp;&emsp;-maxdepth level最大搜索目录深度，指定目录为第1级<br><br>&emsp;&emsp;&emsp;&emsp;-mindepth level最小搜索目录深度<br><br>&emsp;&emsp;根据文件名和inode查找：<br><br>&emsp;&emsp;&emsp;&emsp;-name”文件名称”：支持使用glob<br><br>&emsp;&emsp;&emsp;&emsp;-iname”文件名称”：不区分字母大小写<br><br>&emsp;&emsp;&emsp;&emsp;-inum n按inode号查找<br><br>&emsp;&emsp;&emsp;&emsp;-samefile name相同inode号的文件<br><br>&emsp;&emsp;&emsp;&emsp;-links n链接数为n的文件<br><br>&emsp;&emsp;&emsp;&emsp;-regex”PATTERN”：以PATTERN匹配整个文件路径字符串, 而不仅仅是文件名称<br><br>&emsp;&emsp;根据属主、属组查找：<br><br>&emsp;&emsp;&emsp;&emsp;-user USERNAME：查找属主为指定用户(UID)的文件<br><br>&emsp;&emsp;&emsp;&emsp;-group GRPNAME:查找属组为指定组（GID）的文件<br><br>&emsp;&emsp;&emsp;&emsp;-uid UserID：查找属主为指定的UID号的文件<br><br>&emsp;&emsp;&emsp;&emsp;-gid GroupID：查找属组为指定的GID号的文件<br><br>&emsp;&emsp;&emsp;&emsp;-nouser：查找没有属主的文件<br><br> &emsp;&emsp;&emsp;&emsp;-nogroup：查找没有属组的文件<br></p><h2 id="根据文件类型查找："><a href="#根据文件类型查找：" class="headerlink" title="根据文件类型查找："></a>根据文件类型查找：</h2><p>&emsp;&emsp;<code>-type TYPE.</code><br>&emsp;&emsp;&emsp;&emsp;·f:普通文件<br><br>&emsp;&emsp;&emsp;&emsp;·d：目录文件<br><br>&emsp;&emsp;&emsp;&emsp;·l：符号链接文件<br><br>&emsp;&emsp;&emsp;&emsp;·s：套接字文件<br><br>&emsp;&emsp;&emsp;&emsp;·b:块设备文件<br><br>&emsp;&emsp;&emsp;&emsp;·c:字符设备文件<br><br>&emsp;&emsp;&emsp;&emsp;·p:管道文件<br><br>&emsp;&emsp;空文件或目录<br><br>&emsp;&emsp;&emsp;&emsp;<code>-empty</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>find/app-type d -empty</code><br><br>&emsp;&emsp;组合条件：<br><br>&emsp;&emsp;&emsp;&emsp;与：-a<br><br>&emsp;&emsp;&emsp;&emsp;或：-o<br><br>&emsp;&emsp;&emsp;&emsp;非：-not,!<br><br>&emsp;&emsp;德．摩根定律<br><br>&emsp;&emsp;&emsp;&emsp;（非A）或（非B）= 非(A且B)<br><br>&emsp;&emsp;&emsp;&emsp;（非A）且（非B）= 非(A或B)<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;&emsp;&emsp;<code>!A –a !B = !(A –o B)</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>!A  -o !B = !(A –a B)</code><br></p><h2 id="find示例"><a href="#find示例" class="headerlink" title="find示例"></a>find示例</h2><p>&emsp;&emsp;<code>find –name snow.png</code><br><br>&emsp;&emsp;<code>find –iname snow.png</code><br><br>&emsp;&emsp;<code>find / name “*.txt”</code><br><br>&emsp;&emsp;<code>find /var –name “*log*”</code><br><br>&emsp;&emsp;<code>find –user joe –not –group joe</code><br><br>&emsp;&emsp;<code>find –user joe –not group joe</code><br><br>&emsp;&emsp;<code>find –user joe –o –user jane</code><br><br>&emsp;&emsp;<code>find –not \(-user joe –o –user jane \)</code><br><br>&emsp;&emsp;<code>find / -user joe –o –uid 500</code><br><br>&emsp;&emsp;找出/tmp目录下，属主不是root，且文件名不以f开头的文件<br><br>&emsp;&emsp;&emsp;&emsp;<code>find/tmp\（-not –user root -a- not –name &#39;f*&#39;\）-ls</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>find/tmp -not\（-user root –o -name0 ‘f’\）—ls</code><br><br>&emsp;&emsp;排除目录<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;&emsp;&emsp;查找/etc下，除/etc/sane.d目录的其它所有conf后缀的文件<br><br>&emsp;&emsp;&emsp;&emsp;<code>find/etc –path &#39;/etc/sane.d&#39; –a –prune –o –name ‘*.conf&#39;</code><br><br>&emsp;&emsp;&emsp;&emsp;查找/etc下，除/etc/sane.d和/etc/fonts两个目录的所有conf后缀的文件<br><br>&emsp;&emsp;&emsp;&emsp;find/etc\ (-path ‘/etc/sane.d’ –o —path ‘/etc/fonts’)-a –prune –o –name “.conf”<br><br>&emsp;&emsp;根据文件大小来查找：<br><br>&emsp;&emsp;&emsp;&emsp;<code>-size[+|-]#UNIT</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;常用单位：k,M,G，c（byte）<br><br>&emsp;&emsp;&emsp;&emsp;#UNIT: (#-1,#)<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如：6k表示(5k,6k)<br><br>&emsp;&emsp;&emsp;&emsp;-#UNIT: [0,#-1]<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如：-6k表示[0，5k]<br><br>&emsp;&emsp;&emsp;&emsp;+#UNIT: (#,∞)<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如：+6k表示（6k，∞）<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux企业运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> 企业运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>十八、常用文本查看head、tail等</title>
       <link href="/2020/04/05/%E5%8D%81%E5%85%AB%E3%80%81%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E6%9F%A5%E7%9C%8Bhead%E3%80%81tail%E7%AD%89/"/>
       <url>/2020/04/05/%E5%8D%81%E5%85%AB%E3%80%81%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E6%9F%A5%E7%9C%8Bhead%E3%80%81tail%E7%AD%89/</url>
@@ -20,9 +49,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -49,9 +78,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -78,9 +107,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -107,9 +136,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -136,9 +165,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -165,9 +194,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -194,9 +223,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -223,9 +252,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -252,9 +281,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -281,9 +310,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -310,9 +339,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -339,9 +368,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -368,9 +397,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -397,9 +426,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -426,9 +455,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -455,9 +484,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
@@ -484,9 +513,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 企业运维 </tag>
             
