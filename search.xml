@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>二十、find命令查找企业级用法进阶</title>
+      <link href="/2020/04/18/%E4%BA%8C%E5%8D%81%E3%80%81find%E5%91%BD%E4%BB%A4%E6%9F%A5%E6%89%BE%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%94%A8%E6%B3%95%E8%BF%9B%E9%98%B6/"/>
+      <url>/2020/04/18/%E4%BA%8C%E5%8D%81%E3%80%81find%E5%91%BD%E4%BB%A4%E6%9F%A5%E6%89%BE%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%94%A8%E6%B3%95%E8%BF%9B%E9%98%B6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="查找条件"><a href="#查找条件" class="headerlink" title="查找条件"></a>查找条件</h2><h3 id="根据时间戳"><a href="#根据时间戳" class="headerlink" title="根据时间戳"></a>根据时间戳</h3><p>&emsp;&emsp;以“天”为单位；<br><br>&emsp;&emsp;&emsp;&emsp;<code>-atime [+|-]#,</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>#: [#,#+1]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>+#:[#+1,∞]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-#:[0,#]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-mtime</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-ctime</code><br><br>&emsp;&emsp;以“分钟”为单位<br><br>&emsp;&emsp;&emsp;&emsp;<code>-amin</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-mmin</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-cmin</code><br><br>&emsp;&emsp;根据权限查找<br><br>&emsp;&emsp;&emsp;&emsp;<code>-perm [/|-]MODE</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;MODE:精确权限匹配<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/MODE：任何一类（u,g,o）对象的权限中只要能一位匹配即可，或关系，+<br><br>&emsp;&emsp;从centos7开始淘汰<br><br>&emsp;&emsp;&emsp;&emsp;-MODE: 每一类对象都必须同时拥有指定权限，与关系<br><br>&emsp;&emsp;&emsp;&emsp;0表示不关注<br><br>&emsp;&emsp;&emsp;&emsp;·find-perm755会匹配权限模式恰好是755的文件<br><br>&emsp;&emsp;&emsp;&emsp;·只要当任意人有写权限时，find-perm+222就会匹配<br><br>&emsp;&emsp;&emsp;&emsp;·只有当每个人都有写权限时，find-perm-222才会匹配<br><br>&emsp;&emsp;&emsp;&emsp;·只有当其它人（other）有写权限时，find-perm-002才会匹配<br></p><h2 id="处理动作"><a href="#处理动作" class="headerlink" title="处理动作"></a>处理动作</h2><p>&emsp;&emsp;-print：默认的处理动作，显示至屏幕<br><br>&emsp;&emsp;-ls：类似于对查找到的文件执行”ls -l“命令<br><br>&emsp;&emsp;-delete：删除查找到的文件<br><br>&emsp;&emsp;-fls file：查找到的所有文件的长格式信息保存至指定文件中<br><br>&emsp;&emsp;-ok COMMAND{}\；对查找到的每个文件执行由COMMAND指定的命令，对于每个文件执行命令之前，都会交互式要求用户确认<br><br>&emsp;&emsp;-exec COMMAND{};对查找到的每个文件执行由COMMAND指定的命令<br><br>&emsp;&emsp;{}：用于引用查找到的文件各称自身<br><br>&emsp;&emsp;find传递查找到的文件至后面指定的命令时，查找到所有符合条件的文件一次性传递给后面的命令<br></p><h3 id="参数替换xargs"><a href="#参数替换xargs" class="headerlink" title="参数替换xargs"></a>参数替换xargs</h3><p>&emsp;&emsp;由于很多命令不支持管道|来传递参数，而日常工作中有这个必要，所以就有了xargs命令<br><br>&emsp;&emsp;xargs用于产生某个命令的参数，xargs可以读入stdin的数据并且以空格符或回车符将stdin的数据分隔成为arguments<br><br>&emsp;&emsp;注意：文件名或者是其他意义的名词内含有空格符的情况<br><br>&emsp;&emsp;有些命令不能接受过多参数，命令执行可能会失败xargs可以解决<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;&emsp;&emsp;<code>ls f* |xargs rm</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>find/sbin-perm +700|ls -l这个命令是错误的</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>find/sbin-perm+7000|xalrgs ls -l</code><br><br>&emsp;&emsp;find和xargs格式：<code>find | xargs COMMAND</code><br></p><h3 id="压缩、解压缩及归档工具"><a href="#压缩、解压缩及归档工具" class="headerlink" title="压缩、解压缩及归档工具"></a>压缩、解压缩及归档工具</h3><p>&emsp;&emsp;<code>file-roller</code><br><br>&emsp;&emsp;<code>compress/uncompress:.Z</code><br><br>&emsp;&emsp;<code>gzip/gunzip:.gz</code><br><br>&emsp;&emsp;<code>bzip2/bunzip2:.bz2</code><br><br>&emsp;&emsp;<code>xz/unxz:.xz</code><br><br>&emsp;&emsp;<code>zip/unzip</code><br><br>&emsp;&emsp;<code>tar</code><br><br>&emsp;&emsp;<code>cpio</code><br><br>&emsp;&emsp;compress/uncompress<br><br>&emsp;&emsp;<code>compress [-dfvcVr] [-b maxbits] [file…]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-d:解压缩，相当于uncompress</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-c结果输出至标准输出，不删除原文件</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-v: 显示详情</code><br><br>&emsp;&emsp;uncompress解压缩<br><br>&emsp;&emsp;<code>zcat file.Z&gt;file</code><br><br>&emsp;&emsp;<code>gzip/gunzip</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>gzip[OPTION]...FILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-d:解压缩，相当于gunzip<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-c将压缩或解压缩的结果输出至标准输出<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-#：1-9，指定压缩比，值越大压缩比越大<br><br>&emsp;&emsp;zcat：不显式解压缩的前提下查看文本文件内容<br><br>&emsp;&emsp;实例：<br><br>&emsp;&emsp;&emsp;&emsp;<code>gzip –c messages&gt;messages.gz</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>gzip –c –d messages.gz&gt;messages</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>zcat messages.gz&gt;messages</code><br><br>&emsp;&emsp;<code>bzip2/bunzip2/bzcat</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>bzip [OPTION]… FILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;-k: keep,保留原文件<br><br>&emsp;&emsp;&emsp;&emsp;-d: 解压缩<br><br>&emsp;&emsp;&emsp;&emsp;-#：1-9，压缩比，默认为9<br><br>&emsp;&emsp;bzcat：不显示解压缩的前提下查看文本文件内容<br><br>&emsp;&emsp;<code>xz/unxz/xzcat</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>xz[OPTION]…FILE…</code><br><br>&emsp;&emsp;-k：keep，保留原文件<br><br>&emsp;&emsp;&emsp;&emsp;-d: 解压缩<br><br>&emsp;&emsp;&emsp;&emsp;-#：1-9，压缩比，默认为6<br><br>&emsp;&emsp;&emsp;&emsp;bzcat：不显示解压缩的前提下查看文本文件内容<br><br>&emsp;&emsp;zip/unzip<br><br>&emsp;&emsp;打包压缩<br><br>&emsp;&emsp;&emsp;&emsp;<code>zip –r /testdir/sysconfig /etc/sysconfig</code><br><br>&emsp;&emsp;解包解压缩<br><br>&emsp;&emsp;&emsp;&emsp;<code>unzip sysconfig.zip</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>cat /var/log/messages | zip messages –</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>unzip –p message &gt; message</code><br><br>&emsp;&emsp;tar工具<br><br>&emsp;&emsp;&emsp;&emsp;tar (Tape Archive,磁带归档的缩写)<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar[OPTION]…</code><br><br>&emsp;&emsp;(1)创建归档<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –cpvf /PATH/TO/SOMEFILE.tar FILE…</code><br><br>&emsp;&emsp;(2)追加文件至归档：注：不支持对压缩文件追加<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –r –f /PATH/TO/SOMEFILE.tar FILE…</code><br><br>&emsp;&emsp;(3)查看归档文件中的文件列表<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –t –f /PATH/TO/SOMEFILE.tar</code><br><br>&emsp;&emsp;(4)展开归档<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –x –f /PATH/TO/SOMEFILE.tar</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –x –f /PASTH/TO/SOMEFILE.tar –C /PATH/</code><br><br>&emsp;&emsp;(4)结合压缩工具实现：归档并yasuo<br><br>&emsp;&emsp;&emsp;&emsp;<code>-j: bzip2, -z: gzip, -J: xz</code><br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux企业运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 企业运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>十九、shell脚本及find文件查找基本用法</title>
       <link href="/2020/04/06/%E5%8D%81%E4%B9%9D%E3%80%81shell%E8%84%9A%E6%9C%AC%E5%8F%8Afind%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/"/>
       <url>/2020/04/06/%E5%8D%81%E4%B9%9D%E3%80%81shell%E8%84%9A%E6%9C%AC%E5%8F%8Afind%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
@@ -20,9 +49,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -49,9 +78,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -78,9 +107,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -107,9 +136,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -136,9 +165,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -165,9 +194,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -194,9 +223,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -223,9 +252,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -252,9 +281,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -281,9 +310,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -310,9 +339,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -339,9 +368,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -368,9 +397,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -397,9 +426,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -426,9 +455,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -455,9 +484,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -484,9 +513,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -513,9 +542,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
