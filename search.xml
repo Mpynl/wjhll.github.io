@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>1.1 概述</title>
+      <link href="/2020/04/25/1-1-%E6%A6%82%E8%BF%B0/"/>
+      <url>/2020/04/25/1-1-%E6%A6%82%E8%BF%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><p><strong>定义1</strong>：计算机软件（Software），简称软件，是一系列按照特定顺序组织的计算机数据和指令代码，如日常熟悉的办公软件、微信、QQ、网站等都是软件。<br><br><strong>定义2：</strong>编程语言（Programming Language），是一种形式语言，它指定了一组可用于产生各种输出的指令。编程语言通常由计算机的指令组成。可以用来创建实现特定算法的程序。<br><br><strong>定义3：</strong>计算机程序（Computer Program），简称程序，是由计算机执行的执行特定任务指令的集合。<br></p><h2 id="1-2-什么是Python语言"><a href="#1-2-什么是Python语言" class="headerlink" title="1.2 什么是Python语言"></a>1.2 什么是Python语言</h2><p>&emsp;&emsp;由荷兰人Guido Van Rossum在1989年创建<br><br>&emsp;&emsp;1.简单易用<br><br>&emsp;&emsp;2.提供了大量的功能类库<br><br>&emsp;&emsp;3.Python 语言句有兼容性<br><br>&emsp;&emsp;4.具有跨系统移植的能力<br><br>&emsp;&emsp;5.代码免费、开源<br></p><h2 id="1-3-安装Python"><a href="#1-3-安装Python" class="headerlink" title="1.3 安装Python"></a>1.3 安装Python</h2><p>&emsp;&emsp;从Python官网<a href="https://www.python.org下载对应版本安装即可" target="_blank" rel="noopener">https://www.python.org下载对应版本安装即可</a><br></p><h2 id="1-4-Python-代码编辑工具"><a href="#1-4-Python-代码编辑工具" class="headerlink" title="1.4 Python 代码编辑工具"></a>1.4 Python 代码编辑工具</h2><h3 id="1-4-1-交互式解释器"><a href="#1-4-1-交互式解释器" class="headerlink" title="1.4.1 交互式解释器"></a>1.4.1 交互式解释器</h3><p><strong>定义4：</strong>编译器（Compiler），就是把高级语言一次性翻译成计算机能识别的机器语言的一种软件。<br><br><strong>定义5：</strong>解释器（Interpreter），就是把高级语言编写的程序，在执行时，一行一行地翻译成机器语言的一种语言。<br></p><h3 id="1-4-2-自带GUI工具IDLE"><a href="#1-4-2-自带GUI工具IDLE" class="headerlink" title="1.4.2 自带GUI工具IDLE"></a>1.4.2 自带GUI工具IDLE</h3><p>&emsp;&emsp;1.IDLE的功能要点<br><br>&emsp;&emsp;&emsp;&emsp;1.具备交互式解释器代码编写功能，具备连续编、执行代码脚本的功能<br><br>&emsp;&emsp;&emsp;&emsp;2.支持代码彩色显示、格式智能缩进、输出错误代码信息、多窗口编辑功能<br><br>&emsp;&emsp;&emsp;&emsp;3.具备多文件代码搜索、代码持续断点跟踪调试功能<br><br>&emsp;&emsp;&emsp;&emsp;4.支持Python 标准库的引用功能<br><br>&emsp;&emsp;&emsp;&emsp;5。提供了下拉式菜单项选择功能<br><br>&emsp;&emsp;2.IDLE操作要点<br><br>&emsp;&emsp;&emsp;&emsp;1.交互式代码编辑<br><br>&emsp;&emsp;&emsp;&emsp;2.脚本式代码编辑<br></p><h3 id="1-4-3-其他商业级开发工具"><a href="#1-4-3-其他商业级开发工具" class="headerlink" title="1.4.3 其他商业级开发工具"></a>1.4.3 其他商业级开发工具</h3><p>&emsp;&emsp;1.Eclipse Pydev<br><br>&emsp;&emsp;2.PyCharm<br><br>&emsp;&emsp;3.VIM <br><br>&emsp;&emsp;4.Wing<br><br>&emsp;&emsp;5.Spyder<br></p><h2 id="1-5-第一个程序"><a href="#1-5-第一个程序" class="headerlink" title="1.5 第一个程序"></a>1.5 第一个程序</h2><h3 id="1-5-1-案例-嗨，三酷猫"><a href="#1-5-1-案例-嗨，三酷猫" class="headerlink" title="1.5.1 案例[嗨，三酷猫]"></a>1.5.1 案例[嗨，三酷猫]</h3><p>&emsp;&emsp;<code># Our first programming!</code><br><br>&emsp;&emsp;<code>print(&#39;Three cool cats!&#39;)</code><br><br>&emsp;&emsp;<code># -*- coding: UTF-8 -*-</code><br><br>&emsp;&emsp;<code>print(&#39;嗨，三酷猫！&#39;)</code><br><br>&emsp;&emsp;<code>print(&#39;这是我们的第一个程序！&#39;)</code><br><br>&emsp;&emsp;<code>print(&#39;太酷了！^_^&#39;)</code><br><br>&emsp;&emsp;第一行代码是#Our first program!,输入并按Enter键，没有给执行结果，因为“#”是Python语言的行注释符号，带“#”开头的代码不被执行，用来单行说明程序的相关信息，如程序的功能意思、编程时间、编程作者等，方便读者阅读代码<br><br>&emsp;&emsp;第二行代码是print(‘Three cool cats!’),输入并按下Enter键，显示的是Three cool cats!<br><br>&emsp;&emsp;第三行代码是#-<em>-coding:UTF-8-</em>-,输入并按下Enter键，没有显示任何结果。但这个带“#”开头的注释代码，其实设置解释器为UTF-8编码格式。在Python3前的版本默认的编码格式 是ASCII，在Python３.X版本中默认使用UTF-８编码，所以在Python３.６.３版本是，设置与不设置都是一样的，这里仅起演示功能作用<br><br>&emsp;&emsp;第四行代码是print(“嗨，三酷猫！”),输入并按下Enter键，执行显示“”嗨，三酷猫！”<br><br>&emsp;&emsp;第五行代码、第六行代码都执行显示三酷猫想说的一句话<br></p><h3 id="1-5-2-Help"><a href="#1-5-2-Help" class="headerlink" title="1.5.2 Help"></a>1.5.2 Help</h3><p>&emsp;&emsp;1.About IDLE（关于IDLE)<br><br>&emsp;&emsp;&emsp;&emsp;简单介绍了IDLE编程工具的官网地址、联系E-mail、版本号等相关信息<br><br>&emsp;&emsp;2.IDLE Help（IDLE使用帮助）<br><br>&emsp;&emsp;&emsp;&emsp;给出了IDLE编程工具使用的帮助信息，主要介绍了各个菜单的使用方法<br><br>&emsp;&emsp;3.Python Docs F1键（Python 语言帮助文档）<br><br>&emsp;&emsp;&emsp;&emsp;给出了Python编程语言的各种使用功能介绍，读者可以在其输入关键字，查找相关的功能使用帮助。使用F1键可以跳出该帮助功能的界面<br><br>&emsp;&emsp;4.Turtle Demo（乌龟代码实例演示）<br><br>&emsp;&emsp;&emsp;&emsp;提供了一些非常酷的代码使用案例，并且可以执行显示。在Python早期版本无该项功能。<br><br>&emsp;&emsp;5.Python 3.6 Modules Docs （Python标准库帮助文档）<br><br>&emsp;&emsp;&emsp;&emsp;提供了全面的Python标准库使用帮助<br></p><h3 id="1-5-3-出错与调试"><a href="#1-5-3-出错与调试" class="headerlink" title="1.5.3 出错与调试"></a>1.5.3 出错与调试</h3><p>&emsp;&emsp;1.代码出错<br><br>&emsp;&emsp;2.利用IDLE专业调试功能调试代码<br><br>&emsp;&emsp;&emsp;&emsp;1.用Python Shell 打开需要运行的脚本文件<br><br>&emsp;&emsp;&emsp;&emsp;2.在PYthon Shell 上打开Debugger 调试工具（选择Debug -&gt;Debguger 菜单项，弹出Debug Control窗口）<br><br>&emsp;&emsp;&emsp;&emsp;3.在打开代码文件的脚本窗口上按F5键执行代码<br><br>&emsp;&emsp;&emsp;&emsp;4.可以在Debug Control 窗口做各种调试跟踪。<br></p><h2 id="1-6-良好的编程约定"><a href="#1-6-良好的编程约定" class="headerlink" title="1.6 良好的编程约定"></a>1.6 良好的编程约定</h2><p>&emsp;&emsp;1.标识符<br><br>&emsp;&emsp;&emsp;&emsp;<strong>定义6：</strong>标识符（Identifier），在Python语言中用于规范名解释器能识别的可执行代码对象的名称。<br><br>&emsp;&emsp;&emsp;&emsp;1.变量、关键字、函数、类等组成<br><br>&emsp;&emsp;&emsp;&emsp;在Python里，上述名称只能由字母、数字、下划线组成。也就是小写字母a<del>z、大写字母A</del>Z、下划线（_）和数字0~9，才能被使用。注意，在命名时数字不能被放在名称首字母<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.正确的命名：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;变量： i = 0 , price = 10.0<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;函数：print(), sum(), my_definition()。说明：小括号本身不是函数名<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;关键字：if break。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.错误的命名：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;变量：9i = 0 ， ^h = 11 。 说明：9不能用于命名首字符，^ 不能作为变量名称组成使用<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;函数：Print(),my.definition()。 说明：内置函数组成字母不能大写，“.”不能作为函数名称的组成<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;关键字：if = 1 ，IF。 说明：if关键字不能当作变量名称使用，关键字不能用大写表示<br><br>&emsp;&emsp;&emsp;&emsp;2.Python语言是大小写敏感的语言，如a = 0 和 A = 0 是连个变量<br><br>&emsp;&emsp;&emsp;&emsp;3.命名必须简洁、易读<br><br>&emsp;&emsp;2.数据（Data)<br><br>&emsp;&emsp;&emsp;&emsp;在Python语言中除了标识符外，剩余的对象都可以叫数据。如变量的值、引号里的内容、存放于数据库中的记录、调用的文件、图片、音频、视频等。“print”里引号内部的信息就是一种数据。<br><br>&emsp;&emsp;3.基本代码格式<br><br>&emsp;&emsp;&emsp;&emsp;1.多行语句<br><br>&emsp;&emsp;&emsp;&emsp;2.多行缩进格式<br><br>&emsp;&emsp;4. Python 3.6.3 保留关键字（Keywords）<br><br>&emsp;&emsp;5.注释（Comment）<br><br>&emsp;&emsp;&emsp;&emsp;1.单行注释<br><br>&emsp;&emsp;&emsp;&emsp;2.行末注释<br><br>&emsp;&emsp;6.Python的PEP8代码规范<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python编程从零基础到项目实战 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 项目实战 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二十一、Linux平台文件压缩打包及文本三剑客sed用法</title>
       <link href="/2020/04/19/%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%81Linux%E5%B9%B3%E5%8F%B0%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E5%8F%8A%E6%96%87%E6%9C%AC%E4%B8%89%E5%89%91%E5%AE%A2sed%E7%94%A8%E6%B3%95/"/>
       <url>/2020/04/19/%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%81Linux%E5%B9%B3%E5%8F%B0%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E6%89%93%E5%8C%85%E5%8F%8A%E6%96%87%E6%9C%AC%E4%B8%89%E5%89%91%E5%AE%A2sed%E7%94%A8%E6%B3%95/</url>
