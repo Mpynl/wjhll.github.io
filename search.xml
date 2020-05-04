@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>2.3 数字和运算符</title>
+      <link href="/2020/05/04/2-3-%E6%95%B0%E5%AD%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+      <url>/2020/05/04/2-3-%E6%95%B0%E5%AD%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+      
+        <content type="html"><![CDATA[<p>&emsp;&emsp;Python 语言的数字（Digtial）与数学的数字是一致的，可以通过各种运算符实现各种计算。根据计算机语言处理要求，这里把数字分为整数（Integer)、浮点数（Float）、复数（Complex）、布尔（Boolean）。<br></p><h2 id="2-3-1-算术运算符"><a href="#2-3-1-算术运算符" class="headerlink" title="2.3.1 算术运算符"></a>2.3.1 算术运算符</h2><p>&emsp;&emsp;加（+）、减（-）、乘（<em>）、除（/）、取模（%）、幂（*</em>）、取整除（//）<br></p><h2 id="2-3-2-整数"><a href="#2-3-2-整数" class="headerlink" title="2.3.2 整数"></a>2.3.2 整数</h2><p>&emsp;&emsp;<strong>定义4：</strong>整数（Integer，简写Int）又称整型，由正整数、零和负整数构成，不包括小数、分数。<br><br>&emsp;&emsp;在Python语言里整数的长度不受限制，仅受可用（虚拟）内存限制<br><br>&emsp;&emsp;1.加、减、乘、除运算<br><br>&emsp;&emsp;&emsp;&emsp;<code>num1 = 10</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>bum2 = 3</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>count = num1 + num2</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>print(&#39;加法和为：%d&#39;%(cont))</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>print(&#39;减法差为：%d&#39;%(num1 - num2))</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>print(&#39;乘法积为：%d&#39;%(num1*num2))</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>print(&#39;除法的商为：%d&#39;%(num1\num2))</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>result = (num1 - num2)*(num1 + num2)/7 - 3</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>print(&#39;加减乘除混合运算：%d&#39;%(result))</code><br><br>&emsp;&emsp;2.取模、幂、取整除运算<br><br>&emsp;&emsp;&emsp;&emsp;<code>x = 5</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>y = 3</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>x % y</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>x // y</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>x ** y</code><br></p><h2 id="2-3-3-浮点数"><a href="#2-3-3-浮点数" class="headerlink" title="2.3.3 浮点数"></a>2.3.3 浮点数</h2><p>&emsp;&emsp;<strong>定义5：</strong>浮点数（Float），对应于数学中的实数（Real）。在Python语言中，浮点数是带小数点的数字。<br><br>&emsp;&emsp;&emsp;&emsp;<code>20.0/3</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>10*2 + 0.1</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>1.1 + 0.96</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>4.0/2.0</code><br></p><h2 id="2-3-4-复数"><a href="#2-3-4-复数" class="headerlink" title="2.3.4 复数"></a>2.3.4 复数</h2><p>&emsp;&emsp;<strong>定义6：</strong>复数（Complex）由实数和虚数部组成，把实数扩到了虚数，其数学表示形式为a + bj (a、b均为实数)。a 称为实部，b 称为虚部，j(J)为虚数单位（j*<em>2 = -1),bj称为虚数<br><br>&emsp;&emsp;&emsp;&emsp;<code>（1-2j)</code><br><br>&emsp;&emsp;&emsp;&emsp;`（1-2j）</em>（1-3j）<code>&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;</code>（-4-7j）<code>&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;</code>（1-2j）<code>&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;</code>（1-2j）.real<code>&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;</code>（1-2j）.imag`<br></p><h2 id="2-3-5-布尔"><a href="#2-3-5-布尔" class="headerlink" title="2.3.5 布尔"></a>2.3.5 布尔</h2><p>&emsp;&emsp;<strong>定义7：</strong>布尔（Boolean）又称为逻辑。在Python语言中用True、False表示，用于逻辑判断。该数据是一种特殊的整数类，True可以用1代替，代表“真”；False 可以用0替换，代表“假”。<br><br>&emsp;&emsp;&emsp;&emsp;and 与 只有and两侧的逻辑值为1时，其结果为1，其他情况为0<br><br>&emsp;&emsp;&emsp;&emsp;or 或 如果or两侧至少有一个逻辑值为1时，其结果为1，其他情况为0<br><br>&emsp;&emsp;&emsp;&emsp;not 非  not 0 得1， not 1 得 0<br></p><h2 id="2-3-6-二进制"><a href="#2-3-6-二进制" class="headerlink" title="2.3.6 二进制"></a>2.3.6 二进制</h2><p>&emsp;&emsp;<strong>定义8：</strong>二进制（Binary）数据是用0和1两个数字表示的数。它的基数为2，进位规则是“逢二进一”。在最新的Python中用0b开始表示二进制数。<br><br>&emsp;&emsp;&emsp;&emsp;0b1110 输出十进制14<br><br>&emsp;&emsp;&emsp;&emsp;十进制数字转换为二进制可用bin()函数<br><br>&emsp;&emsp;&emsp;&emsp;二进制运算符：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&amp; 按位与运算符 （m&amp;n)，参与运算的m、n，如果对应位数都为1，则该位的结果为1，否则为0.<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;| 按位异运算符 (m|n)，参与运算的m、n，只要对应的二进制位有一个1，则结果为1；只有当对应位都为0时，结果才为0.<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;^ 按位异或运算符 (m^n)，(m^n)，参与运算的m、n，当对应的二进制位相异时，结果为1；相同时，结果为0.<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;~ 按位反转运算符 (<del>n)，将二进制数+1之后乘以-1，m的按位反转是-(m+1)<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;&lt; m&lt;&lt;n，把m的二进制全部左移x位，高位在超出操作系统支持位数时，丢弃，不超过时左移，低位补0.x为需要移动的数量<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt; m&gt;&gt;n，把m的二进制位全部右移x位，低位丢弃，高位补0.x为需要移动的数量。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.与运算（&amp;）<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;0b00110101&amp;0b01100001<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;33     # 输出十进制值33，对应的字符为“！”，其二进制为00100001<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.或运算（|）<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;0b00110101|0b01100001<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;117    # 输出十进制值117，队医的字符为u，其二进制值为01110101<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3.异或运算（^）<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;0b00110101^0b01100001<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;84     # 输出十进制值84，对应的字符为T，其二进制值为01010100<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;4.反转运算（</del>）<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;~0b0010101<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-54    # 输出十进制-54，其二进制位-00110110<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;5.左移动运算（&lt;&lt;）<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;0b00110101&lt;&lt;2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;212    # 输出十进制值为212，对应的字符为O，其二进制值为11010100<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;6.右移动运算 <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;0b00110101&gt;&gt;2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;13     # 输出十进制值13，对应的字符为“\r”（按Enter键），其二进制为11010100<br></p><h2 id="2-3-7-比较运算符"><a href="#2-3-7-比较运算符" class="headerlink" title="2.3.7 比较运算符"></a>2.3.7 比较运算符</h2><p>&emsp;&emsp;== 等于 x==y，比较结果相等，返回True；否则返回False<br><br>&emsp;&emsp;!= 不等于 x!=Y，比较结果不相等，返回True；否则返回False<br><br>&emsp;&emsp;&gt; 大于  x&gt;y，比较结果x大于y，返回True；否则返回False<br><br>&emsp;&emsp;&lt; 小于  x&lt;y，比较结果x小于y，返回True；否则返回False<br><br>&emsp;&emsp;&gt;= 大于等于  x&gt;=y，比较结果x&gt;=y，返回True，否则返回False<br><br>&emsp;&emsp;&lt;= 小于等于  x&lt;=y，比较结果x&lt;=y，返回True，否则返回False<br><br>&emsp;&emsp;&emsp;&emsp;1.整数比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.等于比较（==）<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>age1 , age2 , age3 = 10 , 9 , 0o12</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>age1 == age3</code>        # 十进制与八进制比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>True</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>age1 == age3</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>False</code>                # age1 = 10 , age2 = 9 ,值不一样所以返回False<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>False = True</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>False</code>             # False 与 True 不一致，所以结果为False<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>3 == 3.0</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>True</code>                 # 整数与浮点数比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>5 - 2j == 5 + 2j</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>False</code>              # 复数与复数的比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>0b00110001 == 0b00110010</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<code>False</code>                # 二进制值与二进制值比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;从以上可以看出，整数里的任何数都可以相互比较，并产生布尔值。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.其他比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;age1 , ahe2 , age3 = 10 , 9 , 0o12<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt;age1 != age2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;True<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; age1 &gt;= age2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;True<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; age1 &lt;= age2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;False<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; age1 &gt;= age2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;True<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; age1 &lt; age2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;False<br><br>&emsp;&emsp;&emsp;&emsp;2.字符串比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; ‘a’ == ‘b’      # 字符串a与b比较，其实比较的是ASCII码数字的大小<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;False<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; ‘ab’ == ‘ab’    # 字符串ab 与 ab 比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;True<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;’a’ == 1            # 字符串a 与整数1比较<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;False<br><br>&emsp;&emsp;&emsp;&emsp;3.优先级<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;比较运算符优先级低于算术运算符、位运算符，高于逻辑运算符<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; 5 + 1 &gt; 5 and True               # 先计算5+1=6，然后6&gt;5得True，最后True and True 运算<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;True<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; (5+1)*2 &gt; 5 and True             # 小括号内最优计算，也就是可以用小括号改变运算次序<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;True<br></p><h2 id="2-3-8-赋值运算符"><a href="#2-3-8-赋值运算符" class="headerlink" title="2.3.8 赋值运算符"></a>2.3.8 赋值运算符</h2><p>&emsp;&emsp;=    简单赋值   Num = x + y<br><br>&emsp;&emsp;+=   加法赋值   x += y ,等于Num = x + y<br><br>&emsp;&emsp;-=   减法赋值   x -= y ,等于Num = x - y<br><br>&emsp;&emsp;<em>=   乘法赋值   x <em>= y ,等于Num = x * y<br><br>&emsp;&emsp;/=   除法赋值   x /= y ,等于Num = x / y<br><br>&emsp;&emsp;%=   取模赋值   x %= y ,等于Num = x % y<br><br>&emsp;&emsp;</em></em>=  幂运算     x *<em>= y ,等于Num = x *</em> y<br><br>&emsp;&emsp;//=  取整除赋值 x //= y ,等于Num = x // y<br><br>&emsp;&emsp;&lt;&lt;=  右移位赋值 B1 &lt;&lt;= m ,等于B = B1 &lt;&lt; m<br><br>&emsp;&emsp;&gt;&gt;=  左移位赋值 B1 &gt;&gt;= m ,等于B = B1 &gt;&gt; m<br><br>&emsp;&emsp;&amp;=   位与赋值   B1 &amp;= B2 ,等于B = B1 &amp; B2<br><br>&emsp;&emsp;|=   位或赋值   B1 |= B2 ,等于B = B1 | B2<br><br>&emsp;&emsp;^=   位异或赋值 B1 ^= B2 ,等于B = B1 ^ B2<br><br>&emsp;&emsp;&gt;&gt;&gt; x , y = 10 , 20<br><br>&emsp;&emsp;&gt;&gt;&gt; x + y<br><br>&emsp;&emsp;30<br><br>&emsp;&emsp;&gt;&gt;&gt; x + y <br><br>&emsp;&emsp;&gt;&gt;&gt; print(x)<br><br>&emsp;&emsp;30<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python编程从零基础到项目实战 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 项目实战 </tag>
+            
+            <tag> 第二章 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2.1 变量</title>
       <link href="/2020/05/03/2-1-%E5%8F%98%E9%87%8F/"/>
       <url>/2020/05/03/2-1-%E5%8F%98%E9%87%8F/</url>
@@ -673,6 +704,31 @@
     
     
     <entry>
+      <title>一、计算机基础入门、硬件和系统组成</title>
+      <link href="/2019/07/14/%E4%B8%80%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E3%80%81%E7%A1%AC%E4%BB%B6%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/"/>
+      <url>/2019/07/14/%E4%B8%80%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E3%80%81%E7%A1%AC%E4%BB%B6%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/</url>
+      
+        <content type="html"><![CDATA[<h2 id="（一）计算机系统的组成"><a href="#（一）计算机系统的组成" class="headerlink" title="（一）计算机系统的组成"></a>（一）计算机系统的组成</h2><h3 id="emsp-emsp-1-计算机系统由硬件-Hardware-系统和软件-Software-系统两大系统组成"><a href="#emsp-emsp-1-计算机系统由硬件-Hardware-系统和软件-Software-系统两大系统组成" class="headerlink" title="&emsp;&emsp;1.计算机系统由硬件(Hardware)系统和软件(Software)系统两大系统组成"></a>&emsp;&emsp;1.计算机系统由硬件(Hardware)系统和软件(Software)系统两大系统组成</h3><p><img src="https://i1.fuimg.com/709978/cd03db4976c90302.png" alt="计算机系统的组成"></p><h3 id="emsp-emsp-2-冯-诺伊曼体系结构：1946年数学家冯-诺伊曼提出"><a href="#emsp-emsp-2-冯-诺伊曼体系结构：1946年数学家冯-诺伊曼提出" class="headerlink" title="&emsp;&emsp;2.冯.诺伊曼体系结构：1946年数学家冯.诺伊曼提出"></a>&emsp;&emsp;2.冯.诺伊曼体系结构：1946年数学家冯.诺伊曼提出</h3><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>运算器、控制器、存储器、输入设备、输出设备</strong> <br><br><img src="https://i1.fuimg.com/709978/a2235d1ee9c85ac0.png" alt="冯.诺伊曼体系结构"></p><h2 id="（二）计算机的存储单位介绍"><a href="#（二）计算机的存储单位介绍" class="headerlink" title="（二）计算机的存储单位介绍"></a>（二）计算机的存储单位介绍</h2><h3 id="emsp-emsp-1-定义"><a href="#emsp-emsp-1-定义" class="headerlink" title="&emsp;&emsp;1.定义"></a>&emsp;&emsp;1.定义</h3><p>&emsp;&emsp;&emsp;&emsp;二进制序列用以表示计算机、电子信息数据容量的量纲，基本单位为字节B，字节向上分别为KB、MB、GB、TB，每级为前一级的1024倍，比如1KB=1024B，1M=1024KB。</p><h3 id="emsp-emsp-2-单位换算"><a href="#emsp-emsp-2-单位换算" class="headerlink" title="&emsp;&emsp;2.单位换算"></a>&emsp;&emsp;2.单位换算</h3><p>&emsp;&emsp;&emsp;&emsp;计算机存储单位一般用bit、B、KB、MB、GB、TB、PB、EB、ZB、YB、BB、NB、DB……来表示，它们之间的关系是：<br></p><ul><li>1 Byte（B） = 8 bit</li><li>1 Kilo Byte（KB） = 1024B</li><li>1 Mega Byte（MB） = 1024 KB</li><li>1 Giga Byte （GB）= 1024 MB</li><li>1 Tera Byte（TB）= 1024 GB</li><li>1 Peta Byte（PB） = 1024 TB</li><li>1 Exa Byte（EB） = 1024 PB</li><li>1 Zetta Byte（ZB） = 1024 EB</li><li>1Yotta Byte（YB）= 1024 ZB</li><li>1 Bronto Byte（BB） = 1024 YB</li><li>1Nona Byte（NB）=1024 BB</li><li>1 Dogga Byte（DB）=1024 NB</li><li>1 Corydon Byte（CB）=1024DB</li><li>1 Xero Byte （XB）=1024CB</li></ul><h2 id="（三）计算机的分类"><a href="#（三）计算机的分类" class="headerlink" title="（三）计算机的分类"></a>（三）计算机的分类</h2><p>&emsp;&emsp;<strong>巨型计算机：</strong> 应用于国防尖端技术和现代科学计算中。巨型机的运算速度可达每秒百万亿次以上，“天河一号”为我国首台千万亿次超级计算机<br><br>&emsp;&emsp;<strong>大型计算机：</strong> 具有较高的运算速度每秒可以执行几千万条指令，而且有较大的存储空间。往往用于科学计算、数据处理或作为网络服务器使用，如：IBM、Z13 mainframe<br><br>&emsp;&emsp;<strong>小型计算机：</strong> 规模较小、结构简单、运行环境要求较低，一般应用于工业自动控制、测量仪器、医疗设备中的数据采集等方面<br><br>&emsp;&emsp;<strong>微型计算机：</strong> 中央处理器（CPU）采用微处理器芯片，体积小巧轻便，广泛用于商业、服务业、工厂的自动控制、办公自动化以及大众化的信息处理<br></p><h2 id="（四）服务器"><a href="#（四）服务器" class="headerlink" title="（四）服务器"></a>（四）服务器</h2><p>&emsp;&emsp;<strong>服务器Server</strong>是计算机的一种，是网络中为客户端计算机提供各种服务的高性能的计算机，服务器在网络操作系统的控制下，将与其相连的硬盘、磁带、打印机及昂贵的专用通讯设备提供给网络上的客户站点共享，也能为网络用户提供集中计算、信息发布及数据管理等服务<br><br>&emsp;&emsp;<strong>服务器按应用功能可分为：</strong> <br><br>&emsp;&emsp;web服务器、数据库服务、文件服务器、中间件应用服务器、日志服务器、监控服器，程序版本控制服务器、虚拟机服务器、邮件服务器、打印服务器、域控制服务器、多媒体服务器、通讯服务器、ERP服务器等<br>&emsp;&emsp;<strong>服务器按外形分类：</strong><br><br>&emsp;&emsp;塔式服务器、机架式服务器、刀片式服务器</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 服务器相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二、服务器的分类、CPU、硬盘和系统</title>
       <link href="/2019/07/14/%E4%BA%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB%E3%80%81CPU%E3%80%81%E7%A1%AC%E7%9B%98%E5%92%8C%E7%B3%BB%E7%BB%9F/"/>
       <url>/2019/07/14/%E4%BA%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB%E3%80%81CPU%E3%80%81%E7%A1%AC%E7%9B%98%E5%92%8C%E7%B3%BB%E7%BB%9F/</url>
@@ -694,31 +750,6 @@
             <tag> CPU </tag>
             
             <tag> 系统 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>一、计算机基础入门、硬件和系统组成</title>
-      <link href="/2019/07/14/%E4%B8%80%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E3%80%81%E7%A1%AC%E4%BB%B6%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/"/>
-      <url>/2019/07/14/%E4%B8%80%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E3%80%81%E7%A1%AC%E4%BB%B6%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/</url>
-      
-        <content type="html"><![CDATA[<h2 id="（一）计算机系统的组成"><a href="#（一）计算机系统的组成" class="headerlink" title="（一）计算机系统的组成"></a>（一）计算机系统的组成</h2><h3 id="emsp-emsp-1-计算机系统由硬件-Hardware-系统和软件-Software-系统两大系统组成"><a href="#emsp-emsp-1-计算机系统由硬件-Hardware-系统和软件-Software-系统两大系统组成" class="headerlink" title="&emsp;&emsp;1.计算机系统由硬件(Hardware)系统和软件(Software)系统两大系统组成"></a>&emsp;&emsp;1.计算机系统由硬件(Hardware)系统和软件(Software)系统两大系统组成</h3><p><img src="https://i1.fuimg.com/709978/cd03db4976c90302.png" alt="计算机系统的组成"></p><h3 id="emsp-emsp-2-冯-诺伊曼体系结构：1946年数学家冯-诺伊曼提出"><a href="#emsp-emsp-2-冯-诺伊曼体系结构：1946年数学家冯-诺伊曼提出" class="headerlink" title="&emsp;&emsp;2.冯.诺伊曼体系结构：1946年数学家冯.诺伊曼提出"></a>&emsp;&emsp;2.冯.诺伊曼体系结构：1946年数学家冯.诺伊曼提出</h3><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>运算器、控制器、存储器、输入设备、输出设备</strong> <br><br><img src="https://i1.fuimg.com/709978/a2235d1ee9c85ac0.png" alt="冯.诺伊曼体系结构"></p><h2 id="（二）计算机的存储单位介绍"><a href="#（二）计算机的存储单位介绍" class="headerlink" title="（二）计算机的存储单位介绍"></a>（二）计算机的存储单位介绍</h2><h3 id="emsp-emsp-1-定义"><a href="#emsp-emsp-1-定义" class="headerlink" title="&emsp;&emsp;1.定义"></a>&emsp;&emsp;1.定义</h3><p>&emsp;&emsp;&emsp;&emsp;二进制序列用以表示计算机、电子信息数据容量的量纲，基本单位为字节B，字节向上分别为KB、MB、GB、TB，每级为前一级的1024倍，比如1KB=1024B，1M=1024KB。</p><h3 id="emsp-emsp-2-单位换算"><a href="#emsp-emsp-2-单位换算" class="headerlink" title="&emsp;&emsp;2.单位换算"></a>&emsp;&emsp;2.单位换算</h3><p>&emsp;&emsp;&emsp;&emsp;计算机存储单位一般用bit、B、KB、MB、GB、TB、PB、EB、ZB、YB、BB、NB、DB……来表示，它们之间的关系是：<br></p><ul><li>1 Byte（B） = 8 bit</li><li>1 Kilo Byte（KB） = 1024B</li><li>1 Mega Byte（MB） = 1024 KB</li><li>1 Giga Byte （GB）= 1024 MB</li><li>1 Tera Byte（TB）= 1024 GB</li><li>1 Peta Byte（PB） = 1024 TB</li><li>1 Exa Byte（EB） = 1024 PB</li><li>1 Zetta Byte（ZB） = 1024 EB</li><li>1Yotta Byte（YB）= 1024 ZB</li><li>1 Bronto Byte（BB） = 1024 YB</li><li>1Nona Byte（NB）=1024 BB</li><li>1 Dogga Byte（DB）=1024 NB</li><li>1 Corydon Byte（CB）=1024DB</li><li>1 Xero Byte （XB）=1024CB</li></ul><h2 id="（三）计算机的分类"><a href="#（三）计算机的分类" class="headerlink" title="（三）计算机的分类"></a>（三）计算机的分类</h2><p>&emsp;&emsp;<strong>巨型计算机：</strong> 应用于国防尖端技术和现代科学计算中。巨型机的运算速度可达每秒百万亿次以上，“天河一号”为我国首台千万亿次超级计算机<br><br>&emsp;&emsp;<strong>大型计算机：</strong> 具有较高的运算速度每秒可以执行几千万条指令，而且有较大的存储空间。往往用于科学计算、数据处理或作为网络服务器使用，如：IBM、Z13 mainframe<br><br>&emsp;&emsp;<strong>小型计算机：</strong> 规模较小、结构简单、运行环境要求较低，一般应用于工业自动控制、测量仪器、医疗设备中的数据采集等方面<br><br>&emsp;&emsp;<strong>微型计算机：</strong> 中央处理器（CPU）采用微处理器芯片，体积小巧轻便，广泛用于商业、服务业、工厂的自动控制、办公自动化以及大众化的信息处理<br></p><h2 id="（四）服务器"><a href="#（四）服务器" class="headerlink" title="（四）服务器"></a>（四）服务器</h2><p>&emsp;&emsp;<strong>服务器Server</strong>是计算机的一种，是网络中为客户端计算机提供各种服务的高性能的计算机，服务器在网络操作系统的控制下，将与其相连的硬盘、磁带、打印机及昂贵的专用通讯设备提供给网络上的客户站点共享，也能为网络用户提供集中计算、信息发布及数据管理等服务<br><br>&emsp;&emsp;<strong>服务器按应用功能可分为：</strong> <br><br>&emsp;&emsp;web服务器、数据库服务、文件服务器、中间件应用服务器、日志服务器、监控服器，程序版本控制服务器、虚拟机服务器、邮件服务器、打印服务器、域控制服务器、多媒体服务器、通讯服务器、ERP服务器等<br>&emsp;&emsp;<strong>服务器按外形分类：</strong><br><br>&emsp;&emsp;塔式服务器、机架式服务器、刀片式服务器</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 服务器相关 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 服务器 </tag>
             
         </tags>
       
