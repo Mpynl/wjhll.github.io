@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>2.4 数据类型转换</title>
+      <link href="/2020/05/05/2-4-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+      <url>/2020/05/05/2-4-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</url>
+      
+        <content type="html"><![CDATA[<p>1.转换为整数函数int(x) , x 为数字或字符串的数字，但不支持复数<br><br>&emsp;&emsp;&gt;&gt;&gt; int(3.2)<br><br>&emsp;&emsp;3              # 把浮点数转换为整数，小数部分丢弃<br><br>&emsp;&emsp;&gt;&gt;&gt; int(‘10’)<br><br>&emsp;&emsp;10             # 字符串型的10转换为整数10<br><br>2.转换为浮点数函数float(x),x为数字或字符串的数字，但不支持复数<br><br>&emsp;&emsp;float(10)<br><br>&emsp;&emsp;10.0<br><br>&emsp;&emsp;float(‘10’)<br><br>&emsp;&emsp;10.0<br><br>3.转换为复数函数complex(x,y),x、y为整数、浮点数、布尔数；当只有x参数时（y=0），可以是字符串型整数、浮点数、布尔数、<br><br>&emsp;&emsp;&gt;&gt;&gt; complex(2,2)<br><br>&emsp;&emsp;(2 + 2j)<br><br>&emsp;&emsp;&gt;&gt;&gt; complex(‘10’)<br><br>&emsp;&emsp;(10 + 0j)<br><br>4.转换为字符串函数str(x),x在Python2.x版不支持二进制、八进制、十六进制数字的转换<br><br>&emsp;&emsp;&gt;&gt;&gt; str(5 + 2j)<br><br>&emsp;&emsp;’(5 + 2j)’<br><br>5.转换为二进制函数bin(x),x为非负整数<br><br>&emsp;&emsp;&gt;&gt;&gt; bin(0)<br><br>&emsp;&emsp;0b0<br><br>6.转换为八进制函数oct(x),x为非负整数<br><br>&emsp;&emsp;&gt;&gt;&gt; oct(10)<br><br>&emsp;&emsp;0o12<br><br>7.转化为十六进制函数hex(x),x为非负整数<br><br>&emsp;&emsp;hex(20)<br><br>&emsp;&emsp;0x14<br><br>8.把十进制数转换为ASCII字符，chr(x),x为十进制数<br><br>&emsp;&emsp;chr(97)<br><br>&emsp;&emsp;’a’<br><br>9.把ASCII字符转换为十进制数，ord(x),x为ASCII码字符<br><br>&emsp;&emsp;ord(‘a’)<br><br>&emsp;&emsp;97<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python编程从零基础到项目实战 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 项目实战 </tag>
+            
+            <tag> 第二章 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2.3 数字和运算符</title>
       <link href="/2020/05/04/2-3-%E6%95%B0%E5%AD%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
       <url>/2020/05/04/2-3-%E6%95%B0%E5%AD%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
@@ -113,9 +144,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -142,9 +173,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -171,9 +202,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -200,9 +231,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -229,9 +260,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -258,9 +289,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -287,9 +318,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -316,9 +347,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -345,9 +376,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -374,9 +405,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -403,9 +434,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -432,9 +463,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -461,9 +492,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -490,9 +521,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -519,9 +550,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -548,9 +579,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -577,9 +608,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -606,9 +637,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -635,9 +666,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
@@ -664,9 +695,9 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
             <tag> 企业运维 </tag>
             
