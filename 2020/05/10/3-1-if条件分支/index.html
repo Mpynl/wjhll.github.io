@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>二十、find命令查找企业级用法进阶 - 互联网那些事儿</title>
+    <title>3.1 if条件分支 - 互联网那些事儿</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Python 人工智能,"> 
-    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,查找条件根据时间戳&amp;emsp;&amp;emsp;以“天”为单位；&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;-atime [+|-]#,&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;#: [#,#+,"> 
+    <meta name="description" content="关于互联网的最新信息都可以在这儿了解！,3.1.1 if语句基本用法&amp;emsp;&amp;emsp;if语句通过条件判断，进行代码模块的分支执行。其语法格式有如下三种&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;1.格式一：单分支判断&amp;emsp,"> 
     <meta name="author" content="王建惠"> 
     <link rel="alternative" href="atom.xml" title="互联网那些事儿" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -57,7 +57,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">二十、find命令查找企业级用法进阶</h3>
+        <h3 class="subtitle">3.1 if条件分支</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -87,25 +87,25 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/Linux企业运维"><b>「
-                    </b>LINUX企业运维<b> 」</b></a>
+                <a href="/categories/Python编程从零基础到项目实战"><b>「
+                    </b>PYTHON编程从零基础到项目实战<b> 」</b></a>
                 
-                April 18, 2020
+                May 10, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/04/18/%E4%BA%8C%E5%8D%81%E3%80%81find%E5%91%BD%E4%BB%A4%E6%9F%A5%E6%89%BE%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%94%A8%E6%B3%95%E8%BF%9B%E9%98%B6/" title="二十、find命令查找企业级用法进阶" class="">二十、find命令查找企业级用法进阶</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/05/10/3-1-if%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF/" title="3.1 if条件分支" class="">3.1 if条件分支</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    5.6k
+                    4k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    5 mins.
+                    4 mins.
                 </span>
                 
                 
@@ -118,7 +118,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BC%81%E4%B8%9A%E8%BF%90%E7%BB%B4/" rel="tag">企业运维</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E7%AB%A0/" rel="tag">第三章</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" rel="tag">项目实战</a></li></ul>
             
         </div>
     </div>
@@ -139,10 +139,8 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="查找条件"><a href="#查找条件" class="headerlink" title="查找条件"></a>查找条件</h2><h3 id="根据时间戳"><a href="#根据时间戳" class="headerlink" title="根据时间戳"></a>根据时间戳</h3><p>&emsp;&emsp;以“天”为单位；<br><br>&emsp;&emsp;&emsp;&emsp;<code>-atime [+|-]#,</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>#: [#,#+1]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>+#:[#+1,∞]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-#:[0,#]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-mtime</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-ctime</code><br><br>&emsp;&emsp;以“分钟”为单位<br><br>&emsp;&emsp;&emsp;&emsp;<code>-amin</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-mmin</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-cmin</code><br><br>&emsp;&emsp;根据权限查找<br><br>&emsp;&emsp;&emsp;&emsp;<code>-perm [/|-]MODE</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;MODE:精确权限匹配<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/MODE：任何一类（u,g,o）对象的权限中只要能一位匹配即可，或关系，+<br><br>&emsp;&emsp;从centos7开始淘汰<br><br>&emsp;&emsp;&emsp;&emsp;-MODE: 每一类对象都必须同时拥有指定权限，与关系<br><br>&emsp;&emsp;&emsp;&emsp;0表示不关注<br><br>&emsp;&emsp;&emsp;&emsp;·find-perm755会匹配权限模式恰好是755的文件<br><br>&emsp;&emsp;&emsp;&emsp;·只要当任意人有写权限时，find-perm+222就会匹配<br><br>&emsp;&emsp;&emsp;&emsp;·只有当每个人都有写权限时，find-perm-222才会匹配<br><br>&emsp;&emsp;&emsp;&emsp;·只有当其它人（other）有写权限时，find-perm-002才会匹配<br></p>
-<h2 id="处理动作"><a href="#处理动作" class="headerlink" title="处理动作"></a>处理动作</h2><p>&emsp;&emsp;-print：默认的处理动作，显示至屏幕<br><br>&emsp;&emsp;-ls：类似于对查找到的文件执行”ls -l“命令<br><br>&emsp;&emsp;-delete：删除查找到的文件<br><br>&emsp;&emsp;-fls file：查找到的所有文件的长格式信息保存至指定文件中<br><br>&emsp;&emsp;-ok COMMAND{}\；对查找到的每个文件执行由COMMAND指定的命令，对于每个文件执行命令之前，都会交互式要求用户确认<br><br>&emsp;&emsp;-exec COMMAND{};对查找到的每个文件执行由COMMAND指定的命令<br><br>&emsp;&emsp;{}：用于引用查找到的文件各称自身<br><br>&emsp;&emsp;find传递查找到的文件至后面指定的命令时，查找到所有符合条件的文件一次性传递给后面的命令<br></p>
-<h3 id="参数替换xargs"><a href="#参数替换xargs" class="headerlink" title="参数替换xargs"></a>参数替换xargs</h3><p>&emsp;&emsp;由于很多命令不支持管道|来传递参数，而日常工作中有这个必要，所以就有了xargs命令<br><br>&emsp;&emsp;xargs用于产生某个命令的参数，xargs可以读入stdin的数据并且以空格符或回车符将stdin的数据分隔成为arguments<br><br>&emsp;&emsp;注意：文件名或者是其他意义的名词内含有空格符的情况<br><br>&emsp;&emsp;有些命令不能接受过多参数，命令执行可能会失败xargs可以解决<br><br>&emsp;&emsp;示例：<br><br>&emsp;&emsp;&emsp;&emsp;<code>ls f* |xargs rm</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>find/sbin-perm +700|ls -l这个命令是错误的</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>find/sbin-perm+7000|xalrgs ls -l</code><br><br>&emsp;&emsp;find和xargs格式：<code>find | xargs COMMAND</code><br></p>
-<h3 id="压缩、解压缩及归档工具"><a href="#压缩、解压缩及归档工具" class="headerlink" title="压缩、解压缩及归档工具"></a>压缩、解压缩及归档工具</h3><p>&emsp;&emsp;<code>file-roller</code><br><br>&emsp;&emsp;<code>compress/uncompress:.Z</code><br><br>&emsp;&emsp;<code>gzip/gunzip:.gz</code><br><br>&emsp;&emsp;<code>bzip2/bunzip2:.bz2</code><br><br>&emsp;&emsp;<code>xz/unxz:.xz</code><br><br>&emsp;&emsp;<code>zip/unzip</code><br><br>&emsp;&emsp;<code>tar</code><br><br>&emsp;&emsp;<code>cpio</code><br><br>&emsp;&emsp;compress/uncompress<br><br>&emsp;&emsp;<code>compress [-dfvcVr] [-b maxbits] [file…]</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-d:解压缩，相当于uncompress</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-c结果输出至标准输出，不删除原文件</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>-v: 显示详情</code><br><br>&emsp;&emsp;uncompress解压缩<br><br>&emsp;&emsp;<code>zcat file.Z&gt;file</code><br><br>&emsp;&emsp;<code>gzip/gunzip</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>gzip[OPTION]...FILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-d:解压缩，相当于gunzip<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-c将压缩或解压缩的结果输出至标准输出<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-#：1-9，指定压缩比，值越大压缩比越大<br><br>&emsp;&emsp;zcat：不显式解压缩的前提下查看文本文件内容<br><br>&emsp;&emsp;实例：<br><br>&emsp;&emsp;&emsp;&emsp;<code>gzip –c messages&gt;messages.gz</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>gzip –c –d messages.gz&gt;messages</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>zcat messages.gz&gt;messages</code><br><br>&emsp;&emsp;<code>bzip2/bunzip2/bzcat</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>bzip [OPTION]… FILE…</code><br><br>&emsp;&emsp;&emsp;&emsp;-k: keep,保留原文件<br><br>&emsp;&emsp;&emsp;&emsp;-d: 解压缩<br><br>&emsp;&emsp;&emsp;&emsp;-#：1-9，压缩比，默认为9<br><br>&emsp;&emsp;bzcat：不显示解压缩的前提下查看文本文件内容<br><br>&emsp;&emsp;<code>xz/unxz/xzcat</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>xz[OPTION]…FILE…</code><br><br>&emsp;&emsp;-k：keep，保留原文件<br><br>&emsp;&emsp;&emsp;&emsp;-d: 解压缩<br><br>&emsp;&emsp;&emsp;&emsp;-#：1-9，压缩比，默认为6<br><br>&emsp;&emsp;&emsp;&emsp;bzcat：不显示解压缩的前提下查看文本文件内容<br><br>&emsp;&emsp;zip/unzip<br><br>&emsp;&emsp;打包压缩<br><br>&emsp;&emsp;&emsp;&emsp;<code>zip –r /testdir/sysconfig /etc/sysconfig</code><br><br>&emsp;&emsp;解包解压缩<br><br>&emsp;&emsp;&emsp;&emsp;<code>unzip sysconfig.zip</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>cat /var/log/messages | zip messages –</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>unzip –p message &gt; message</code><br><br>&emsp;&emsp;tar工具<br><br>&emsp;&emsp;&emsp;&emsp;tar (Tape Archive,磁带归档的缩写)<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar[OPTION]…</code><br><br>&emsp;&emsp;(1)创建归档<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –cpvf /PATH/TO/SOMEFILE.tar FILE…</code><br><br>&emsp;&emsp;(2)追加文件至归档：注：不支持对压缩文件追加<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –r –f /PATH/TO/SOMEFILE.tar FILE…</code><br><br>&emsp;&emsp;(3)查看归档文件中的文件列表<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –t –f /PATH/TO/SOMEFILE.tar</code><br><br>&emsp;&emsp;(4)展开归档<br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –x –f /PATH/TO/SOMEFILE.tar</code><br><br>&emsp;&emsp;&emsp;&emsp;<code>tar –x –f /PASTH/TO/SOMEFILE.tar –C /PATH/</code><br><br>&emsp;&emsp;(4)结合压缩工具实现：归档并yasuo<br><br>&emsp;&emsp;&emsp;&emsp;<code>-j: bzip2, -z: gzip, -J: xz</code><br></p>
+            <h2 id="3-1-1-if语句基本用法"><a href="#3-1-1-if语句基本用法" class="headerlink" title="3.1.1 if语句基本用法"></a>3.1.1 if语句基本用法</h2><p>&emsp;&emsp;if语句通过条件判断，进行代码模块的分支执行。其语法格式有如下三种<br><br>&emsp;&emsp;&emsp;&emsp;1.格式一：单分支判断<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if boolean_value:<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;子代码模块1<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.判断条件<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;boolean_value1 为if语句判断条件，比尔值的形式判断if语句是否执行子代码模块<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1.boolean_value1值为True时，则执行子代码模块1；当值为False时，则不执行。<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2.示例<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; if True :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘OK’)<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;OK<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;对于boolean_value1，除直接采用布尔值外，还可以以表达式的形式体现，表达式计算是最终结果为布尔值<br><br>&emsp;&emsp;&emsp;&emsp;2.格式二：双分支判断<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if boolean_value :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;子代码模块1<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;else :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;子代码模块2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;示例 :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if False :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘OK’)<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;else :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘No’)<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3. 格式三：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if boolean_value :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;子代码模块1<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;elif boolean_value2 :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;子代码模块2<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;else :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;子代码模块3<br><br>&emsp;&emsp;这里新以引入elif进行新判断条件判断，在if语句中elif可以根据实际情况连续使用。但是else只能在最后而且只能用一次<br><br>&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; cat_type = ‘黄猫’<br><br>&emsp;&emsp;&emsp;&emsp;&gt;&gt;&gt; if cat_type == ‘白猫’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘不是三酷猫！’)<br><br>&emsp;&emsp;&emsp;&emsp;elif cat_type == ‘黑猫’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘不是三酷猫！’)<br><br>&emsp;&emsp;&emsp;&emsp;elif cat_type == ‘灰猫’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘不是三酷猫！’)<br><br>&emsp;&emsp;&emsp;&emsp;else :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘它是一只黑白猫！’)<br></p>
+<h2 id="3-1-2-案例-三酷猫判断找鱼"><a href="#3-1-2-案例-三酷猫判断找鱼" class="headerlink" title="3.1.2 案例[三酷猫判断找鱼]"></a>3.1.2 案例[三酷猫判断找鱼]</h2><p>&emsp;&emsp;# 三酷猫钓鱼记录查找，Python3.6.3版本代码执行<br><br>&emsp;&emsp;&emsp;&emsp;fish_record = ‘鲫鱼5条、鲤鱼8条、鲢鱼7条、草鱼2条、黑鱼6条、乌龟1只’<br><br>&emsp;&emsp;&emsp;&emsp;print(len(fish_record))<br><br>&emsp;&emsp;&emsp;&emsp;if fish_record[0:2] == ‘乌龟’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘是乌龟吗？，是’+fish_record[0:2])<br><br>&emsp;&emsp;&emsp;&emsp;elif fish_record[5:7] == ‘乌龟’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘是乌龟吗？，是’+fish_record[5:7])<br><br>&emsp;&emsp;&emsp;&emsp;elif fish_record[10:12] == ‘乌龟’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘是乌龟吗？，是’+fish_record[10:12])<br><br>&emsp;&emsp;&emsp;&emsp;elif fish_record[15:17] == ‘乌龟’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘是乌龟吗？，是’+fish_record[15:17])<br><br>&emsp;&emsp;&emsp;&emsp;elif fish_record[20:22] == ‘乌龟’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘是乌龟吗？，是’+fish_record[20:22])<br><br>&emsp;&emsp;&emsp;&emsp;elif not fish_record[25:27] != ‘乌龟’ :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;if int(fish_record[27]) % 2 == 0 :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘找到乌龟了，是%d只，偶数’%(int(fish_record[27])))<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;else :<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;print(‘找到乌龟了，是%d只，奇数’%(int(fish_record[27])))<br></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -201,7 +199,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#查找条件"><span class="toc-number">1.</span> <span class="toc-text">查找条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#根据时间戳"><span class="toc-number">1.1.</span> <span class="toc-text">根据时间戳</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理动作"><span class="toc-number">2.</span> <span class="toc-text">处理动作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参数替换xargs"><span class="toc-number">2.1.</span> <span class="toc-text">参数替换xargs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#压缩、解压缩及归档工具"><span class="toc-number">2.2.</span> <span class="toc-text">压缩、解压缩及归档工具</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-1-if语句基本用法"><span class="toc-number">1.</span> <span class="toc-text">3.1.1 if语句基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-2-案例-三酷猫判断找鱼"><span class="toc-number">2.</span> <span class="toc-text">3.1.2 案例[三酷猫判断找鱼]</span></a></li></ol>
                 </div>
             </div>
             
